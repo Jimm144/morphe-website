@@ -380,8 +380,14 @@
         document.getElementById('android-name').textContent = name || (match ? match[1] : url);
         document.getElementById('android-url').textContent  = url;
 
-        // Build the deep link (same URL the user landed on — Android will intercept it)
-        var deepLink = window.location.href;
+        // intent:// scheme — forces Chrome to fire a proper Android intent
+        // (window.location.href with same URL is ignored by Chrome as "same page")
+        var encodedUrl  = encodeURIComponent(url);
+        var encodedName = name ? encodeURIComponent(name) : '';
+        var intentParams = 'url=' + encodedUrl + (encodedName ? '&name=' + encodedName : '');
+        var intentLink = 'intent://morphe.software/add-bundle?' + intentParams +
+            '#Intent;scheme=https;package=app.morphe.manager;S.browser_fallback_url=' +
+            encodeURIComponent('https://morphe.software/') + ';end';
 
         function show(id) {
             document.querySelectorAll('.state').forEach(function(s) {
@@ -395,7 +401,7 @@
             document.getElementById('btn-open').addEventListener('click', function(e) {
                 e.preventDefault();
                 show('state-success');
-                window.location.href = deepLink;
+                window.location.href = intentLink;
             });
         } else {
             show('state-desktop');
