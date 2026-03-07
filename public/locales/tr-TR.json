@@ -287,5 +287,18 @@
     "x-desc": "En son haberler, sürümler ve duyurularla güncel kal.",
     "reddit-desc": "Tartışmalara katıl, ipuçlarını paylaş ve diğer Morphe kullanıcılarıyla bağlantı kur.",
     "crowdin-desc": "Morphe'yi dilinize çevirmeye yardımcı olun ve herkes için erişilebilir hale getirin."
+  },
+  "add-source": {
+    "title": "Yama kaynağı ekle",
+    "subtitle": "Bu yama kaynağını Morphe Manager'a eklemek istiyor musunuz?",
+    "source-label": "Kaynak",
+    "warning": "Yalnızca güvendiğiniz yazarlardan gelen kaynakları ekleyin. Yama kaynakları uygulamalarınızı değiştirebilir.",
+    "open-btn": "Morphe Manager'da aç",
+    "back-home": "Ana sayfaya dön",
+    "success-title": "Morphe Manager açılıyor…",
+    "success-subtitle": "Kaynak ekleniyor. Bu sayfayı kapatabilirsiniz.",
+    "desktop-title": "Android'de aç",
+    "desktop-subtitle": "Bu bağlantı Morphe Manager'a bir yama kaynağı ekler ve bir Android cihaz gerektirir.",
+    "desktop-step2": "Bu bağlantıyı Android cihazınızda açın"
   }
 }

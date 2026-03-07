@@ -287,5 +287,18 @@
     "x-desc": "Zůstaň v obraze s nejnovějšími zprávami, vydáními a oznámeními.",
     "reddit-desc": "Zapojte se do diskusí, sdílejte tipy a spojte se s dalšími uživateli Morphe.",
     "crowdin-desc": "Pomožte přeložit Morphe do vašeho jazyka a zpřístupnit ho pro každého."
+  },
+  "add-source": {
+    "title": "Přidat zdroj patchů",
+    "subtitle": "Chcete přidat tento zdroj patchů do Morphe Manageru?",
+    "source-label": "Zdroj",
+    "warning": "Přidávejte pouze zdroje od autorů, kterým důvěřujete. Zdroje patchů mohou upravovat vaše aplikace.",
+    "open-btn": "Otevřít v Morphe Manageru",
+    "back-home": "Zpět na hlavní stránku",
+    "success-title": "Otevírá se Morphe Manager…",
+    "success-subtitle": "Zdroj se přidává. Tuto stránku můžete zavřít.",
+    "desktop-title": "Otevřít v Androidu",
+    "desktop-subtitle": "Tento odkaz přidá zdroj patchů do Morphe Manageru, který vyžaduje zařízení s Androidem.",
+    "desktop-step2": "Otevřete tento odkaz na svém zařízení s Androidem"
   }
 }

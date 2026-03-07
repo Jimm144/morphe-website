@@ -287,5 +287,18 @@
     "x-desc": "Blijf op de hoogte van het laatste nieuws, releases en aankondigingen.",
     "reddit-desc": "Neem deel aan discussies, deel tips en maak contact met andere Morphe-gebruikers.",
     "crowdin-desc": "Help Morphe in jouw taal te vertalen en maak het voor iedereen toegankelijk."
+  },
+  "add-source": {
+    "title": "Patchbron toevoegen",
+    "subtitle": "Wil je deze patchbron toevoegen aan Morphe Manager?",
+    "source-label": "Bron",
+    "warning": "Voeg alleen bronnen toe van auteurs die je vertrouwt. Patchbronnen kunnen je apps wijzigen.",
+    "open-btn": "Openen in Morphe Manager",
+    "back-home": "Terug naar startpagina",
+    "success-title": "Morphe Manager openen…",
+    "success-subtitle": "De bron wordt toegevoegd. Je kunt deze pagina sluiten.",
+    "desktop-title": "Openen op Android",
+    "desktop-subtitle": "Deze link voegt een patchbron toe aan Morphe Manager, waarvoor een Android-apparaat nodig is.",
+    "desktop-step2": "Open deze link op je Android-apparaat"
   }
 }

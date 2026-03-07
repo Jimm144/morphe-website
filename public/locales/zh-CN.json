@@ -287,5 +287,18 @@
     "x-desc": "获取最新新闻、发布和公告。",
     "reddit-desc": "参与讨论，分享技巧，与其他 Morphe 用户建立联系。",
     "crowdin-desc": "帮助将 Morphe 翻译成您的语言，让每个人都能使用。"
+  },
+  "add-source": {
+    "title": "添加补丁源",
+    "subtitle": "是否要将此补丁源添加到 Morphe Manager？",
+    "source-label": "来源",
+    "warning": "仅添加来自你信任作者的来源。补丁源可能会修改你的应用。",
+    "open-btn": "在 Morphe Manager 中打开",
+    "back-home": "返回主页",
+    "success-title": "正在打开 Morphe Manager…",
+    "success-subtitle": "正在添加来源。你可以关闭此页面。",
+    "desktop-title": "在 Android 上打开",
+    "desktop-subtitle": "此链接会向 Morphe Manager 添加一个补丁源，需要 Android 设备。",
+    "desktop-step2": "请在你的 Android 设备上打开此链接"
   }
 }

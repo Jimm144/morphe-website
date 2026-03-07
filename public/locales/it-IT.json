@@ -287,5 +287,18 @@
     "x-desc": "Rimani aggiornato con le ultime notizie, versioni e annunci.",
     "reddit-desc": "Partecipa alle discussioni, condividi suggerimenti e connettiti con altri utenti di Morphe.",
     "crowdin-desc": "Aiuta a tradurre Morphe nella tua lingua e renderlo accessibile a tutti."
+  },
+  "add-source": {
+    "title": "Aggiungi sorgente patch",
+    "subtitle": "Vuoi aggiungere questa sorgente di patch a Morphe Manager?",
+    "source-label": "Sorgente",
+    "warning": "Aggiungi solo sorgenti di autori di cui ti fidi. Le sorgenti di patch possono modificare le tue app.",
+    "open-btn": "Apri in Morphe Manager",
+    "back-home": "Torna alla homepage",
+    "success-title": "Apertura di Morphe Manager…",
+    "success-subtitle": "La sorgente viene aggiunta. Puoi chiudere questa pagina.",
+    "desktop-title": "Apri su Android",
+    "desktop-subtitle": "Questo link aggiunge una sorgente di patch a Morphe Manager, che richiede un dispositivo Android.",
+    "desktop-step2": "Apri questo link sul tuo dispositivo Android"
   }
 }
