@@ -299,6 +299,8 @@
     "success-subtitle": "Джерело додається. Ви можете закрити цю сторінку.",
     "desktop-title": "Відкрити на Android",
     "desktop-subtitle": "Це посилання додає джерело патчів до Morphe Manager, для чого потрібен пристрій Android.",
-    "desktop-step2": "Відкрийте це посилання на своєму пристрої Android"
+    "desktop-step1": "Встановіть <a href=\"/\">Morphe Manager</a> на свій пристрій Android",
+    "desktop-step2": "Відкрийте це посилання на своєму пристрої Android",
+    "desktop-step3": "Натисніть <strong>Відкрити в Morphe Manager</strong>"
   }
 }

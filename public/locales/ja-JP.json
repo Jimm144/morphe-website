@@ -299,6 +299,8 @@
     "success-subtitle": "ソースを追加しています。このページは閉じても構いません。",
     "desktop-title": "Androidで開く",
     "desktop-subtitle": "このリンクはMorphe Managerにパッチソースを追加します。Androidデバイスが必要です。",
-    "desktop-step2": "このリンクをAndroidデバイスで開いてください"
+    "desktop-step1": "Android デバイスに <a href=\"/\">Morphe Manager</a> をインストールしてください",
+    "desktop-step2": "このリンクを Android デバイスで開いてください",
+    "desktop-step3": "<strong>Morphe Managerで開く</strong> をタップしてください"
   }
 }

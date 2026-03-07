@@ -299,6 +299,8 @@
     "success-subtitle": "Nguồn đang được thêm. Bạn có thể đóng trang này.",
     "desktop-title": "Mở trên Android",
     "desktop-subtitle": "Liên kết này thêm một nguồn bản vá vào Morphe Manager, yêu cầu thiết bị Android.",
-    "desktop-step2": "Mở liên kết này trên thiết bị Android của bạn"
+    "desktop-step1": "Cài đặt <a href=\"/\">Morphe Manager</a> trên thiết bị Android của bạn",
+    "desktop-step2": "Mở liên kết này trên thiết bị Android của bạn",
+    "desktop-step3": "Nhấn <strong>Mở trong Morphe Manager</strong>"
   }
 }

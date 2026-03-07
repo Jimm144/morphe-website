@@ -299,6 +299,8 @@
     "success-subtitle": "소스가 추가되고 있습니다. 이 페이지를 닫아도 됩니다.",
     "desktop-title": "Android에서 열기",
     "desktop-subtitle": "이 링크는 Morphe Manager에 패치 소스를 추가하며 Android 기기가 필요합니다.",
-    "desktop-step2": "이 링크를 Android 기기에서 여세요"
+    "desktop-step1": "Android 기기에 <a href=\"/\">Morphe Manager</a>를 설치하세요",
+    "desktop-step2": "이 링크를 Android 기기에서 여세요",
+    "desktop-step3": "<strong>Morphe Manager에서 열기</strong>를 탭하세요"
   }
 }

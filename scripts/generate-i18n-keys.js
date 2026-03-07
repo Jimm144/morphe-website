@@ -61,6 +61,21 @@ function extractKeys() {
       }
     }
 
+    // Extract data-i18n-html attributes (HTML content, e.g. links inside list items)
+    const i18nHtmlMatches = content.matchAll(/data-i18n-html="([^"]+)"/g);
+    for (const match of i18nHtmlMatches) {
+      const key = match[1];
+      // Capture everything between the opening tag's > and the closing tag
+      // Uses a greedy match up to the last </tag> on the same element
+      const tagRegex = new RegExp(`<(\\w+)[^>]*data-i18n-html="${key}"[^>]*>([\\s\\S]*?)<\\/\\1>`, 'g');
+      const tagMatch = tagRegex.exec(content);
+      const defaultValue = tagMatch ? tagMatch[2].trim() : key;
+
+      if (!keys.has(key)) {
+        keys.set(key, defaultValue);
+      }
+    }
+
     // Extract data-i18n-placeholder attributes
     const placeholderMatches = content.matchAll(/data-i18n-placeholder="([^"]+)"/g);
     for (const match of placeholderMatches) {
@@ -127,6 +142,27 @@ function keysToNestedObject(keys) {
     });
   });
 
+  return result;
+}
+
+/**
+ * Merge for base locale - always overwrites existing values from HTML
+ * so that edits to default text in HTML are reflected in en.json
+ */
+function mergeBaseTranslations(existing, newKeys) {
+  const result = { ...existing };
+  Object.keys(newKeys).forEach(key => {
+    if (key === 'testimonials' && existing.testimonials) {
+      result.testimonials = existing.testimonials;
+      return;
+    }
+    if (typeof newKeys[key] === 'object' && !Array.isArray(newKeys[key])) {
+      if (!result[key] || typeof result[key] !== 'object') result[key] = {};
+      result[key] = mergeBaseTranslations(result[key], newKeys[key]);
+    } else {
+      result[key] = newKeys[key]; // always overwrite — HTML is source of truth
+    }
+  });
   return result;
 }
 
@@ -217,7 +253,7 @@ function generateLocaleFiles(keys, baseLocale, locales) {
     // For base locale (English), use extracted values
     if (locale.code === baseLocale) {
       // Merge new keys with existing translations
-      translations = mergeTranslations(translations, nestedKeys);
+      translations = mergeBaseTranslations(translations, nestedKeys);
       // Remove zombie keys
       translations = removeZombieKeys(translations, nestedKeys);
     } else {

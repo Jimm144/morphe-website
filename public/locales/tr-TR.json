@@ -299,6 +299,8 @@
     "success-subtitle": "Kaynak ekleniyor. Bu sayfayı kapatabilirsiniz.",
     "desktop-title": "Android'de aç",
     "desktop-subtitle": "Bu bağlantı Morphe Manager'a bir yama kaynağı ekler ve bir Android cihaz gerektirir.",
-    "desktop-step2": "Bu bağlantıyı Android cihazınızda açın"
+    "desktop-step1": "Android cihazınıza <a href=\"/\">Morphe Manager</a> yükleyin",
+    "desktop-step2": "Bu bağlantıyı Android cihazınızda açın",
+    "desktop-step3": "<strong>Morphe Manager'da aç</strong> seçeneğine dokunun"
   }
 }

@@ -299,6 +299,8 @@
     "success-subtitle": "Zdroj se přidává. Tuto stránku můžete zavřít.",
     "desktop-title": "Otevřít v Androidu",
     "desktop-subtitle": "Tento odkaz přidá zdroj patchů do Morphe Manageru, který vyžaduje zařízení s Androidem.",
-    "desktop-step2": "Otevřete tento odkaz na svém zařízení s Androidem"
+    "desktop-step1": "Nainstalujte <a href=\"/\">Morphe Manager</a> do svého zařízení s Androidem",
+    "desktop-step2": "Otevřete tento odkaz na svém zařízení s Androidem",
+    "desktop-step3": "Klepněte na <strong>Otevřít v Morphe Manageru</strong>"
   }
 }

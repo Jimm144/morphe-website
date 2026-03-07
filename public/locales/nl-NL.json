@@ -299,6 +299,8 @@
     "success-subtitle": "De bron wordt toegevoegd. Je kunt deze pagina sluiten.",
     "desktop-title": "Openen op Android",
     "desktop-subtitle": "Deze link voegt een patchbron toe aan Morphe Manager, waarvoor een Android-apparaat nodig is.",
-    "desktop-step2": "Open deze link op je Android-apparaat"
+    "desktop-step1": "Installeer <a href=\"/\">Morphe Manager</a> op je Android-apparaat",
+    "desktop-step2": "Open deze link op je Android-apparaat",
+    "desktop-step3": "Tik op <strong>Openen in Morphe Manager</strong>"
   }
 }

@@ -299,6 +299,8 @@
     "success-subtitle": "正在添加来源。你可以关闭此页面。",
     "desktop-title": "在 Android 上打开",
     "desktop-subtitle": "此链接会向 Morphe Manager 添加一个补丁源，需要 Android 设备。",
-    "desktop-step2": "请在你的 Android 设备上打开此链接"
+    "desktop-step1": "在你的 Android 设备上安装 <a href=\"/\">Morphe Manager</a>",
+    "desktop-step2": "在你的 Android 设备上打开此链接",
+    "desktop-step3": "点击 <strong>在 Morphe Manager 中打开</strong>"
   }
 }
