@@ -10,6 +10,14 @@
     // No github param - redirect home
     if (!repo) { window.location.href = '/'; return; }
 
+    // Set source icon
+    var githubUser = repo.split('/')[0];
+    var iconImg = document.getElementById('source-icon');
+    if (iconImg) {
+        iconImg.src = 'http://api.morphe.software/v2/github/' + githubUser;
+        iconImg.alt = githubUser;
+    }
+
     var url = 'https://github.com/' + repo;
 
     var isAndroid = /android/i.test(navigator.userAgent);
