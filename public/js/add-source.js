@@ -14,7 +14,7 @@
     var githubUser = repo.split('/')[0];
     var iconImg = document.getElementById('source-icon');
     if (iconImg) {
-        iconImg.src = 'http://api.morphe.software/v2/github/' + githubUser;
+        iconImg.src = 'http://api.morphe.software/v2/avatar/' + githubUser;
         iconImg.alt = githubUser;
     }
 
