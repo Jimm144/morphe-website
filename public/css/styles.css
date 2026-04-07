@@ -374,11 +374,11 @@ body {
     transform: scale(0.95);
 }
 
-.theme-toggle svg,
+.theme-toggle
+.material-symbols-rounded,
 .lang-trigger-compact
 .material-symbols-rounded {
-    width: 20px;
-    height: 20px;
+    font-size: 20px;
     color: var(--text-primary);
 }
 
@@ -563,12 +563,6 @@ body {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
 }
 
-.app-tab-icon {
-    width: 17px;
-    height: 17px;
-    flex-shrink: 0;
-}
-
 .app-features-panel-wrapper {
     overflow-x: clip;
     overflow-y: visible;
@@ -639,11 +633,10 @@ body {
     margin-bottom: var(--spacing-sm);
 }
 
-.feature-slide-icon svg {
-    width: 32px;
-    height: 32px;
-    stroke: white;
-    fill: none;
+.feature-slide-icon
+.material-symbols-rounded {
+    font-size: 32px;
+    color: white;
 }
 
 .feature-slide h4 {
@@ -767,7 +760,9 @@ body {
     margin-bottom: var(--spacing-lg);
 }
 
-.feature-icon svg {
+.feature-icon
+.material-symbols-rounded {
+    font-size: 32px;
     color: white;
 }
 
@@ -817,9 +812,9 @@ body {
     white-space: nowrap;
 }
 
-.app-badge svg {
-    width: 24px;
-    height: 24px;
+.app-badge
+.material-symbols-rounded {
+    font-size: 24px;
     flex-shrink: 0;
 }
 
@@ -880,7 +875,8 @@ body {
     border-radius: 50%;
 }
 
-.carousel-button svg {
+.carousel-button
+.material-symbols-rounded {
     position: relative;
     z-index: 1;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -890,7 +886,8 @@ body {
     opacity: 1;
 }
 
-.carousel-button:hover svg {
+.carousel-button:hover
+.material-symbols-rounded {
     color: white;
 }
 
@@ -921,7 +918,8 @@ body {
     opacity: 0;
 }
 
-.carousel-button:disabled:hover svg {
+.carousel-button:disabled:hover
+.material-symbols-rounded {
     color: var(--gray-600);
 }
 
@@ -1322,9 +1320,9 @@ body {
     gap: var(--spacing-xs);
 }
 
-.version-date svg {
-    width: 14px;
-    height: 14px;
+.version-date
+.material-symbols-rounded {
+    font-size: 14px;
     flex-shrink: 0;
 }
 
@@ -1377,8 +1375,7 @@ body {
     position: absolute;
     left: 6px;
     top: 10px;
-    width: 4px;
-    height: 4px;
+    font-size: 4px;
     background: var(--primary-blue);
     border-radius: 50%;
 }
@@ -1493,7 +1490,8 @@ body {
     font-weight: 400;
 }
 
-.donate-benefits svg {
+.donate-benefits
+.material-symbols-rounded {
     color: var(--primary-teal);
     flex-shrink: 0;
 }
@@ -1561,11 +1559,14 @@ body {
     font-size: 0.875rem;
 }
 
-.crypto-action svg {
+.crypto-action
+.material-symbols-rounded {
     transition: transform var(--transition-base);
 }
 
-.crypto-card:hover .crypto-action svg {
+.crypto-card:hover
+.crypto-action
+.material-symbols-rounded {
     transform: translateX(4px);
 }
 
@@ -1607,9 +1608,9 @@ body {
     box-shadow: var(--shadow-lg);
 }
 
-.icon-circle svg {
-    width: 36px;
-    height: 36px;
+.icon-circle
+.material-symbols-rounded {
+    font-size: 36px;
     color: white;
 }
 
@@ -1669,9 +1670,9 @@ body {
     text-align: left;
 }
 
-.warning-box svg {
-    width: 16px;
-    height: 16px;
+.warning-box
+.material-symbols-rounded {
+    font-size: 16px;
     color: #ca8a04;
     flex-shrink: 0;
     margin-top: 2px;
@@ -1932,9 +1933,9 @@ body {
     transform: translateY(-2px);
 }
 
-.scroll-to-top svg {
-    width: 24px;
-    height: 24px;
+.scroll-to-top
+.material-symbols-rounded {
+    font-size: 24px;
 }
 
 /* Tablet adjustments */
@@ -2008,13 +2009,12 @@ body {
     }
 
     .feature-slide-icon {
-        width: 38px;
-        height: 38px;
+        font-size: 38px;
     }
 
-    .feature-slide-icon svg {
-        width: 18px;
-        height: 18px;
+    .feature-slide-icon
+    .material-symbols-rounded {
+        font-size: 18px;
     }
 
     .section-title {
@@ -2046,9 +2046,9 @@ body {
         gap: var(--spacing-xs);
     }
 
-    .app-badge svg {
-        width: 20px;
-        height: 20px;
+    .app-badge
+    .material-symbols-rounded {
+        font-size: 20px;
     }
 
     .testimonials-carousel {
@@ -2236,16 +2236,18 @@ body {
         gap: var(--spacing-sm);
     }
 
-    .show-more-buttons .btn {
+    .show-more-buttons
+    .btn {
         width: 100%;
         justify-content: center;
         font-size: 0.9375rem;
         padding: var(--spacing-md) var(--spacing-lg);
     }
 
-    .show-more-buttons .btn svg {
-        width: 18px;
-        height: 18px;
+    .show-more-buttons
+    .btn
+    .material-symbols-rounded {
+        font-size: 18px;
     }
 }
 
