@@ -84,6 +84,9 @@
     /* Transitions */
     --transition-base: 200ms ease;
     --transition-slow: 300ms ease;
+
+    /* Layout */
+    --navbar-height: 80px;
 }
 
 /* i18n Loading State */
@@ -116,7 +119,7 @@ body {
 .navbar {
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 1002;
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
@@ -902,8 +905,6 @@ body {
 .carousel-button:active {
     transform: scale(0.95);
 }
-
-/* .prev / .next positioning removed — buttons are now in .carousel-controls flex row */
 
 .carousel-button:disabled {
     opacity: 0.3;
@@ -1984,25 +1985,124 @@ body {
     }
 }
 
+
+/* Mobile Drawer */
+.mobile-drawer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1001;
+    pointer-events: none;
+}
+
+.mobile-drawer.open {
+    display: block;
+    pointer-events: all;
+}
+
+.drawer-scrim {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    animation: drawerFadeIn 0.25s ease;
+}
+
+.drawer-sheet {
+    position: absolute;
+    top: var(--navbar-height);
+    left: 0;
+    right: 0;
+    background: var(--bg-page);
+    border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
+    padding: 0 0 var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    box-shadow: var(--shadow-xl);
+    animation: drawerSlideIn 0.3s cubic-bezier(0.05, 0.7, 0.1, 1);
+}
+
+.drawer-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 13px var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: background var(--transition-base), color var(--transition-base);
+}
+
+.drawer-link .material-symbols-rounded {
+    font-size: 22px;
+    color: var(--text-tertiary);
+    transition: color var(--transition-base);
+}
+
+.drawer-link:active {
+    background: var(--gray-100);
+    color: var(--text-primary);
+}
+
+.drawer-link:active .material-symbols-rounded {
+    color: var(--primary-blue);
+}
+
+.drawer-link.active {
+    background: rgba(30, 90, 168, 0.08);
+    color: var(--primary-blue);
+}
+
+.drawer-link.active .material-symbols-rounded {
+    color: var(--primary-blue);
+}
+
+.drawer-divider {
+    height: 1px;
+    background: var(--border);
+    border: none;
+    margin: var(--spacing-xs) var(--spacing-md);
+}
+
+@keyframes drawerFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes drawerFadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes drawerSlideIn {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes drawerSlideOut {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100%); }
+}
+
+.mobile-drawer.closing .drawer-scrim {
+    animation: drawerFadeOut 0.25s ease forwards;
+}
+
+.mobile-drawer.closing .drawer-sheet {
+    animation: drawerSlideOut 0.25s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
 /* Mobile adjustments */
 @media (max-width: 768px) {
     .nav-links {
         display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--bg-page);
-        flex-direction: column;
-        padding: var(--spacing-lg);
-        box-shadow: var(--shadow-lg);
-        gap: var(--spacing-md);
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .nav-links.active {
-        display: flex;
     }
 
     .mobile-menu-toggle {

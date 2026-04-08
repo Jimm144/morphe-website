@@ -228,7 +228,7 @@
 }
 }
 
-[data-theme="dark"] .scroll-to-top svg {
+[data-theme="dark"] .scroll-to-top .material-symbols-rounded {
     color: white;
 }
 
@@ -331,4 +331,31 @@ body,
 [data-theme="dark"] .lang-menu-item.selected {
     background: rgba(74, 127, 200, 0.15);
     color: var(--primary-blue);
+}
+
+/* Mobile Drawer */
+[data-theme="dark"] .drawer-sheet {
+    background: var(--bg-card);
+}
+
+[data-theme="dark"] .drawer-link {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .drawer-link .material-symbols-rounded {
+    color: var(--text-tertiary);
+}
+
+[data-theme="dark"] .drawer-link:active {
+    background: var(--gray-200);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .drawer-link.active {
+    background: rgba(74, 127, 200, 0.12);
+    color: var(--primary-blue);
+}
+
+[data-theme="dark"] .drawer-divider {
+    background: var(--border);
 }

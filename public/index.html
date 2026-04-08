@@ -56,6 +56,39 @@
     </div>
 </nav>
 
+<!-- Mobile Drawer -->
+<div class="mobile-drawer" id="mobile-drawer">
+    <div class="drawer-scrim" id="drawer-scrim"></div>
+    <div class="drawer-sheet">
+
+        <a href="#home" class="drawer-link" data-umami-event="Drawer Home Click">
+            <span class="material-symbols-rounded">home</span>
+            <span data-i18n="nav.home">Home</span>
+        </a>
+        <a href="#how-it-works" class="drawer-link" data-umami-event="Drawer How It Works Click">
+            <span class="material-symbols-rounded">help</span>
+            <span data-i18n="nav.how-it-works">How It Works</span>
+        </a>
+        <a href="#testimonials" class="drawer-link" data-umami-event="Drawer Testimonials Click">
+            <span class="material-symbols-rounded">reviews</span>
+            <span data-i18n="nav.testimonials">Testimonials</span>
+        </a>
+        <a href="#faq" class="drawer-link" data-umami-event="Drawer FAQ Click">
+            <span class="material-symbols-rounded">quiz</span>
+            <span data-i18n="nav.faq">FAQ</span>
+        </a>
+        <hr class="drawer-divider">
+        <a href="donate" class="drawer-link" data-umami-event="Drawer Donate Click">
+            <span class="material-symbols-rounded">volunteer_activism</span>
+            <span data-i18n="footer.support-donate">Donate</span>
+        </a>
+        <a href="changelog" class="drawer-link" data-umami-event="Drawer Changelog Click">
+            <span class="material-symbols-rounded">new_releases</span>
+            <span data-i18n="footer.product-changelog">What's New</span>
+        </a>
+    </div>
+</div>
+
 <!-- Hero Section -->
 <section id="home" class="hero">
     <div class="hero-container">
@@ -314,7 +347,6 @@
             <div class="testimonials-grid" id="testimonials-grid">
                 <!-- Dynamically generated from JS -->
             </div>
-
             <div class="carousel-controls">
                 <button class="carousel-button prev" aria-label="Previous testimonial" data-umami-event="Testimonial Previous Click">
                     <span class="material-symbols-rounded">chevron_left</span>
