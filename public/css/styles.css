@@ -850,7 +850,7 @@ body {
     position: relative;
     overflow-x: clip;
     overflow-y: visible;
-    padding: 24px var(--spacing-xl) 32px;
+    padding: 16px var(--spacing-xl) 20px;
 }
 
 .testimonials-grid {
@@ -862,8 +862,8 @@ body {
 .testimonials-grid
 .testimonial-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    flex: 0 0 calc((100% - 2 * var(--spacing-xl)) / 3);
-    min-width: calc((100% - 2 * var(--spacing-xl)) / 3);
+    flex: 0 0 calc(33.333% - var(--spacing-xl));
+    min-width: calc(33.333% - var(--spacing-xl));
 }
 
 .carousel-controls {
@@ -2375,6 +2375,19 @@ body {
         grid-template-columns: 1fr;
         gap: var(--spacing-2xl);
     }
+
+    .nav-links {
+        gap: var(--spacing-md);
+        margin-right: var(--spacing-sm);
+    }
+
+    .nav-link {
+        font-size: 0.875rem;
+    }
+
+    .nav-container {
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
 }
 
 /* Mobile Drawer */
@@ -2605,7 +2618,7 @@ body {
     }
 
     .testimonials-carousel {
-        padding: 24px var(--spacing-md) 32px;
+        padding: 16px var(--spacing-md) 20px;
     }
 
     .testimonials-grid .testimonial-card {
@@ -2878,7 +2891,7 @@ body {
 
 @media (max-width: 896px) and (max-height: 414px) and (orientation: landscape) {
     .testimonials-carousel {
-        padding: 24px var(--spacing-xl) 32px;
+        padding: 16px var(--spacing-xl) 20px;
     }
 
     .testimonials-grid .testimonial-card {
@@ -2892,25 +2905,6 @@ body {
     }
 }
 
-@media (max-width: 480px) {
-    .testimonials-carousel {
-        padding: 20px var(--spacing-sm) 28px;
-    }
-
-    .testimonials-grid .testimonial-card {
-        flex: 0 0 calc(100% - var(--spacing-md));
-        min-width: calc(100% - var(--spacing-md));
-    }
-
-    .testimonial-text {
-        font-size: 1rem;
-    }
-
-    .testimonial-card {
-        padding: var(--spacing-lg);
-    }
-}
-
 /* Tablet landscape adjustments */
 @media (min-width: 769px) and (max-width: 1024px) {
     .changelog-filters {
@@ -2920,7 +2914,7 @@ body {
 
 @media (min-width: 897px) and (max-width: 1024px) and (max-height: 600px) and (orientation: landscape) {
     .testimonials-carousel {
-        padding: 24px var(--spacing-2xl) 32px;
+        padding: 16px var(--spacing-2xl) 20px;
     }
 
     .testimonials-grid .testimonial-card {
