@@ -156,6 +156,31 @@
 
         // Each card snaps to start
         const allCards = Array.from(track.querySelectorAll('.testimonial-card, .testimonial-card-clone'));
+
+        // On desktop, card widths are defined as % of track in CSS, but the track is now
+        // much wider than the carousel (due to clones). Fix by setting explicit px widths.
+        if (!isMobile) {
+            const gap = parseFloat(getComputedStyle(track).gap) || 32;
+            const carouselWidth = carousel.clientWidth
+                - parseFloat(getComputedStyle(carousel).paddingLeft)
+                - parseFloat(getComputedStyle(carousel).paddingRight);
+            const cardWidth = (carouselWidth - gap * 2) / 3;
+            allCards.forEach(card => {
+                card.style.flex = `0 0 ${cardWidth}px`;
+                card.style.minWidth = `${cardWidth}px`;
+                card.style.maxWidth = `${cardWidth}px`;
+            });
+        } else {
+            const carouselPadding = parseFloat(getComputedStyle(carousel).paddingLeft)
+                + parseFloat(getComputedStyle(carousel).paddingRight);
+            const cardWidth = carousel.clientWidth - carouselPadding;
+            allCards.forEach(card => {
+                card.style.flex = `0 0 ${cardWidth}px`;
+                card.style.minWidth = `${cardWidth}px`;
+                card.style.maxWidth = `${cardWidth}px`;
+            });
+        }
+
         allCards.forEach(card => {
             card.style.scrollSnapAlign = 'start';
             card.style.flexShrink = '0';
@@ -291,6 +316,27 @@
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(() => {
                 if ((window.innerWidth <= 768) !== isMobile) { location.reload(); return; }
+                if (!isMobile) {
+                    const gap = parseFloat(getComputedStyle(track).gap) || 32;
+                    const carouselWidth = carousel.clientWidth
+                        - parseFloat(getComputedStyle(carousel).paddingLeft)
+                        - parseFloat(getComputedStyle(carousel).paddingRight);
+                    const cardWidth = (carouselWidth - gap * 2) / 3;
+                    allCards.forEach(card => {
+                        card.style.flex = `0 0 ${cardWidth}px`;
+                        card.style.minWidth = `${cardWidth}px`;
+                        card.style.maxWidth = `${cardWidth}px`;
+                    });
+                } else {
+                    const carouselPadding = parseFloat(getComputedStyle(carousel).paddingLeft)
+                        + parseFloat(getComputedStyle(carousel).paddingRight);
+                    const cardWidth = carousel.clientWidth - carouselPadding;
+                    allCards.forEach(card => {
+                        card.style.flex = `0 0 ${cardWidth}px`;
+                        card.style.minWidth = `${cardWidth}px`;
+                        card.style.maxWidth = `${cardWidth}px`;
+                    });
+                }
                 scrollToIndex(currentIndex, false);
             }, 250);
         };
