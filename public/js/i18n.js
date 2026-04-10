@@ -53,7 +53,6 @@
          */
         async loadConfiguration() {
             try {
-                console.log('Loading locales configuration from:', LOCALES_CONFIG_PATH);
                 const response = await fetch(LOCALES_CONFIG_PATH);
 
                 if (!response.ok) {
@@ -66,7 +65,6 @@
                 this.supportedLanguages = SUPPORTED_LOCALES.map(l => l.code);
                 this.configLoaded = true;
 
-                console.log(`✓ Loaded ${this.supportedLanguages.length} supported locales:`, this.supportedLanguages);
             } catch (error) {
                 console.error('Error loading locales configuration:', error);
                 // Fallback to minimal configuration
@@ -129,7 +127,6 @@
 
                 // If testimonials section is missing, load from default language
                 if (!this.translations.testimonials && lang !== DEFAULT_LANGUAGE) {
-                    console.log(`Loading testimonials from ${DEFAULT_LANGUAGE} as fallback`);
                     const defaultResponse = await fetch(`/locales/${DEFAULT_LANGUAGE}.json`);
                     const defaultTranslations = await defaultResponse.json();
                     if (defaultTranslations.testimonials) {
@@ -142,7 +139,6 @@
                 // Fallback strategy for regional variants
                 if (lang.includes('-')) {
                     const baseLang = lang.split('-')[0];
-                    console.log(`Trying fallback to base language: ${baseLang}`);
 
                     try {
                         const fallbackResponse = await fetch(`/locales/${baseLang}.json`);
@@ -157,7 +153,6 @@
 
                 // Final fallback to default language
                 if (lang !== DEFAULT_LANGUAGE) {
-                    console.log(`Falling back to default language: ${DEFAULT_LANGUAGE}`);
                     const defaultResponse = await fetch(`/locales/${DEFAULT_LANGUAGE}.json`);
                     this.translations = await defaultResponse.json();
                 }
