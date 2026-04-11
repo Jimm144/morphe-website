@@ -524,11 +524,11 @@ button {
 }
 
 .hero {
-  min-height: auto;
+  min-height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 104px 24px 32px;
+  padding: 120px 24px 64px;
   position: relative;
   overflow: hidden;
 }
