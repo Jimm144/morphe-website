@@ -1336,6 +1336,17 @@ body {
     display: none;
 }
 
+/* Infinite scroll: card matched filters but not yet revealed */
+.version-card.lazy-hidden {
+    display: none;
+}
+
+/* Scroll sentinel */
+#changelog-scroll-sentinel {
+    height: 1px;
+    visibility: hidden;
+}
+
 .version-header {
     display: flex;
     align-items: flex-start;
