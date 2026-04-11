@@ -695,7 +695,8 @@ button {
   border-radius: var(--md-shape-full);
   padding: 4px;
   gap: 8px;
-  margin-bottom: 16px;
+  margin-top: 24px;
+  margin-bottom: 24px;
   position: relative;
 }
 .tab-indicator {
@@ -1060,12 +1061,17 @@ button {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  background: var(--md-surface-container-low);
-  border-radius: var(--md-shape-xl);
-  overflow: hidden;
+  gap: 12px;
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
 }
 .faq-item {
-  border-bottom: 1px solid var(--md-outline-variant);
+  background: var(--md-surface-container-low);
+  border-radius: var(--md-shape-xl);
+  border-bottom: none;
+  overflow: hidden;
+  transition: background-color 0.3s var(--md-ease);
 }
 .faq-item:last-child {
   border-bottom: none;
@@ -1292,14 +1298,14 @@ button {
 
 .anim {
   opacity: 0;
-  transform: translateY(32px) scale(0.98);
+  transform: translateY(48px);
   transition:
-    opacity 0.8s var(--md-ease-decel),
-    transform 0.8s var(--md-ease-decel);
+    opacity 0.7s cubic-bezier(0.2, 0, 0, 1),
+    transform 0.7s cubic-bezier(0.2, 0, 0, 1);
 }
 .anim.visible {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
 }
 
 @media (max-width: 900px) {

@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: microg section, 404 page and tweaks
 
 on:
   push:

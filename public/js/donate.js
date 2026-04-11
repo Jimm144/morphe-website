@@ -253,14 +253,16 @@ document.addEventListener("DOMContentLoaded", () => {
       if (topBar) topBar.classList.add("menu-open");
       if (menuIcon) {
         menuIcon.style.transform = "rotate(90deg)";
-        menuIcon.textContent = "close";
+        menuIcon.style.webkitMask = "url(icons/close.svg) no-repeat center";
+        menuIcon.style.mask = "url(icons/close.svg) no-repeat center";
       }
     } else {
       drawer.classList.remove("open");
       if (topBar) topBar.classList.remove("menu-open");
       if (menuIcon) {
         menuIcon.style.transform = "rotate(0deg)";
-        menuIcon.textContent = "menu";
+        menuIcon.style.webkitMask = "url(icons/menu.svg) no-repeat center";
+        menuIcon.style.mask = "url(icons/menu.svg) no-repeat center";
       }
     }
   }

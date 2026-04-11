@@ -680,7 +680,7 @@ button {
   -webkit-tap-highlight-color: transparent;
   outline: none;
   user-select: none;
-  background: var(--md-surface-container-low);
+  background: var(--md-surface-container-high);
   height: 56px;
   padding: 0 16px;
   border-radius: var(--md-shape-full);
@@ -702,7 +702,7 @@ button {
   width: 56px;
   height: 32px;
   border-radius: 16px;
-  background: var(--md-surface-container-low);
+  background: var(--md-surface-container-high);
   transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-sizing: border-box;
   display: inline-block;

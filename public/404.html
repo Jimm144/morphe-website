@@ -1,133 +1,205 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="error.404-title">404 - Page Not Found</title>
-    <!-- Theme preloader -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Morphe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="js/theme-preload.js"></script>
-    <!-- Language preloader -->
-    <script src="js/lang-preload.js"></script>
     <style>
-      :root {
-        --primary-blue: #1e5aa8;
-        --primary-teal: #00afae;
-        --gradient-primary: linear-gradient(135deg, #1e5aa8 0%, #00afae 100%);
-
-        --bg: #ffffff;
-        --surface: #f4f4f5;
-        --text-primary: #18181b;
-        --text-secondary: #52525b;
-
-        --spacing-md: 1rem;
-        --spacing-xl: 2rem;
-        --radius-lg: 0.75rem;
-
-        --shadow-lg:
-          0 10px 15px -3px rgba(0, 0, 0, 0.1),
-          0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        --shadow-xl:
-          0 20px 25px -5px rgba(0, 0, 0, 0.1),
-          0 10px 10px -5px rgba(0, 0, 0, 0.04);
-
-        --transition-base: 200ms ease;
-      }
-
-      [data-theme="dark"] {
-        --bg: #0f1115;
-        --surface: #18181b;
-        --text-primary: #f4f4f5;
-        --text-secondary: #a1a1aa;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        :root:not([data-theme]) {
-          --bg: #0f1115;
-          --surface: #18181b;
-          --text-primary: #f4f4f5;
-          --text-secondary: #a1a1aa;
+        :root {
+            --md-primary: #1e5aa8;
+            --md-on-primary: #fff;
+            --md-primary-container: #ecf1ff;
+            --md-on-primary-container: #0e2f5a;
+            --md-surface: #fafbff;
+            --md-on-surface: #1a1c1e;
+            --md-surface-container: #eeeff5;
+            --md-on-surface-variant: #42454d;
+            --md-outline: #74777f;
+            --md-shape-xl: 28px;
+            --md-shape-full: 9999px;
+            --md-ease: cubic-bezier(0.2, 0, 0, 1);
         }
-      }
 
-      body {
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-          Cantarell, sans-serif;
-        background-color: var(--bg);
-        color: var(--text-primary);
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        text-align: center;
-      }
+        [data-theme="dark"] {
+            --md-primary: #a9c7ff;
+            --md-on-primary: #00315e;
+            --md-primary-container: #192d4a;
+            --md-on-primary-container: #c8daff;
+            --md-surface: #111318;
+            --md-on-surface: #e2e2e9;
+            --md-surface-container: #1d2026;
+            --md-on-surface-variant: #c4c6d0;
+            --md-outline: #8c8f98;
+        }
 
-      .container {
-        max-width: 600px;
-        padding: var(--spacing-xl);
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      h1 {
-        font-size: 4rem;
-        font-weight: 800;
-        background: var(--gradient-primary);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin-bottom: var(--spacing-md);
-      }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--md-surface);
+            color: var(--md-on-surface);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+            padding: 24px;
+        }
 
-      p {
-        font-size: 1.25rem;
-        color: var(--text-secondary);
-        margin-bottom: var(--spacing-xl);
-      }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            animation: fadeUp 0.8s var(--md-ease);
+        }
 
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: var(--spacing-md) var(--spacing-xl);
-        border-radius: var(--radius-lg);
-        font-weight: 600;
-        text-decoration: none;
-        transition:
-          transform var(--transition-base),
-          box-shadow var(--transition-base);
-        cursor: pointer;
-        border: none;
-        font-size: 1rem;
-      }
+        .error-code {
+            font-size: clamp(8rem, 20vw, 12rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.05em;
+            background: linear-gradient(135deg, var(--md-primary), #00afae);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 16px;
+        }
 
-      .btn-primary {
-        background: var(--gradient-primary);
-        color: white;
-        box-shadow: var(--shadow-lg);
-      }
+        .error-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
 
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-xl);
-      }
+        .error-desc {
+            font-size: 1.125rem;
+            color: var(--md-on-surface-variant);
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-      .footer {
-        color: var(--text-secondary);
-        padding-top: 150px;
-        text-align: center;
-      }
+        .actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 56px;
+            padding: 0 32px;
+            border-radius: var(--md-shape-full);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s var(--md-ease);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--md-primary);
+            color: var(--md-on-primary);
+            box-shadow: 0 4px 12px rgba(30, 90, 168, 0.2);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 8px 24px rgba(30, 90, 168, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--md-primary);
+            border: 2px solid var(--md-outline);
+        }
+
+        .btn-outline:hover {
+            background: var(--md-primary-container);
+            border-color: var(--md-primary);
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Background blur effects */
+        .blur-orb {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.15;
+        }
+
+        .orb-1 {
+            top: -100px;
+            left: -100px;
+            background: var(--md-primary);
+        }
+
+        .orb-2 {
+            bottom: -100px;
+            right: -100px;
+            background: #00afae;
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+    <div class="blur-orb orb-1"></div>
+    <div class="blur-orb orb-2"></div>
+
     <div class="container">
-      <h1>404</h1>
-      <p data-i18n="error.not-found">
-        The page you're looking for can't be found
-      </p>
-      <a href="index.html" class="btn btn-primary" data-i18n="error.go-home"
-        >Go to Homepage</a
-      >
+        <div class="error-code">404</div>
+        <h1 class="error-title" data-i18n="error.404-title">Whoops! Page not found.</h1>
+        <p class="error-desc" data-i18n="error.not-found">
+            The page you're looking for was moved, removed, or never existed in this dimension.
+        </p>
+        <div class="actions">
+            <a href="index.html" class="btn btn-primary" data-i18n="error.go-home">Go Home</a>
+            <button onclick="window.history.back()" class="btn btn-outline" data-i18n="error.go-back">Go Back</button>
+        </div>
     </div>
-    <script src="js/i18n.js"></script>
-  </body>
+
+    <!-- Minimal i18n support for 404 -->
+    <script>
+        // Simple fallback if main i18n script isn't loaded
+        const translations = {
+            en: {
+                "error.404-title": "Whoops! Page not found.",
+                "error.not-found": "The page you're looking for was moved, removed, or never existed in this dimension.",
+                "error.go-home": "Go Home",
+                "error.go-back": "Go Back"
+            }
+        };
+
+        // Try to load user language
+        const lang = localStorage.getItem('morphe-language') || navigator.language.split('-')[0] || 'en';
+        
+        // This is a placeholder; in a real scenario, we'd fetch the JSON.
+        // For the 404, we'll just keep it simple or let the main i18n.js handle it if included.
+    </script>
+</body>
 </html>

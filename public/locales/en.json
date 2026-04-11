@@ -41,16 +41,16 @@
     "disclaimer": "Morphe does not add analytics or data collection to any patched apps."
   },
   "microg": {
-    "title": "Download",
-    "description": "MicroG is required to use YouTube Morphe and YT Music Morphe",
+    "title": "MicroG",
+    "description": "MicroG is required for Google account login and push notifications on Morphe apps.",
     "download": "Download MicroG",
     "what-title": "What is MicroG?",
-    "feature1-title": "Google Services",
-    "feature1-desc": "MicroG provides Google Play Services support, enabling the use of your Google account with YouTube Morphe and YT Music Morphe.",
-    "feature2-title": "Privacy Focused",
-    "feature2-desc": "MicroG is an open-source reimplementation of Google services that respects your privacy while providing essential functionality.",
-    "feature3-title": "One-Time Install",
-    "feature3-desc": "Install MicroG once and it works with all your Morphe apps. No need to reinstall when updating YouTube Morphe and YT Music Morphe."
+    "feature1-title": "Google Login",
+    "feature1-desc": "Sign in to your account securely and access all your subscriptions, playlists, and history.",
+    "feature2-title": "Notifications",
+    "feature2-desc": "Get reliable push notifications and stay updated with your favorite creators.",
+    "feature3-title": "Privacy Focused",
+    "feature3-desc": "An open-source reimplementation of Google services that respects your privacy."
   },
   "nav": {
     "home": "Home",
@@ -64,6 +64,7 @@
     "description": "From the developers that brought you the greatest modded YouTube apps, comes Morphe - the powerful app modification tool that puts you in control",
     "download": "Download Morphe",
     "learn-more": "Learn More",
+    "get-microg": "Get MicroG",
     "social-label": "Join the Community"
   },
   "app-features": {
