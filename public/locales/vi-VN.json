@@ -278,6 +278,7 @@
     "tier3-name": "Nhà tài trợ",
     "tier3-desc": "Tên hoặc logo của bạn sẽ được chễm chệ ở vị trí nổi bật nhất trong mục Nhà tài trợ trên trang web Morphe.",
     "tier-contribute": "Ủng hộ",
+    "per-month": "/tháng",
     "tier-popular": "Phổ biến",
     "backers-title": "Bạn đồng hành cùng Morphe",
     "backers-all": "Xem hết",
@@ -295,8 +296,8 @@
     "filter-patches": "Bản vá",
     "show-dev": "Hiện bản thử nghiệm",
     "older-releases": "Tìm bản phát hành cũ hơn?",
-    "view-manager": "Xem bản phát hành trình quản lý",
-    "view-patches": "Xem bản phát hành bản vá"
+    "view-manager": "Xem bản phát hành Trình quản lý",
+    "view-patches": "Xem bản phát hành Bản vá"
   },
   "add-source": {
     "title": "Thêm nguồn vá",

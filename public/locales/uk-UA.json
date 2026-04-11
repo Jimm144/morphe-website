@@ -182,6 +182,7 @@
     "tier3-name": "Мега підтримка",
     "tier3-desc": "Ваш аватар або ім’я буде помітно розміщено в розділі Мега підтримка на сайті Morphe.",
     "tier-contribute": "Підтримати",
+    "per-month": "/міс.",
     "tier-popular": "Популярне",
     "backers-title": "Наші підтримувачі",
     "backers-all": "Переглянути всіх",
@@ -236,12 +237,12 @@
     "title": "Що нового",
     "subtitle": "Повна історія оновлень та покращень",
     "filter-all": "Усі",
-    "filter-manager": "Manager",
-    "filter-patches": "Patches",
+    "filter-manager": "Менеджер",
+    "filter-patches": "Патчі",
     "show-dev": "Показати передрелізи",
     "older-releases": "Шукаєте старіші релізи?",
-    "view-manager": "Переглянути релізи Manager",
-    "view-patches": "Переглянути релізи Patches"
+    "view-manager": "Переглянути релізи менеджера",
+    "view-patches": "Переглянути релізи патчів"
   },
   "app-features": {
     "title": "Функції додатків",

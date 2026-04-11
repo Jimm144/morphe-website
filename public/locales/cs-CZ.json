@@ -182,6 +182,7 @@
     "tier3-name": "Mega podporovatel",
     "tier3-desc": "Získejte své logo nebo jméno výrazně zobrazené v sekci Mega podporovatelé na webu Morphe.",
     "tier-contribute": "Přispět",
+    "per-month": "/měs.",
     "tier-popular": "Populární",
     "backers-title": "Naši přispěvatelé",
     "backers-all": "Zobrazit vše",
@@ -236,12 +237,12 @@
     "title": "Novinky",
     "subtitle": "Kompletní historie aktualizací a vylepšení",
     "filter-all": "Vše",
-    "filter-manager": "Manager",
+    "filter-manager": "Správce",
     "filter-patches": "Záplaty",
     "show-dev": "Zobrazit předběžné verze",
     "older-releases": "Hledáte starší verze?",
-    "view-manager": "Zobrazit verze Manager",
-    "view-patches": "Zobrazit verze Záplat"
+    "view-manager": "Zobrazit verze Správce",
+    "view-patches": "Zobrazit verze záplat"
   },
   "app-features": {
     "title": "Funkce Aplikace",
