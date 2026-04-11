@@ -3,50 +3,73 @@
 // AUTO-GENERATED - DO NOT EDIT MANUALLY
 // Run 'npm run generate-i18n-keys' to update this file
 
-(function() {
-    'use strict';
+(function () {
+  "use strict";
 
-    const SUPPORTED_LOCALES = ['en', 'cs-CZ', 'de-DE', 'es-ES', 'fr-FR', 'it-IT', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ru-RU', 'sk-SK', 'vi-VN', 'tr-TR', 'uk-UA', 'ar', 'ja-JP', 'ko-KR', 'zh-CN'];
+  const SUPPORTED_LOCALES = [
+    "en",
+    "cs-CZ",
+    "de-DE",
+    "es-ES",
+    "fr-FR",
+    "it-IT",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR",
+    "pt-PT",
+    "ru-RU",
+    "sk-SK",
+    "vi-VN",
+    "tr-TR",
+    "uk-UA",
+    "ar",
+    "ja-JP",
+    "ko-KR",
+    "zh-CN",
+  ];
 
-    const STORAGE_KEY = 'morphe-language';
+  const STORAGE_KEY = "morphe-language";
 
-    try {
-        let lang = 'en';
+  try {
+    let lang = "en";
 
-        // Check saved preference
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved && SUPPORTED_LOCALES.includes(saved)) {
-            lang = saved;
-        } else {
-            // Detect from browser
-            const browserLang = navigator.language;
+    // Check saved preference
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved && SUPPORTED_LOCALES.includes(saved)) {
+      lang = saved;
+    } else {
+      // Detect from browser
+      const browserLang = navigator.language;
 
-            if (SUPPORTED_LOCALES.includes(browserLang)) {
-                lang = browserLang;
-            } else {
-                const base = browserLang.split('-')[0];
-                const regional = SUPPORTED_LOCALES.find(l => l.startsWith(base + '-'));
+      if (SUPPORTED_LOCALES.includes(browserLang)) {
+        lang = browserLang;
+      } else {
+        const base = browserLang.split("-")[0];
+        const regional = SUPPORTED_LOCALES.find((l) =>
+          l.startsWith(base + "-"),
+        );
 
-                if (regional) {
-                    lang = regional;
-                } else if (SUPPORTED_LOCALES.includes(base)) {
-                    lang = base;
-                }
-            }
+        if (regional) {
+          lang = regional;
+        } else if (SUPPORTED_LOCALES.includes(base)) {
+          lang = base;
         }
-
-        // Set language attribute immediately
-        document.documentElement.lang = lang;
-
-        // Set direction (RTL/LTR)
-        const rtlLanguages = ['ar', 'he', 'fa', 'ur'];
-        const baseLang = lang.split('-')[0];
-        document.documentElement.dir = rtlLanguages.includes(baseLang) ? 'rtl' : 'ltr';
-
-        // Hide content until i18n loads
-        document.documentElement.classList.add('i18n-loading');
-
-    } catch (e) {
-        console.error('Language preload failed:', e);
+      }
     }
+
+    // Set language attribute immediately
+    document.documentElement.lang = lang;
+
+    // Set direction (RTL/LTR)
+    const rtlLanguages = ["ar", "he", "fa", "ur"];
+    const baseLang = lang.split("-")[0];
+    document.documentElement.dir = rtlLanguages.includes(baseLang)
+      ? "rtl"
+      : "ltr";
+
+    // Hide content until i18n loads
+    document.documentElement.classList.add("i18n-loading");
+  } catch (e) {
+    console.error("Language preload failed:", e);
+  }
 })();
