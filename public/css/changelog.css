@@ -528,7 +528,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 120px 24px 64px;
+  padding: 120px 24px 32px;
   position: relative;
   overflow: hidden;
 }
@@ -572,7 +572,7 @@ button {
 }
 
 .section {
-  padding: 0 24px 96px;
+  padding: 64px 24px 96px;
 }
 
 /* Controls Wrapper */
@@ -583,7 +583,7 @@ button {
   gap: 16px;
   max-width: 800px;
   width: 100%;
-  margin: 112px auto 32px auto;
+  margin: 0 auto 32px auto;
   box-sizing: border-box;
 }
 
@@ -702,7 +702,7 @@ button {
   width: 56px;
   height: 32px;
   border-radius: 16px;
-  background: var(--md-surface-container-high);
+  background: var(--md-surface-container-highest);
   transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-sizing: border-box;
   display: inline-block;
@@ -732,7 +732,7 @@ button {
   transform: translateX(18px);
 }
 .toggle-input:checked + .fancy-switch {
-  background: var(--md-surface-container-high);
+  background: var(--md-surface-container-highest);
 }
 .toggle-input:checked + .fancy-switch .fancy-switch-thumb {
   background: #0e2f5a;
