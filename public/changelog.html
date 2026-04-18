@@ -256,36 +256,63 @@
     </section>
 
     <footer class="footer">
-      <div class="container">
-        <div class="footer-inner">
-          <div class="footer-text">
-            <span data-i18n="analytics.part1">This website uses </span
-            ><a href="https://umami.is" target="_blank" rel="noopener">Umami</a
-            ><span data-i18n="analytics.part2">
-              and Google Analytics 4. No cookies, no advertising, no profiling,
-              and no data is sold or shared.</span
-            >
-          </div>
-          <div class="footer-bottom-row">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-brand">
             <a href="index.html" class="footer-logo-link">
-              <img
-                src="images/morphe_wordmark_light.svg"
-                alt="Morphe"
-                class="footer-logo-img logo-light"
-              />
-              <img
-                src="images/morphe_wordmark_dark.svg"
-                alt="Morphe"
-                class="footer-logo-img logo-dark"
-              />
+              <img src="images/morphe_logo_with_frame.svg" alt="Morphe" class="footer-logo" />
+              <span class="footer-brand-name">Morphe</span>
             </a>
-            <span
-              >&copy; Morphe.
-              <span data-i18n="footer.copyright"
-                >Open source and free forever.</span
-              ></span
-            >
+            <p class="footer-tagline" data-i18n="footer.description">Next generation Android app patching</p>
+            <a href="https://www.dmca.com/Protection/Status.aspx?ID=58df7b1f-ce9f-4a91-9b07-c79cf576230b"
+               title="DMCA.com Protection Status"
+               class="dmca-badge">
+              <img src="https://images.dmca.com/Badges/dmca_protected_sml_120n.png?ID=58df7b1f-ce9f-4a91-9b07-c79cf576230b"
+                   alt="DMCA.com Protection Status" />
+            </a>
+            <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"></script>
+            <details class="analytics-details">
+              <summary data-i18n="analytics.title">Analytics</summary>
+              <span data-i18n-link="analytics.description"
+                    data-i18n-link-href="https://umami.is"
+                    data-i18n-link-text="Umami"
+                    data-i18n-link-attrs='{"target":"_blank","rel":"noopener noreferrer","class":"inline-link"}'></span>
+              <span data-i18n="analytics.disclaimer">Morphe does not add analytics or data collection to any patched apps.</span>
+            </details>
           </div>
+
+          <div class="footer-nav">
+            <div class="footer-column">
+              <h4 data-i18n="footer.product">Product</h4>
+              <a href="index.html" data-i18n="footer.product-home">Home</a>
+              <a href="changelog.html" data-i18n="footer.product-changelog">What's New</a>
+              <a href="microg.html" data-i18n="footer.product-microg">Download MicroG</a>
+              <a href="translate.html" data-i18n="footer.product-translate">Help translate</a>
+              <a href="donate.html" data-i18n="footer.support-donate">Donate</a>
+            </div>
+            <div class="footer-column">
+              <h4 data-i18n="footer.community">Community</h4>
+              <a href="https://github.com/MorpheApp" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://x.com/MorpheApp" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+              <a href="https://reddit.com/r/MorpheApp" target="_blank" rel="noopener noreferrer">Reddit</a>
+              <a href="https://crowdin.com/project/morphe" target="_blank" rel="noopener noreferrer">Crowdin</a>
+            </div>
+            <div class="footer-column language-selector-container">
+              <h4 data-i18n="footer.language">Language</h4>
+              <div class="lang-dropdown" id="langDropdownFooter">
+                <button class="lang-trigger" id="langTriggerFooter" type="button">
+                  <span class="material-symbols-rounded" style="-webkit-mask: url(icons/translate.svg) no-repeat center; mask: url(icons/translate.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="translate"></span>
+                  <span class="lang-label">English</span>
+                  <span class="material-symbols-rounded arrow" style="-webkit-mask: url(icons/expand_more.svg) no-repeat center; mask: url(icons/expand_more.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="expand_more"></span>
+                </button>
+                <div class="lang-menu" id="langMenuFooter" role="listbox" style="left:0;right:auto;min-width:100%;bottom:calc(100% + 6px);top:auto;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-copyright">&copy; Morphe. <span data-i18n="footer.copyright">Open source and free forever.</span></p>
         </div>
       </div>
     </footer>

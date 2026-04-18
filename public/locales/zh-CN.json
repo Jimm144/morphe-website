@@ -242,7 +242,8 @@
     "show-dev": "显示预发布版本",
     "older-releases": "在找更早的版本吗？",
     "view-manager": "查看管理器版本",
-    "view-patches": "查看补丁版本"
+    "view-patches": "查看补丁版本",
+    "badge-dev": "Dev"
   },
   "app-features": {
     "title": "应用功能",

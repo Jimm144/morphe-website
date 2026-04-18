@@ -242,7 +242,8 @@
     "show-dev": "Ön sürümleri göster",
     "older-releases": "Eski sürümleri mi arıyorsunuz?",
     "view-manager": "Manager sürümlerini görüntüle",
-    "view-patches": "Yamalar sürümlerini görüntüle"
+    "view-patches": "Yamalar sürümlerini görüntüle",
+    "badge-dev": "Dev"
   },
   "app-features": {
     "title": "Uygulama Özellikleri",

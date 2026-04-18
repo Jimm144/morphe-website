@@ -297,7 +297,8 @@
     "show-dev": "Pokaż wersje przedpremierowe",
     "older-releases": "Szukasz starszych wersji?",
     "view-manager": "Zobacz wydania menedżera",
-    "view-patches": "Zobacz wydania modyfikacji"
+    "view-patches": "Zobacz wydania modyfikacji",
+    "badge-dev": "Dev"
   },
   "add-source": {
     "title": "Dodaj źródło modyfikacji",
