@@ -18,6 +18,12 @@ const path = require('path');
 const LOCALES_DIR = 'public/locales';
 const BASE_LOCALE = 'en';
 
+// Keys whose values are intentionally identical across all locales (e.g. brand names).
+// Excluded from "untranslated" warnings in completeness check.
+const SKIP_KEYS = new Set([
+  'changelog.badge-dev',
+]);
+
 /**
  * Load all locale files
  */
@@ -92,6 +98,7 @@ function checkCompleteness(locales) {
     const localeKeys = getAllKeys(locales[locale]).filter(key => !key.startsWith('testimonials.'));
     const missing = baseKeys.filter(key => !localeKeys.includes(key));
     const untranslated = baseKeys.filter(key => {
+      if (SKIP_KEYS.has(key)) return false;
       const baseValue = getValue(locales[BASE_LOCALE], key);
       const localeValue = getValue(locales[locale], key);
       return localeValue === baseValue;

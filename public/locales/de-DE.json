@@ -242,7 +242,8 @@
     "show-dev": "Vorabversionen anzeigen",
     "older-releases": "Ältere Versionen suchen?",
     "view-manager": "Manager-Versionen anzeigen",
-    "view-patches": "Patches-Versionen anzeigen"
+    "view-patches": "Patches-Versionen anzeigen",
+    "badge-dev": "Dev"
   },
   "app-features": {
     "title": "App-Funktionen",
