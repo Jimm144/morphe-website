@@ -297,7 +297,8 @@
     "show-dev": "프리릴리스 보기",
     "older-releases": "예전 릴리스를 찾고 있나요?",
     "view-manager": "매니저 릴리스 보기",
-    "view-patches": "패치 릴리스 보기"
+    "view-patches": "패치 릴리스 보기",
+    "badge-dev": "Dev"
   },
   "add-source": {
     "title": "패치 소스 추가",

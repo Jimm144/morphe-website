@@ -242,7 +242,8 @@
     "show-dev": "プレリリース版を表示",
     "older-releases": "過去のバージョンをお探しですか？",
     "view-manager": "マネージャーのバージョン一覧を見る",
-    "view-patches": "パッチのバージョン一覧を見る"
+    "view-patches": "パッチのバージョン一覧を見る",
+    "badge-dev": "Dev"
   },
   "app-features": {
     "title": "アプリの機能",
