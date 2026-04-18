@@ -242,7 +242,8 @@
     "show-dev": "Zobraziť predbežné verzie",
     "older-releases": "Hľadáte staršie verzie?",
     "view-manager": "Zobraziť verzie správcu",
-    "view-patches": "Zobraziť verzie záplat"
+    "view-patches": "Zobraziť verzie záplat",
+    "badge-dev": "Dev"
   },
   "app-features": {
     "title": "Funkcie Aplikácie",

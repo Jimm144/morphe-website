@@ -242,7 +242,8 @@
     "show-dev": "Vooruitgebrachte releases tonen",
     "older-releases": "Op zoek naar oudere releases?",
     "view-manager": "Manager-releases bekijken",
-    "view-patches": "Patches-releases bekijken"
+    "view-patches": "Patches-releases bekijken",
+    "badge-dev": "Dev"
   },
   "app-features": {
     "title": "App-functies",

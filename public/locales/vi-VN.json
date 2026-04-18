@@ -297,7 +297,8 @@
     "show-dev": "Hiện bản thử nghiệm",
     "older-releases": "Tìm bản phát hành cũ hơn?",
     "view-manager": "Xem bản phát hành Trình quản lý",
-    "view-patches": "Xem bản phát hành Bản vá"
+    "view-patches": "Xem bản phát hành Bản vá",
+    "badge-dev": "Dev"
   },
   "add-source": {
     "title": "Thêm nguồn vá",
