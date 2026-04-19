@@ -187,9 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cycleEl.style.animation = 'none';
             void cycleEl.offsetWidth;
             cycleEl.setAttribute('data-i18n', cycleKeys[cycleIdx]);
-            if (window.i18n && typeof window.i18n.applyTranslations === 'function') {
-                window.i18n.applyTranslations();
-            }
+            applyTranslations();
             cycleEl.style.animation = '';
         }, 2400);
     }
