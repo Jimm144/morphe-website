@@ -79,6 +79,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
+        document.querySelectorAll('[data-i18n-link]').forEach((el) => {
+            const key = el.getAttribute('data-i18n-link');
+            const val = getNestedKey(translations, key);
+            if (!val) return;
+            const href = el.getAttribute('data-i18n-link-href') || '#';
+            const linkText = el.getAttribute('data-i18n-link-text') || href;
+            const attrsRaw = el.getAttribute('data-i18n-link-attrs');
+            let extraAttrs = '';
+            if (attrsRaw) {
+                try {
+                    const attrsObj = JSON.parse(attrsRaw);
+                    extraAttrs = Object.entries(attrsObj)
+                        .map(([k, v]) => k + '="' + String(v).replace(/"/g, '&quot;') + '"')
+                        .join(' ');
+                } catch (e) {}
+            }
+            const linkHtml = '<a href="' + href + '" ' + extraAttrs + '>' + linkText + '</a>';
+            el.innerHTML = val.replace('%s', linkHtml);
+        });
+        document.dispatchEvent(new CustomEvent('morphe:translations-applied'));
     }
 
     function setLanguage(lang) {
@@ -173,24 +193,129 @@ document.addEventListener('DOMContentLoaded', () => {
     setupDropdown('langTriggerFooter', 'langMenuFooter');
     setLanguage(currentLang);
 
-    const cycleEl = document.querySelector('.hero-title-cycle-word');
-    if (cycleEl) {
-        const cycleKeys = [
-            'hero.title-highlight',
-            'app-features.tab-youtube',
-            'app-features.tab-ytmusic',
-            'app-features.tab-reddit'
-        ];
-        let cycleIdx = 0;
-        setInterval(() => {
-            cycleIdx = (cycleIdx + 1) % cycleKeys.length;
-            cycleEl.style.animation = 'none';
-            void cycleEl.offsetWidth;
-            cycleEl.setAttribute('data-i18n', cycleKeys[cycleIdx]);
-            applyTranslations();
-            cycleEl.style.animation = '';
-        }, 2400);
-    }
+    (function () {
+        const APP_LABELS = ['YouTube', 'YT Music', 'Reddit'];
+        const HOLD_MS = 1800;
+        const CROSSFADE_MS = 600;
+        const PAUSE_BEFORE_FIRST = 2200;
+
+        let wrapEl = null;
+        let sizer = null;
+        let current = null;
+        let next = null;
+        let currentIndex = 0;
+        let running = false;
+        let timer = null;
+        let labels = [];
+
+        function getDefaultLabel() {
+            return getNestedKey(translations, 'hero.title-highlight') || 'Android Apps';
+        }
+
+        function buildLabels() {
+            const defaultLabel = getDefaultLabel();
+            return APP_LABELS.concat([defaultLabel]);
+        }
+
+        function buildDom() {
+            const original = document.querySelector('.hero-morph-target');
+            if (!original) return false;
+            const baseText = original.textContent;
+
+            wrapEl = document.createElement('span');
+            wrapEl.className = 'hero-morph-wrap';
+
+            sizer = document.createElement('span');
+            sizer.className = 'hero-morph-sizer';
+            sizer.setAttribute('aria-hidden', 'true');
+            sizer.textContent = baseText;
+
+            current = document.createElement('span');
+            current.className = 'hero-morph-layer visible';
+            current.setAttribute('aria-live', 'polite');
+            current.textContent = baseText;
+
+            next = document.createElement('span');
+            next.className = 'hero-morph-layer hidden';
+            next.setAttribute('aria-hidden', 'true');
+
+            wrapEl.appendChild(sizer);
+            wrapEl.appendChild(current);
+            wrapEl.appendChild(next);
+            original.replaceWith(wrapEl);
+            return true;
+        }
+
+        function crossfadeTo(index) {
+            if (!wrapEl) return;
+            currentIndex = index;
+            const label = labels[index];
+
+            sizer.textContent = label;
+            next.textContent = label;
+            next.removeAttribute('aria-hidden');
+
+            requestAnimationFrame(() => requestAnimationFrame(() => {
+                current.classList.replace('visible', 'hidden');
+                next.classList.replace('hidden', 'visible');
+
+                setTimeout(() => {
+                    const swap = current;
+                    current = next;
+                    next = swap;
+
+                    next.style.transition = 'none';
+                    next.classList.replace('visible', 'hidden');
+                    next.textContent = '';
+                    next.setAttribute('aria-hidden', 'true');
+                    requestAnimationFrame(() => requestAnimationFrame(() => {
+                        next.style.transition = '';
+                    }));
+
+                    const nextIndex = index + 1;
+                    if (nextIndex < labels.length) {
+                        timer = setTimeout(() => crossfadeTo(nextIndex), HOLD_MS);
+                    } else {
+                        if (next) {
+                            next.remove();
+                            next = null;
+                        }
+                        running = false;
+                    }
+                }, CROSSFADE_MS + 60);
+            }));
+        }
+
+        function init() {
+            if (running) return;
+            const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+            if (mq.matches) return;
+            if (!wrapEl && !buildDom()) return;
+            labels = buildLabels();
+            running = true;
+            timer = setTimeout(() => crossfadeTo(0), PAUSE_BEFORE_FIRST);
+        }
+
+        // Start the morph after the first translations pass completes,
+        // so the initial label reflects the user's language.
+        let started = false;
+        document.addEventListener('morphe:translations-applied', () => {
+            if (!started) {
+                started = true;
+                init();
+            } else if (!running && current) {
+                // language switched mid-session: update the visible layer text
+                current.textContent = getDefaultLabel();
+                if (sizer) sizer.textContent = getDefaultLabel();
+            }
+        });
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                clearTimeout(timer);
+            }
+        });
+    })();
 
     let themeBtn = document.getElementById('themeToggle');
     let themeIcon = document.getElementById('themeIcon');
