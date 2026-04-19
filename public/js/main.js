@@ -79,6 +79,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
+        document.querySelectorAll('[data-i18n-link]').forEach((el) => {
+            const key = el.getAttribute('data-i18n-link');
+            const val = getNestedKey(translations, key);
+            if (!val) return;
+            const href = el.getAttribute('data-i18n-link-href') || '#';
+            const linkText = el.getAttribute('data-i18n-link-text') || href;
+            const attrsRaw = el.getAttribute('data-i18n-link-attrs');
+            let extraAttrs = '';
+            if (attrsRaw) {
+                try {
+                    const attrsObj = JSON.parse(attrsRaw);
+                    extraAttrs = Object.entries(attrsObj)
+                        .map(([k, v]) => k + '="' + String(v).replace(/"/g, '&quot;') + '"')
+                        .join(' ');
+                } catch (e) {}
+            }
+            const linkHtml = '<a href="' + href + '" ' + extraAttrs + '>' + linkText + '</a>';
+            el.innerHTML = val.replace('%s', linkHtml);
+        });
+        document.dispatchEvent(new CustomEvent('morphe:translations-applied'));
     }
 
     function setLanguage(lang) {
@@ -172,6 +192,105 @@ document.addEventListener('DOMContentLoaded', () => {
     setupDropdown('langTriggerMobile', 'langMenuMobile');
     setupDropdown('langTriggerFooter', 'langMenuFooter');
     setLanguage(currentLang);
+
+    (function () {
+        const el = document.querySelector('.hero-morph-target');
+        if (!el) return;
+
+        const APP_LABELS = ['YouTube', 'YT Music', 'Reddit'];
+        const HOLD_MS = 2200;
+        const OUT_MS = 520;
+        const PAUSE_BEFORE_FIRST = 1400;
+
+        const originalText = el.textContent;
+        let baseLabel = originalText;
+        let timer = null;
+        let swapTimer = null;
+        let idx = 0;
+        let cycling = false;
+
+        function getDefaultLabel() {
+            return getNestedKey(translations, 'hero.title-highlight') || originalText;
+        }
+
+        function buildSteps() {
+            return APP_LABELS.concat([baseLabel]);
+        }
+
+        function swapTo(text) {
+            clearTimeout(swapTimer);
+            el.classList.add('is-out');
+            swapTimer = setTimeout(() => {
+                el.textContent = text;
+                // Double rAF so the class removal reliably triggers the transition
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        el.classList.remove('is-out');
+                    });
+                });
+            }, OUT_MS);
+        }
+
+        function start() {
+            stop();
+            idx = 0;
+            cycling = true;
+            const steps = buildSteps();
+            const tick = () => {
+                if (idx >= steps.length) {
+                    cycling = false;
+                    return;
+                }
+                swapTo(steps[idx]);
+                idx++;
+                timer = setTimeout(tick, HOLD_MS);
+            };
+            timer = setTimeout(tick, PAUSE_BEFORE_FIRST);
+        }
+
+        function stop() {
+            clearTimeout(timer);
+            clearTimeout(swapTimer);
+            timer = null;
+            swapTimer = null;
+            cycling = false;
+        }
+
+        function reset() {
+            stop();
+            el.classList.remove('is-out');
+            el.textContent = baseLabel;
+        }
+
+        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (!reduced.matches) start();
+
+        document.addEventListener('morphe:translations-applied', () => {
+            const newLabel = getDefaultLabel();
+            // Before the cycle has begun swapping, keep the visible text in
+            // sync with the translated default.
+            if (!cycling && idx === 0 && baseLabel !== newLabel) {
+                el.textContent = newLabel;
+            }
+            baseLabel = newLabel;
+        });
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stop();
+            } else if (!reduced.matches) {
+                reset();
+                start();
+            }
+        });
+
+        window.addEventListener('pageshow', (e) => {
+            if (e.persisted && !reduced.matches) {
+                reset();
+                start();
+            }
+        });
+    })();
 
     let themeBtn = document.getElementById('themeToggle');
     let themeIcon = document.getElementById('themeIcon');

@@ -134,12 +134,11 @@
           <span style="display: block" data-i18n="hero.title"
             >Transform Your</span
           >
-          <span
-            style="display: block"
-            class="highlight-text"
-            data-i18n="hero.title-highlight"
-            >Android Apps</span
-          >
+          <span style="display: block" class="highlight-text">
+            <span class="hero-morph-target" data-i18n="hero.title-highlight"
+              >Android Apps</span
+            >
+          </span>
         </h1>
         <p class="hero-desc" data-i18n="hero.description">
           From the developers that brought you the greatest modded YouTube apps,
@@ -982,6 +981,99 @@
     </section>
 
     <section
+      id="get-involved"
+      class="section"
+      style="background: var(--md-surface)"
+    >
+      <div class="container">
+        <div class="involve-grid anim">
+          <a
+            href="microg"
+            class="involve-card"
+            data-umami-event="Involve MicroG Card Click"
+          >
+            <div class="involve-icon">
+              <span
+                class="material-symbols-rounded"
+                style="
+                  font-size: 32px;
+                  -webkit-mask: url(icons/shield.svg) no-repeat center;
+                  mask: url(icons/shield.svg) no-repeat center;
+                  -webkit-mask-size: contain;
+                  mask-size: contain;
+                  background-color: currentColor;
+                "
+                aria-label="shield"
+              ></span>
+            </div>
+            <h3 class="involve-title" data-i18n="microg.title">MicroG</h3>
+            <p class="involve-desc" data-i18n="microg.description">
+              MicroG is required for Google account login and push
+              notifications on Morphe apps.
+            </p>
+            <span class="involve-cta">
+              <span data-i18n="microg.download">Download MicroG</span>
+              <span
+                class="material-symbols-rounded"
+                style="
+                  font-size: 18px;
+                  -webkit-mask: url(icons/arrow_forward.svg) no-repeat center;
+                  mask: url(icons/arrow_forward.svg) no-repeat center;
+                  -webkit-mask-size: contain;
+                  mask-size: contain;
+                  background-color: currentColor;
+                "
+                aria-label="arrow_forward"
+              ></span>
+            </span>
+          </a>
+          <a
+            href="translate"
+            class="involve-card"
+            data-umami-event="Involve Translate Card Click"
+          >
+            <div class="involve-icon">
+              <span
+                class="material-symbols-rounded"
+                style="
+                  font-size: 32px;
+                  -webkit-mask: url(icons/translate.svg) no-repeat center;
+                  mask: url(icons/translate.svg) no-repeat center;
+                  -webkit-mask-size: contain;
+                  mask-size: contain;
+                  background-color: currentColor;
+                "
+                aria-label="translate"
+              ></span>
+            </div>
+            <h3 class="involve-title" data-i18n="translate.title">
+              Help Us Translate
+            </h3>
+            <p class="involve-desc" data-i18n="translate.description">
+              Make Morphe accessible to millions of users worldwide by
+              translating it into your language
+            </p>
+            <span class="involve-cta">
+              <span data-i18n="footer.product-translate">Help translate</span>
+              <span
+                class="material-symbols-rounded"
+                style="
+                  font-size: 18px;
+                  -webkit-mask: url(icons/arrow_forward.svg) no-repeat center;
+                  mask: url(icons/arrow_forward.svg) no-repeat center;
+                  -webkit-mask-size: contain;
+                  mask-size: contain;
+                  background-color: currentColor;
+                "
+                aria-label="arrow_forward"
+              ></span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section
       id="community"
       class="section"
       style="background: var(--md-surface-container-lowest)"
@@ -1096,14 +1188,13 @@
                    alt="DMCA.com Protection Status" />
             </a>
             <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"></script>
-            <details class="analytics-details">
-              <summary data-i18n="analytics.title">Analytics</summary>
+            <div class="analytics-note">
               <span data-i18n-link="analytics.description"
                     data-i18n-link-href="https://umami.is"
                     data-i18n-link-text="Umami"
-                    data-i18n-link-attrs='{"target":"_blank","rel":"noopener noreferrer","class":"inline-link"}'></span>
+                    data-i18n-link-attrs='{"target":"_blank","rel":"noopener noreferrer","class":"inline-link","data-umami-event":"Umami Link Click"}'></span>
               <span data-i18n="analytics.disclaimer">Morphe does not add analytics or data collection to any patched apps.</span>
-            </details>
+            </div>
           </div>
 
           <div class="footer-nav">
