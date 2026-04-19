@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
     (function () {
         const APP_LABELS = ['YouTube', 'YT Music', 'Reddit'];
         const HOLD_MS = 1800;
-        const CROSSFADE_MS = 600;
+        const CROSSFADE_MS = 820; // must match the slowest CSS transition (filter)
         const PAUSE_BEFORE_FIRST = 2200;
 
         let wrapEl = null;
