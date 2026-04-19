@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const APP_LABELS = ['YouTube', 'YT Music', 'Reddit'];
         const HOLD_MS = 1800;
         const CROSSFADE_MS = 820; // must match the slowest CSS transition (filter)
-        const PAUSE_BEFORE_FIRST = 2200;
+        const PAUSE_BEFORE_FIRST = 1200;
 
         let wrapEl = null;
         let sizer = null;
@@ -207,14 +207,15 @@ document.addEventListener('DOMContentLoaded', () => {
         let running = false;
         let timer = null;
         let labels = [];
+        let cycleBegan = false;
 
         function getDefaultLabel() {
-            return getNestedKey(translations, 'hero.title-highlight') || 'Android Apps';
+            return getNestedKey(translations, 'hero.title-highlight') ||
+                (document.querySelector('.hero-morph-target')?.textContent || 'Android Apps');
         }
 
         function buildLabels() {
-            const defaultLabel = getDefaultLabel();
-            return APP_LABELS.concat([defaultLabel]);
+            return APP_LABELS.concat([getDefaultLabel()]);
         }
 
         function buildDom() {
@@ -246,8 +247,18 @@ document.addEventListener('DOMContentLoaded', () => {
             return true;
         }
 
+        function ensureNextLayer() {
+            if (next || !wrapEl) return;
+            next = document.createElement('span');
+            next.className = 'hero-morph-layer hidden';
+            next.setAttribute('aria-hidden', 'true');
+            wrapEl.appendChild(next);
+        }
+
         function crossfadeTo(index) {
-            if (!wrapEl) return;
+            if (!wrapEl || !current) return;
+            ensureNextLayer();
+            cycleBegan = true;
             currentIndex = index;
             const label = labels[index];
 
@@ -276,44 +287,85 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (nextIndex < labels.length) {
                         timer = setTimeout(() => crossfadeTo(nextIndex), HOLD_MS);
                     } else {
-                        if (next) {
-                            next.remove();
-                            next = null;
-                        }
                         running = false;
                     }
                 }, CROSSFADE_MS + 60);
             }));
         }
 
-        function init() {
-            if (running) return;
+        function stop() {
+            clearTimeout(timer);
+            timer = null;
+            running = false;
+        }
+
+        function startCycle() {
+            if (running || !wrapEl) return;
             const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
             if (mq.matches) return;
-            if (!wrapEl && !buildDom()) return;
             labels = buildLabels();
             running = true;
             timer = setTimeout(() => crossfadeTo(0), PAUSE_BEFORE_FIRST);
         }
 
-        // Start the morph after the first translations pass completes,
-        // so the initial label reflects the user's language.
-        let started = false;
+        function restart() {
+            stop();
+            if (!wrapEl) return;
+            // snap the visible layer back to the default label before replaying
+            const label = getDefaultLabel();
+            if (current) {
+                current.style.transition = 'none';
+                current.textContent = label;
+                current.classList.remove('hidden');
+                current.classList.add('visible');
+                requestAnimationFrame(() => requestAnimationFrame(() => {
+                    current.style.transition = '';
+                }));
+            }
+            if (sizer) sizer.textContent = label;
+            ensureNextLayer();
+            cycleBegan = false;
+            startCycle();
+        }
+
+        function init() {
+            if (!wrapEl && !buildDom()) return;
+            startCycle();
+        }
+
+        // Start immediately — the DOM already has the default label text.
+        // applyTranslations will later refresh it, and we refresh labels then too.
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+            init();
+        }
+
+        // Refresh label when translations land or user switches language
         document.addEventListener('morphe:translations-applied', () => {
-            if (!started) {
-                started = true;
-                init();
-            } else if (!running && current) {
-                // language switched mid-session: update the visible layer text
-                current.textContent = getDefaultLabel();
-                if (sizer) sizer.textContent = getDefaultLabel();
+            if (!wrapEl) return;
+            const label = getDefaultLabel();
+            if (sizer) sizer.textContent = label;
+            // Freely update the visible layer until the cycle's first swap
+            // starts; after that only touch it when the cycle is idle.
+            if (current && (!cycleBegan || !running)) {
+                current.textContent = label;
+            }
+            // Keep the final step in the cycle in sync with the new locale.
+            if (labels.length) labels[labels.length - 1] = label;
+        });
+
+        // Pause when hidden, restart from scratch when the tab returns
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stop();
+            } else {
+                restart();
             }
         });
 
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                clearTimeout(timer);
-            }
+        window.addEventListener('pageshow', (e) => {
+            if (e.persisted) restart();
         });
     })();
 
