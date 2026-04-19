@@ -104,6 +104,25 @@ document.addEventListener('DOMContentLoaded', () => {
             let val = getNestedKey(translations, el.getAttribute('data-i18n'));
             if (val) el.textContent = val;
         });
+        document.querySelectorAll('[data-i18n-link]').forEach((el) => {
+            const key = el.getAttribute('data-i18n-link');
+            const val = getNestedKey(translations, key);
+            if (!val) return;
+            const href = el.getAttribute('data-i18n-link-href') || '#';
+            const linkText = el.getAttribute('data-i18n-link-text') || href;
+            const attrsRaw = el.getAttribute('data-i18n-link-attrs');
+            let extraAttrs = '';
+            if (attrsRaw) {
+                try {
+                    const attrsObj = JSON.parse(attrsRaw);
+                    extraAttrs = Object.entries(attrsObj)
+                        .map(([k, v]) => k + '="' + String(v).replace(/"/g, '&quot;') + '"')
+                        .join(' ');
+                } catch (e) {}
+            }
+            const linkHtml = '<a href="' + href + '" ' + extraAttrs + '>' + linkText + '</a>';
+            el.innerHTML = val.replace('%s', linkHtml);
+        });
     }
 
     function setLanguage(lang) {
