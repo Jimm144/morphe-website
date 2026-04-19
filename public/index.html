@@ -136,10 +136,13 @@
           >
           <span
             style="display: block"
-            class="highlight-text"
-            data-i18n="hero.title-highlight"
-            >Android Apps</span
+            class="highlight-text hero-title-cycle"
+            aria-live="polite"
           >
+            <span class="hero-title-cycle-word" data-i18n="hero.title-highlight"
+              >Android Apps</span
+            >
+          </span>
         </h1>
         <p class="hero-desc" data-i18n="hero.description">
           From the developers that brought you the greatest modded YouTube apps,
@@ -157,20 +160,6 @@
           <a href="#how-it-works" class="btn-tonal">
             <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/arrow_downward.svg) no-repeat center; mask: url(icons/arrow_downward.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="arrow_downward"></span>
             <span data-i18n="hero.learn-more">Learn more</span>
-          </a>
-        </div>
-        <div class="hero-apps">
-          <a href="#features" class="hero-app-chip youtube" data-umami-event="Hero YouTube Chip Click">
-            <span class="hero-app-chip-dot"></span>
-            <span data-i18n="app-features.tab-youtube">YouTube</span>
-          </a>
-          <a href="#features" class="hero-app-chip ytmusic" data-umami-event="Hero YT Music Chip Click">
-            <span class="hero-app-chip-dot"></span>
-            <span data-i18n="app-features.tab-ytmusic">YT Music</span>
-          </a>
-          <a href="#features" class="hero-app-chip reddit" data-umami-event="Hero Reddit Chip Click">
-            <span class="hero-app-chip-dot"></span>
-            <span data-i18n="app-features.tab-reddit">Reddit</span>
           </a>
         </div>
       </div>
@@ -1110,14 +1099,13 @@
                    alt="DMCA.com Protection Status" />
             </a>
             <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"></script>
-            <details class="analytics-details" open>
-              <summary data-i18n="analytics.title">Analytics</summary>
+            <div class="analytics-note">
               <span data-i18n-link="analytics.description"
                     data-i18n-link-href="https://umami.is"
                     data-i18n-link-text="Umami"
-                    data-i18n-link-attrs='{"target":"_blank","rel":"noopener noreferrer","class":"inline-link"}'></span>
+                    data-i18n-link-attrs='{"target":"_blank","rel":"noopener noreferrer","class":"inline-link","data-umami-event":"Umami Link Click"}'></span>
               <span data-i18n="analytics.disclaimer">Morphe does not add analytics or data collection to any patched apps.</span>
-            </details>
+            </div>
           </div>
 
           <div class="footer-nav">
