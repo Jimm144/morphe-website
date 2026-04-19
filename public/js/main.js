@@ -194,178 +194,101 @@ document.addEventListener('DOMContentLoaded', () => {
     setLanguage(currentLang);
 
     (function () {
-        const APP_LABELS = ['YouTube', 'YT Music', 'Reddit'];
-        const HOLD_MS = 1800;
-        const CROSSFADE_MS = 820; // must match the slowest CSS transition (filter)
-        const PAUSE_BEFORE_FIRST = 1200;
+        const el = document.querySelector('.hero-morph-target');
+        if (!el) return;
 
-        let wrapEl = null;
-        let sizer = null;
-        let current = null;
-        let next = null;
-        let currentIndex = 0;
-        let running = false;
+        const APP_LABELS = ['YouTube', 'YT Music', 'Reddit'];
+        const HOLD_MS = 2200;
+        const OUT_MS = 520;
+        const PAUSE_BEFORE_FIRST = 1400;
+
+        const originalText = el.textContent;
+        let baseLabel = originalText;
         let timer = null;
-        let labels = [];
-        let cycleBegan = false;
+        let swapTimer = null;
+        let idx = 0;
+        let cycling = false;
 
         function getDefaultLabel() {
-            return getNestedKey(translations, 'hero.title-highlight') ||
-                (document.querySelector('.hero-morph-target')?.textContent || 'Android Apps');
+            return getNestedKey(translations, 'hero.title-highlight') || originalText;
         }
 
-        function buildLabels() {
-            return APP_LABELS.concat([getDefaultLabel()]);
+        function buildSteps() {
+            return APP_LABELS.concat([baseLabel]);
         }
 
-        function buildDom() {
-            const original = document.querySelector('.hero-morph-target');
-            if (!original) return false;
-            const baseText = original.textContent;
-
-            wrapEl = document.createElement('span');
-            wrapEl.className = 'hero-morph-wrap';
-
-            sizer = document.createElement('span');
-            sizer.className = 'hero-morph-sizer';
-            sizer.setAttribute('aria-hidden', 'true');
-            sizer.textContent = baseText;
-
-            current = document.createElement('span');
-            current.className = 'hero-morph-layer visible';
-            current.setAttribute('aria-live', 'polite');
-            current.textContent = baseText;
-
-            next = document.createElement('span');
-            next.className = 'hero-morph-layer hidden';
-            next.setAttribute('aria-hidden', 'true');
-
-            wrapEl.appendChild(sizer);
-            wrapEl.appendChild(current);
-            wrapEl.appendChild(next);
-            original.replaceWith(wrapEl);
-            return true;
+        function swapTo(text) {
+            clearTimeout(swapTimer);
+            el.classList.add('is-out');
+            swapTimer = setTimeout(() => {
+                el.textContent = text;
+                // Double rAF so the class removal reliably triggers the transition
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        el.classList.remove('is-out');
+                    });
+                });
+            }, OUT_MS);
         }
 
-        function ensureNextLayer() {
-            if (next || !wrapEl) return;
-            next = document.createElement('span');
-            next.className = 'hero-morph-layer hidden';
-            next.setAttribute('aria-hidden', 'true');
-            wrapEl.appendChild(next);
-        }
-
-        function crossfadeTo(index) {
-            if (!wrapEl || !current) return;
-            ensureNextLayer();
-            cycleBegan = true;
-            currentIndex = index;
-            const label = labels[index];
-
-            sizer.textContent = label;
-            next.textContent = label;
-            next.removeAttribute('aria-hidden');
-
-            requestAnimationFrame(() => requestAnimationFrame(() => {
-                current.classList.replace('visible', 'hidden');
-                next.classList.replace('hidden', 'visible');
-
-                setTimeout(() => {
-                    const swap = current;
-                    current = next;
-                    next = swap;
-
-                    next.style.transition = 'none';
-                    next.classList.replace('visible', 'hidden');
-                    next.textContent = '';
-                    next.setAttribute('aria-hidden', 'true');
-                    requestAnimationFrame(() => requestAnimationFrame(() => {
-                        next.style.transition = '';
-                    }));
-
-                    const nextIndex = index + 1;
-                    if (nextIndex < labels.length) {
-                        timer = setTimeout(() => crossfadeTo(nextIndex), HOLD_MS);
-                    } else {
-                        running = false;
-                    }
-                }, CROSSFADE_MS + 60);
-            }));
+        function start() {
+            stop();
+            idx = 0;
+            cycling = true;
+            const steps = buildSteps();
+            const tick = () => {
+                if (idx >= steps.length) {
+                    cycling = false;
+                    return;
+                }
+                swapTo(steps[idx]);
+                idx++;
+                timer = setTimeout(tick, HOLD_MS);
+            };
+            timer = setTimeout(tick, PAUSE_BEFORE_FIRST);
         }
 
         function stop() {
             clearTimeout(timer);
+            clearTimeout(swapTimer);
             timer = null;
-            running = false;
+            swapTimer = null;
+            cycling = false;
         }
 
-        function startCycle() {
-            if (running || !wrapEl) return;
-            const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-            if (mq.matches) return;
-            labels = buildLabels();
-            running = true;
-            timer = setTimeout(() => crossfadeTo(0), PAUSE_BEFORE_FIRST);
-        }
-
-        function restart() {
+        function reset() {
             stop();
-            if (!wrapEl) return;
-            // snap the visible layer back to the default label before replaying
-            const label = getDefaultLabel();
-            if (current) {
-                current.style.transition = 'none';
-                current.textContent = label;
-                current.classList.remove('hidden');
-                current.classList.add('visible');
-                requestAnimationFrame(() => requestAnimationFrame(() => {
-                    current.style.transition = '';
-                }));
-            }
-            if (sizer) sizer.textContent = label;
-            ensureNextLayer();
-            cycleBegan = false;
-            startCycle();
+            el.classList.remove('is-out');
+            el.textContent = baseLabel;
         }
 
-        function init() {
-            if (!wrapEl && !buildDom()) return;
-            startCycle();
-        }
+        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (!reduced.matches) start();
 
-        // Start immediately — the DOM already has the default label text.
-        // applyTranslations will later refresh it, and we refresh labels then too.
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', init, { once: true });
-        } else {
-            init();
-        }
-
-        // Refresh label when translations land or user switches language
         document.addEventListener('morphe:translations-applied', () => {
-            if (!wrapEl) return;
-            const label = getDefaultLabel();
-            if (sizer) sizer.textContent = label;
-            // Freely update the visible layer until the cycle's first swap
-            // starts; after that only touch it when the cycle is idle.
-            if (current && (!cycleBegan || !running)) {
-                current.textContent = label;
+            const newLabel = getDefaultLabel();
+            // Before the cycle has begun swapping, keep the visible text in
+            // sync with the translated default.
+            if (!cycling && idx === 0 && baseLabel !== newLabel) {
+                el.textContent = newLabel;
             }
-            // Keep the final step in the cycle in sync with the new locale.
-            if (labels.length) labels[labels.length - 1] = label;
+            baseLabel = newLabel;
         });
 
-        // Pause when hidden, restart from scratch when the tab returns
         document.addEventListener('visibilitychange', () => {
             if (document.hidden) {
                 stop();
-            } else {
-                restart();
+            } else if (!reduced.matches) {
+                reset();
+                start();
             }
         });
 
         window.addEventListener('pageshow', (e) => {
-            if (e.persisted) restart();
+            if (e.persisted && !reduced.matches) {
+                reset();
+                start();
+            }
         });
     })();
 
