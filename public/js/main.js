@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function buildSteps() {
-            return APP_LABELS.concat([baseLabel]);
+            return APP_LABELS;
         }
 
         function swapTo(text) {
@@ -237,11 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cycling = true;
             const steps = buildSteps();
             const tick = () => {
-                if (idx >= steps.length) {
-                    cycling = false;
-                    return;
-                }
-                swapTo(steps[idx]);
+                swapTo(steps[idx % steps.length]);
                 idx++;
                 timer = setTimeout(tick, HOLD_MS);
             };
