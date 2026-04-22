@@ -595,61 +595,30 @@ button {
 @keyframes pageEnter {
   from {
     opacity: 0;
-    transform: scale(0.985) translateY(8px);
   }
   to {
     opacity: 1;
-    transform: none;
   }
 }
 body {
   animation: pageEnter 0.45s var(--md-ease-decel) both;
 }
 
-.hero-morph-wrap {
+.hero-morph-target {
   display: inline-block;
-  position: relative;
-  vertical-align: baseline;
-  padding-bottom: 0.2em;
-  margin-bottom: -0.2em;
-  overflow: visible;
-  color: var(--md-primary);
-}
-.hero-morph-sizer {
-  display: inline-block;
-  white-space: nowrap;
-  visibility: hidden;
-  pointer-events: none;
-  padding-bottom: 0.2em;
-}
-.hero-morph-layer {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  white-space: nowrap;
-  padding-bottom: 0.2em;
-  color: var(--md-primary);
-  /* opacity fades faster than blur so the motion blur is clearly
-     visible even while the layer is already mostly opaque */
   transition:
-    opacity 420ms cubic-bezier(0.4, 0, 0.2, 1),
-    filter 820ms cubic-bezier(0.2, 0, 0.2, 1),
-    transform 820ms cubic-bezier(0.2, 0, 0.2, 1);
+    opacity 440ms cubic-bezier(0.4, 0, 0.2, 1),
+    filter 520ms cubic-bezier(0.2, 0, 0.2, 1),
+    transform 520ms cubic-bezier(0.2, 0, 0.2, 1);
   will-change: opacity, filter, transform;
 }
-.hero-morph-layer.visible {
-  opacity: 1;
-  filter: blur(0px);
-  transform: translate(-50%, 0) scale(1);
-}
-.hero-morph-layer.hidden {
+.hero-morph-target.is-out {
   opacity: 0;
-  filter: blur(32px);
-  transform: translate(-50%, 14px) scale(0.88);
-  pointer-events: none;
+  filter: blur(24px);
+  transform: translateY(-14px) scale(0.92);
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-morph-layer {
+  .hero-morph-target {
     transition: none;
   }
 }
@@ -1129,7 +1098,7 @@ body {
 }
 .faq-item {
   background: var(--md-surface-container-low);
-  border-radius: 4px;
+  border-radius: 6px;
   border-bottom: none;
   overflow: hidden;
   transition: background-color 0.3s var(--md-ease);
@@ -1197,6 +1166,97 @@ body {
   color: var(--md-primary);
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+/* Get involved (MicroG + Translate CTAs) */
+.involve-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.involve-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 36px;
+  border-radius: var(--md-shape-xl);
+  background: var(--md-surface-container-low);
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  transition:
+    transform 0.3s var(--md-ease),
+    box-shadow 0.3s var(--md-ease);
+}
+.involve-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--md-primary);
+  opacity: 0;
+  transition: opacity 0.3s var(--md-ease);
+  pointer-events: none;
+}
+.involve-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--md-elevation-2);
+}
+.involve-card:hover::before {
+  opacity: 0.04;
+}
+.involve-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--md-shape-lg);
+  background: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+.involve-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--md-on-surface);
+  position: relative;
+  z-index: 1;
+}
+.involve-desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--md-on-surface-variant);
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+.involve-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 4px;
+  font-weight: 600;
+  color: var(--md-primary);
+  position: relative;
+  z-index: 1;
+  transition: gap 0.2s var(--md-ease);
+}
+.involve-card:hover .involve-cta {
+  gap: 10px;
+}
+@media (max-width: 720px) {
+  .involve-grid {
+    grid-template-columns: 1fr;
+  }
+  .involve-card {
+    padding: 28px;
+  }
 }
 
 /* Community */
