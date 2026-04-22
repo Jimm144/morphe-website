@@ -198,9 +198,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!el) return;
 
         const APP_LABELS = ['YouTube', 'YT Music', 'Reddit'];
-        const HOLD_MS = 2200;
-        const OUT_MS = 520;
-        const PAUSE_BEFORE_FIRST = 1400;
+        const HOLD_MS = 3400;
+        const OUT_MS = 820;
+        const PAUSE_BEFORE_FIRST = 2000;
 
         const originalText = el.textContent;
         let baseLabel = originalText;
