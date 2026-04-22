@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function buildSteps() {
-            return APP_LABELS;
+            return APP_LABELS.concat([baseLabel]);
         }
 
         function swapTo(text) {
