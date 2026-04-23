@@ -21,7 +21,9 @@ const BASE_LOCALE = 'en';
 // Keys whose values are intentionally identical across all locales (e.g. brand names).
 // Excluded from "untranslated" warnings in completeness check.
 const SKIP_KEYS = new Set([
-  'changelog.badge-dev',
+  'hero.title-highlight-youtube',
+  'hero.title-highlight-ytmusic',
+  'hero.title-highlight-reddit',
 ]);
 
 /**
