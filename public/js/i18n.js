@@ -1,5 +1,5 @@
 // i18n System for Morphe - Loads translations from JSON files
-(function () {
+(function() {
     'use strict';
 
     const I18N_KEY = 'morphe-language';
@@ -35,14 +35,12 @@
                 // Remove loading class to show content
                 document.documentElement.classList.remove('i18n-loading');
 
-                window.dispatchEvent(
-                    new CustomEvent('i18nReady', {
-                        detail: {
-                            lang: this.currentLang,
-                            hasTestimonials: !!this.translations.testimonials
-                        }
-                    })
-                );
+                window.dispatchEvent(new CustomEvent('i18nReady', {
+                    detail: {
+                        lang: this.currentLang,
+                        hasTestimonials: !!this.translations.testimonials
+                    }
+                }));
             } catch (error) {
                 console.error('Failed to initialize i18n:', error);
                 // Show content even if i18n fails
@@ -58,16 +56,15 @@
                 const response = await fetch(LOCALES_CONFIG_PATH);
 
                 if (!response.ok) {
-                    throw new Error(
-                        `Failed to load locales configuration: ${response.status} ${response.statusText}`
-                    );
+                    throw new Error(`Failed to load locales configuration: ${response.status} ${response.statusText}`);
                 }
 
                 const config = await response.json();
                 DEFAULT_LANGUAGE = config.default;
                 SUPPORTED_LOCALES = config.supported;
-                this.supportedLanguages = SUPPORTED_LOCALES.map((l) => l.code);
+                this.supportedLanguages = SUPPORTED_LOCALES.map(l => l.code);
                 this.configLoaded = true;
+
             } catch (error) {
                 console.error('Error loading locales configuration:', error);
                 // Fallback to minimal configuration
@@ -104,8 +101,8 @@
             const browserLangBase = browserLangFull.split('-')[0]; // e.g., "pt"
 
             // Try to find a regional variant
-            const regionalVariant = this.supportedLanguages.find((lang) =>
-                lang.startsWith(browserLangBase + '-')
+            const regionalVariant = this.supportedLanguages.find(
+                lang => lang.startsWith(browserLangBase + '-')
             );
             if (regionalVariant) {
                 return regionalVariant;
@@ -176,14 +173,12 @@
                 window.reloadTestimonials();
             }
 
-            window.dispatchEvent(
-                new CustomEvent('i18nLanguageChanged', {
-                    detail: {
-                        lang: this.currentLang,
-                        hasTestimonials: !!this.translations.testimonials
-                    }
-                })
-            );
+            window.dispatchEvent(new CustomEvent('i18nLanguageChanged', {
+                detail: {
+                    lang: this.currentLang,
+                    hasTestimonials: !!this.translations.testimonials
+                }
+            }));
         }
 
         translate(key) {
@@ -204,7 +199,7 @@
 
         applyTranslations() {
             // Translate all elements with data-i18n attribute
-            document.querySelectorAll('[data-i18n]').forEach((element) => {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 const translation = this.translate(key);
 
@@ -217,13 +212,13 @@
             });
 
             // Translate elements with data-i18n-html for HTML content
-            document.querySelectorAll('[data-i18n-html]').forEach((element) => {
+            document.querySelectorAll('[data-i18n-html]').forEach(element => {
                 const key = element.getAttribute('data-i18n-html');
                 element.innerHTML = this.translate(key);
             });
 
             // Translate elements with data-i18n-link: replaces %s in translation with a link
-            document.querySelectorAll('[data-i18n-link]').forEach((element) => {
+            document.querySelectorAll('[data-i18n-link]').forEach(element => {
                 const key = element.getAttribute('data-i18n-link');
                 const href = element.getAttribute('data-i18n-link-href') || '#';
                 const linkText = element.getAttribute('data-i18n-link-text') || href;
@@ -250,7 +245,7 @@
             // Translate elements with data-i18n-links: replaces %1, %2, ... with multiple links
             // data-i18n-links is a JSON array: [{ href, text, attrs }, ...]
             // Link text can be overridden per-locale via translation keys: {key}-link1, {key}-link2, ...
-            document.querySelectorAll('[data-i18n-links]').forEach((element) => {
+            document.querySelectorAll('[data-i18n-links]').forEach(element => {
                 const key = element.getAttribute('data-i18n-links');
                 let translation = this.translate(key);
 
@@ -261,10 +256,9 @@
                         // Check for translated link text via {key}-link1, {key}-link2, ...
                         const textKey = `${key}-link${index + 1}`;
                         const translatedText = this.translate(textKey);
-                        const linkText =
-                            translatedText && translatedText !== textKey
-                                ? translatedText
-                                : link.text;
+                        const linkText = (translatedText && translatedText !== textKey)
+                            ? translatedText
+                            : link.text;
                         let extraAttrs = '';
                         if (link.attrs) {
                             extraAttrs = Object.entries(link.attrs)
@@ -282,31 +276,31 @@
             });
 
             // Translate placeholders
-            document.querySelectorAll('[data-i18n-placeholder]').forEach((element) => {
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
                 const key = element.getAttribute('data-i18n-placeholder');
                 element.placeholder = this.translate(key);
             });
 
             // Translate aria-labels
-            document.querySelectorAll('[data-i18n-aria]').forEach((element) => {
+            document.querySelectorAll('[data-i18n-aria]').forEach(element => {
                 const key = element.getAttribute('data-i18n-aria');
                 element.setAttribute('aria-label', this.translate(key));
             });
 
             // Translate titles
-            document.querySelectorAll('[data-i18n-title]').forEach((element) => {
+            document.querySelectorAll('[data-i18n-title]').forEach(element => {
                 const key = element.getAttribute('data-i18n-title');
                 element.title = this.translate(key);
             });
 
             // Update lang-label spans in all dropdowns (footer trigger)
-            const locale = SUPPORTED_LOCALES.find((l) => l.code === this.currentLang);
-            document.querySelectorAll('.lang-label').forEach((el) => {
+            const locale = SUPPORTED_LOCALES.find(l => l.code === this.currentLang);
+            document.querySelectorAll('.lang-label').forEach(el => {
                 if (locale) el.textContent = locale.name;
             });
 
             // Update selected state in all lang-menu-items
-            document.querySelectorAll('.lang-menu-item').forEach((el) => {
+            document.querySelectorAll('.lang-menu-item').forEach(el => {
                 el.classList.toggle('selected', el.getAttribute('data-code') === this.currentLang);
             });
 
@@ -323,10 +317,8 @@
 
         // Close all open lang menus
         closeAllMenus() {
-            document.querySelectorAll('.lang-menu').forEach((m) => m.classList.remove('open'));
-            document
-                .querySelectorAll('.lang-trigger, .lang-trigger-compact')
-                .forEach((t) => t.classList.remove('open'));
+            document.querySelectorAll('.lang-menu').forEach(m => m.classList.remove('open'));
+            document.querySelectorAll('.lang-trigger, .lang-trigger-compact').forEach(t => t.classList.remove('open'));
         }
 
         // Build and wire up a language dropdown pair
@@ -338,17 +330,14 @@
             const scroll = document.createElement('div');
             scroll.className = 'lang-menu-scroll';
 
-            SUPPORTED_LOCALES.forEach((locale) => {
+            SUPPORTED_LOCALES.forEach(locale => {
                 const btn = document.createElement('button');
                 btn.type = 'button';
-                btn.className =
-                    'lang-menu-item' + (locale.code === this.currentLang ? ' selected' : '');
+                btn.className = 'lang-menu-item' + (locale.code === this.currentLang ? ' selected' : '');
                 btn.setAttribute('data-code', locale.code);
                 btn.innerHTML =
                     '<span class="material-symbols-rounded check-mark">check</span>' +
-                    '<span class="lang-name">' +
-                    locale.name +
-                    '</span>';
+                    '<span class="lang-name">' + locale.name + '</span>';
                 btn.addEventListener('click', (e) => {
                     e.preventDefault();
                     e.stopPropagation();
@@ -382,10 +371,10 @@
 
                 // Prefer opening upward since trigger is at the bottom of the page
                 if (spaceAbove > menuHeight || spaceAbove > spaceBelow) {
-                    menu.style.bottom = window.innerHeight - rect.top + 6 + 'px';
+                    menu.style.bottom = (window.innerHeight - rect.top + 6) + 'px';
                     menu.style.top = 'auto';
                 } else {
-                    menu.style.top = rect.bottom + 6 + 'px';
+                    menu.style.top = (rect.bottom + 6) + 'px';
                     menu.style.bottom = 'auto';
                 }
                 // Align left edge with trigger, but keep inside viewport
@@ -413,13 +402,9 @@
                 window.addEventListener('resize', () => {
                     if (menu.classList.contains('open')) positionMenu();
                 });
-                window.addEventListener(
-                    'scroll',
-                    () => {
-                        if (menu.classList.contains('open')) positionMenu();
-                    },
-                    { passive: true }
-                );
+                window.addEventListener('scroll', () => {
+                    if (menu.classList.contains('open')) positionMenu();
+                }, { passive: true });
             }
         }
 
@@ -452,7 +437,7 @@
 
             // Simple string interpolation
             if (params && typeof translation === 'string') {
-                Object.keys(params).forEach((param) => {
+                Object.keys(params).forEach(param => {
                     translation = translation.replace(
                         new RegExp(`{{${param}}}`, 'g'),
                         params[param]
@@ -474,7 +459,7 @@
          * Get current language name
          */
         getCurrentLanguageName() {
-            const locale = SUPPORTED_LOCALES.find((l) => l.code === this.currentLang);
+            const locale = SUPPORTED_LOCALES.find(l => l.code === this.currentLang);
             return locale ? locale.name : this.currentLang;
         }
 
