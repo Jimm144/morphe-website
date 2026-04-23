@@ -43,7 +43,7 @@
   "microg": {
     "title": "MicroG",
     "description": "MicroG is required for Google account login and push notifications on Morphe apps.",
-    "download": "Get MicroG",
+    "download": "Download MicroG",
     "what-title": "What is MicroG?",
     "feature1-title": "Google Login",
     "feature1-desc": "Sign in to your account securely and access all your subscriptions, playlists, and history.",
@@ -56,11 +56,13 @@
     "home": "Home",
     "how-it-works": "How It Works",
     "testimonials": "Testimonials",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "features": "Features",
+    "microg": "Download MicroG"
   },
   "hero": {
     "title": "Transform Your",
-    "title-highlight": "Android Experiences",
+    "title-highlight": "Android Experience",
     "description": "From the developers that brought you the greatest modded YouTube apps, comes Morphe - the powerful app modification tool that puts you in control",
     "download": "Download Morphe",
     "learn-more": "Learn more",

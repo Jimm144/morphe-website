@@ -98,7 +98,27 @@ document.addEventListener('DOMContentLoaded', () => {
             const linkHtml = '<a href="' + href + '" ' + extraAttrs + '>' + linkText + '</a>';
             el.innerHTML = val.replace('%s', linkHtml);
         });
+        populateTestimonials();
         document.dispatchEvent(new CustomEvent('morphe:translations-applied'));
+    }
+
+    function populateTestimonials() {
+        const section = translations && translations.testimonials;
+        if (!section) return;
+        const cards = document.querySelectorAll('#testiTrack .testi-card');
+        if (!cards.length) return;
+        cards.forEach((card, i) => {
+            const q = section['quote_' + (i + 1)];
+            if (!q || typeof q !== 'object') return;
+            const quote = card.querySelector('.testi-quote');
+            const name = card.querySelector('.testi-name');
+            const role = card.querySelector('.testi-role');
+            const avatar = card.querySelector('.testi-avatar');
+            if (quote && q.text) quote.textContent = q.text;
+            if (name && q.author) name.textContent = q.author;
+            if (role && q.role) role.textContent = q.role;
+            if (avatar && q.author) avatar.textContent = q.author.charAt(0).toUpperCase();
+        });
     }
 
     function setLanguage(lang) {
@@ -115,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         fetch(
-            'https://raw.githubusercontent.com/MorpheApp/morphe-website/main/public/locales/' +
+            'locales/' +
                 lang +
                 '.json'
         )
@@ -237,7 +257,11 @@ document.addEventListener('DOMContentLoaded', () => {
             cycling = true;
             const steps = buildSteps();
             const tick = () => {
-                swapTo(steps[idx % steps.length]);
+                if (idx >= steps.length) {
+                    cycling = false;
+                    return;
+                }
+                swapTo(steps[idx]);
                 idx++;
                 timer = setTimeout(tick, HOLD_MS);
             };
@@ -313,11 +337,22 @@ document.addEventListener('DOMContentLoaded', () => {
         themeBtn.addEventListener('click', () => {
             let current = getTheme();
             let next = current === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', next);
-            localStorage.setItem('morphe-theme', next);
-            updateThemeIcon(next);
+            themeBtn.classList.add('theme-swap');
+            setTimeout(() => {
+                document.documentElement.setAttribute('data-theme', next);
+                localStorage.setItem('morphe-theme', next);
+                updateThemeIcon(next);
+                themeBtn.classList.remove('theme-swap');
+            }, 180);
+            themeBtn.blur();
         });
     }
+
+    document.querySelectorAll('.nav-link, .drawer-link, .icon-btn').forEach((el) => {
+        el.addEventListener('click', () => {
+            setTimeout(() => el.blur(), 0);
+        });
+    });
 
     let topBar = document.getElementById('topBar');
     let fab = document.getElementById('fab');
