@@ -246,6 +246,10 @@ button {
   color: var(--md-primary);
   font-weight: 600;
 }
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none;
+}
 .icon-btn {
   width: 44px;
   height: 44px;
@@ -278,6 +282,16 @@ button {
 }
 #menuIconToggle {
   transition: transform 0.3s var(--md-ease);
+}
+#themeIcon {
+  transition:
+    transform 0.5s var(--md-ease),
+    opacity 0.25s var(--md-ease);
+  display: inline-block;
+}
+.theme-swap #themeIcon {
+  transform: rotate(360deg) scale(0.8);
+  opacity: 0.3;
 }
 
 .lang-bar-desktop {
@@ -887,6 +901,9 @@ body {
   gap: 24px;
   position: relative;
 }
+.steps-grid.steps-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
 .steps-grid::before {
   content: "";
   position: absolute;
@@ -896,6 +913,16 @@ body {
   height: 2px;
   background: var(--md-outline-variant);
   z-index: 0;
+}
+@media (max-width: 768px) {
+  .steps-grid,
+  .steps-grid.steps-3 {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .steps-grid::before {
+    display: none;
+  }
 }
 .step-card {
   display: flex;
