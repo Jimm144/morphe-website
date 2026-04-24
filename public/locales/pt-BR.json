@@ -6,15 +6,12 @@
     "faq": "FAQ"
   },
   "hero": {
-    "title": "Transforme sua",
-    "title-highlight": "experiência Android",
+    "title": "Transforme seus",
+    "title-highlight": "Apps Android",
     "description": "Dos desenvolvedores dos melhores apps modificados do YouTube, chega o Morphe — a poderosa ferramenta de modificação de aplicativos que coloca você no controle",
     "download": "Baixar Morphe",
     "learn-more": "Saiba mais",
-    "social-label": "Junte-se à comunidade",
-    "title-highlight-youtube": "YouTube",
-    "title-highlight-ytmusic": "YT Music",
-    "title-highlight-reddit": "Reddit"
+    "social-label": "Junte-se à comunidade"
   },
   "how-it-works": {
     "title": "Como o Morphe funciona",
@@ -245,7 +242,8 @@
     "show-dev": "Mostrar pré-lançamentos",
     "older-releases": "Procurando versões antigas?",
     "view-manager": "Ver versões do Manager",
-    "view-patches": "Ver versões de Patches"
+    "view-patches": "Ver versões de Patches",
+    "badge-dev": "Dev"
   },
   "app-features": {
     "title": "Funcionalidades do App",

@@ -95,11 +95,6 @@
       "code": "zh-CN",
       "name": "中文 (简体)",
       "region": "CN"
-    },
-    {
-      "code": "zh-TW",
-      "name": "中文 (繁體)",
-      "region": "TW"
     }
   ]
 }

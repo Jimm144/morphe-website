@@ -3,10 +3,30 @@
 // AUTO-GENERATED - DO NOT EDIT MANUALLY
 // Run 'npm run generate-i18n-keys' to update this file
 
-(function() {
+(function () {
     'use strict';
 
-    const SUPPORTED_LOCALES = ['en', 'cs-CZ', 'de-DE', 'es-ES', 'fr-FR', 'it-IT', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ru-RU', 'sk-SK', 'vi-VN', 'tr-TR', 'uk-UA', 'ar', 'ja-JP', 'ko-KR', 'zh-CN', 'zh-TW'];
+    const SUPPORTED_LOCALES = [
+        'en',
+        'cs-CZ',
+        'de-DE',
+        'es-ES',
+        'fr-FR',
+        'it-IT',
+        'nl-NL',
+        'pl-PL',
+        'pt-BR',
+        'pt-PT',
+        'ru-RU',
+        'sk-SK',
+        'vi-VN',
+        'tr-TR',
+        'uk-UA',
+        'ar',
+        'ja-JP',
+        'ko-KR',
+        'zh-CN'
+    ];
 
     const STORAGE_KEY = 'morphe-language';
 
@@ -25,7 +45,7 @@
                 lang = browserLang;
             } else {
                 const base = browserLang.split('-')[0];
-                const regional = SUPPORTED_LOCALES.find(l => l.startsWith(base + '-'));
+                const regional = SUPPORTED_LOCALES.find((l) => l.startsWith(base + '-'));
 
                 if (regional) {
                     lang = regional;
@@ -45,7 +65,6 @@
 
         // Hide content until i18n loads
         document.documentElement.classList.add('i18n-loading');
-
     } catch (e) {
         console.error('Language preload failed:', e);
     }

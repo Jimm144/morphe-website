@@ -1,74 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add Source - Morphe</title>
     <script src="js/theme-preload.js"></script>
     <script src="js/lang-preload.js"></script>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/dark-theme.css">
-    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96"/>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
-    <link rel="icon" href="favicon.ico"/>
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
-</head>
-<body class="add-source-page">
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/dark-theme.css" />
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  </head>
+  <body class="add-source-page">
+    <!-- Android state -->
+    <div class="container state" id="state-android">
+      <img id="source-icon" class="icon-circle" src="" alt="Source Icon" />
+      <h1 data-i18n="add-source.title">Add patch source</h1>
+      <p class="hero-description" data-i18n="add-source.subtitle">
+        Do you want to add this patch source to Morphe?
+      </p>
 
-<!-- Android state -->
-<div class="container state" id="state-android">
-    <img id="source-icon" class="icon-circle" src="" alt="Source Icon">
-    <h1 data-i18n="add-source.title">Add patch source</h1>
-    <p class="hero-description" data-i18n="add-source.subtitle">Do you want to add this patch source to Morphe?</p>
-
-    <div class="source-card">
-        <div class="source-card__label" id="source-label" data-i18n="add-source.source-label">Source</div>
+      <div class="source-card">
+        <div
+          class="source-card__label"
+          id="source-label"
+          data-i18n="add-source.source-label"
+        >
+          Source
+        </div>
         <div class="source-card__name" id="source-name"></div>
         <div class="source-card__url" id="source-url"></div>
-    </div>
+      </div>
 
-    <div class="warning-box">
+      <div class="warning-box">
         <span class="material-symbols-rounded">warning</span>
-        <span class="warning-box__text" data-i18n="add-source.warning">Only add sources from authors you trust. Patch sources can modify your apps</span>
-    </div>
+        <span class="warning-box__text" data-i18n="add-source.warning"
+          >Only add sources from authors you trust. Patch sources can modify
+          your apps</span
+        >
+      </div>
 
-    <a href="#" class="btn btn-primary" id="btn-open">
+      <a href="#" class="btn btn-primary" id="btn-open">
         <span class="material-symbols-rounded">open_in_new</span>
         <span data-i18n="add-source.open-btn">Open in Morphe</span>
-    </a>
-    <a href="index.html" class="btn btn-secondary" data-i18n="add-source.back-home">Back to Homepage</a>
-</div>
+      </a>
+      <a href="index.html" class="btn btn-secondary" data-i18n="add-source.back-home"
+        >Back to Homepage</a
+      >
+    </div>
 
-<!-- Success state -->
-<div class="container state" id="state-success">
-    <div class="icon-circle icon-circle--success">
+    <!-- Success state -->
+    <div class="container state" id="state-success">
+      <div class="icon-circle icon-circle--success">
         <span class="material-symbols-rounded">check</span>
+      </div>
+      <h1 data-i18n="add-source.success-title">Opening Morphe…</h1>
+      <p class="hero-description" data-i18n="add-source.success-subtitle">
+        The source is being added. You can close this page
+      </p>
+      <a href="index.html" class="btn btn-secondary" data-i18n="add-source.back-home"
+        >Back to homepage</a
+      >
     </div>
-    <h1 data-i18n="add-source.success-title">Opening Morphe…</h1>
-    <p class="hero-description" data-i18n="add-source.success-subtitle">The source is being added. You can close this page</p>
-    <a href="index.html" class="btn btn-secondary" data-i18n="add-source.back-home">Back to homepage</a>
-</div>
 
-<!-- Desktop state -->
-<div class="container state" id="state-desktop">
-    <div class="desktop-emoji">📱</div>
-    <h1 data-i18n="add-source.desktop-title">Open on Android</h1>
-    <p class="hero-description" data-i18n="add-source.desktop-subtitle">This link adds a patch source to Morphe, which requires an Android device</p>
+    <!-- Desktop state -->
+    <div class="container state" id="state-desktop">
+      <div class="desktop-emoji">📱</div>
+      <h1 data-i18n="add-source.desktop-title">Open on Android</h1>
+      <p class="hero-description" data-i18n="add-source.desktop-subtitle">
+        This link adds a patch source to Morphe, which requires an Android
+        device
+      </p>
 
-    <div class="steps-card">
+      <div class="steps-card">
         <ol>
-            <li data-i18n-html="add-source.desktop-step1">Install <a href="index.html">Morphe</a> on your Android device</li>
-            <li data-i18n="add-source.desktop-step2">Open this link on your Android device</li>
-            <li data-i18n-html="add-source.desktop-step3">Tap <strong>Open in Morphe</strong></li>
+          <li data-i18n-html="add-source.desktop-step1">
+            Install <a href="index.html">Morphe</a> on your Android device
+          </li>
+          <li data-i18n="add-source.desktop-step2">
+            Open this link on your Android device
+          </li>
+          <li data-i18n-html="add-source.desktop-step3">
+            Tap <strong>Open in Morphe</strong>
+          </li>
         </ol>
+      </div>
+
+      <a href="index.html" class="btn btn-primary" data-i18n="error.go-home"
+        >Go to homepage</a
+      >
     </div>
 
-    <a href="index.html" class="btn btn-primary" data-i18n="error.go-home">Go to homepage</a>
-</div>
-
-<script src="js/i18n.js"></script>
-<script src="js/add-source.js"></script>
-<script src="js/theme-manager.js"></script>
-<script src="js/analytics.js"></script>
-</body>
+    <script src="js/i18n.js"></script>
+    <script src="js/add-source.js"></script>
+    <script src="js/theme-manager.js"></script>
+    <script src="js/analytics.js"></script>
+  </body>
 </html>

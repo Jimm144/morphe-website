@@ -6,15 +6,12 @@
     "faq": "SSS"
   },
   "hero": {
-    "title": "Dönüştür",
-    "title-highlight": "Android deneyimini",
+    "title": "Android",
+    "title-highlight": "Uygulamalarını Dönüştür",
     "description": "En iyi modlu YouTube uygulamalarının geliştiricilerinden Morphe geliyor — kontrolü elinize veren güçlü uygulama düzenleme aracı",
     "download": "Morphe İndir",
     "learn-more": "Daha Fazla Bilgi",
-    "social-label": "Topluluğa Katıl",
-    "title-highlight-youtube": "YouTube",
-    "title-highlight-ytmusic": "YT Music",
-    "title-highlight-reddit": "Reddit"
+    "social-label": "Topluluğa Katıl"
   },
   "how-it-works": {
     "title": "Morphe Nasıl Çalışır",
@@ -245,7 +242,8 @@
     "show-dev": "Ön sürümleri göster",
     "older-releases": "Eski sürümleri mi arıyorsunuz?",
     "view-manager": "Manager sürümlerini görüntüle",
-    "view-patches": "Yamalar sürümlerini görüntüle"
+    "view-patches": "Yamalar sürümlerini görüntüle",
+    "badge-dev": "Dev"
   },
   "app-features": {
     "title": "Uygulama Özellikleri",

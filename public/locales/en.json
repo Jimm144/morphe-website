@@ -4,7 +4,7 @@
     "product-microg": "Download MicroG",
     "support-donate": "Donate",
     "product-changelog": "What's New",
-    "description": "Next generation Android app patching",
+    "description": "A community fork of Morphe — next generation Android app patching",
     "product": "Product",
     "product-translate": "Help translate",
     "community": "Community",
@@ -41,32 +41,31 @@
     "disclaimer": "Morphe does not add analytics or data collection to any patched apps."
   },
   "microg": {
-    "title": "Download",
-    "description": "MicroG is required to use YouTube Morphe and YT Music Morphe",
+    "title": "MicroG",
+    "description": "MicroG is required for Google account login and push notifications on Morphe apps.",
     "download": "Download MicroG",
     "what-title": "What is MicroG?",
-    "feature1-title": "Google Services",
-    "feature1-desc": "MicroG provides Google Play Services support, enabling the use of your Google account with YouTube Morphe and YT Music Morphe.",
-    "feature2-title": "Privacy Focused",
-    "feature2-desc": "MicroG is an open-source reimplementation of Google services that respects your privacy while providing essential functionality.",
-    "feature3-title": "One-Time Install",
-    "feature3-desc": "Install MicroG once and it works with all your Morphe apps. No need to reinstall when updating YouTube Morphe and YT Music Morphe."
+    "feature1-title": "Google Login",
+    "feature1-desc": "Sign in to your account securely and access all your subscriptions, playlists, and history.",
+    "feature2-title": "Notifications",
+    "feature2-desc": "Get reliable push notifications and stay updated with your favorite creators.",
+    "feature3-title": "Privacy Focused",
+    "feature3-desc": "An open-source reimplementation of Google services that respects your privacy."
   },
   "nav": {
     "home": "Home",
     "how-it-works": "How It Works",
     "testimonials": "Testimonials",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "features": "Features",
+    "microg": "Download MicroG"
   },
   "hero": {
-    "title": "Transform Your",
-    "title-highlight": "Android Experience",
-    "title-highlight-youtube": "YouTube",
-    "title-highlight-ytmusic": "YT Music",
-    "title-highlight-reddit": "Reddit",
-    "description": "From the developers that brought you the greatest modded YouTube apps, comes Morphe - the powerful app modification tool that puts you in control",
-    "download": "Download Morphe",
-    "learn-more": "Learn More",
+    "title": "Supercharge Your",
+    "title-highlight": "Android Apps",
+    "description": "A community-maintained fork of Morphe — the same powerful patching toolkit for YouTube, YT Music and Reddit, with an independent release cadence and opinionated UX tweaks.",
+    "download": "Get the APK",
+    "learn-more": "See how it works",
     "social-label": "Join the Community"
   },
   "app-features": {
@@ -280,6 +279,7 @@
     "tier2-desc": "Become a recurring supporter and help us plan for the long term. Your name appears on our backers list.",
     "tier3-name": "Mega Supporter",
     "tier3-desc": "Get your logo or name prominently featured in the Mega Supporters section on the Morphe website.",
+    "morphin-time": "It's morphin time",
     "tier-contribute": "Contribute",
     "per-month": "/mo",
     "tier-popular": "Popular",
@@ -300,7 +300,8 @@
     "show-dev": "Show pre-releases",
     "older-releases": "Looking for older releases?",
     "view-manager": "View Manager Releases",
-    "view-patches": "View Patches Releases"
+    "view-patches": "View Patches Releases",
+    "badge-dev": "Dev"
   },
   "add-source": {
     "title": "Add patch source",

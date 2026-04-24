@@ -1,611 +1,1245 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Download the official Morphe APK.
-    Created by former ReVanced contributors to patch YouTube, YouTube Music, and Reddit
-    with ad-blocking and custom features.">
-    <title>Morphe App for YouTube and Reddit - OFFICIAL SITE</title>
-    <!-- Theme preloader -->
-    <script src="js/theme-preload.js"></script>
-    <!-- Language preloader -->
-    <script src="js/lang-preload.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/dark-theme.css">
-    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96"/>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
-    <link rel="icon" href="favicon.ico"/>
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
-    <meta name="apple-mobile-web-app-title" content="Morphe"/>
-    <link rel="manifest" href="site.webmanifest"/>
-    <script src="js/analytics.js"></script>
-</head>
-<body>
-<!-- Navigation -->
-<nav class="navbar">
-    <div class="nav-container">
-        <a href="#home" class="nav-logo">
-            <img src="images/morphe_wordmark_light.svg" alt="Morphe" class="nav-logo-wordmark logo-light">
-            <img src="images/morphe_wordmark_dark.svg" alt="Morphe" class="nav-logo-wordmark logo-dark">
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Morphe - Next generation Android app patching. Enjoy an ad-free, enhanced experience on your favorite apps."
+    />
+    <title>Morphe+ — Community Fork</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="top-app-bar" id="topBar">
+      <div class="bar-content">
+        <a href="#home" class="header-brand">
+          <img
+            src="images/morphe_wordmark_light.svg"
+            alt="Morphe"
+            class="brand-icon logo-light"
+          />
+          <img
+            src="images/morphe_wordmark_dark.svg"
+            alt="Morphe"
+            class="brand-icon logo-dark"
+          />
         </a>
-        <div class="nav-links">
-            <a href="#home" class="nav-link active" data-i18n="nav.home" data-umami-event="Nav Home Click">Home</a>
-            <a href="#how-it-works" class="nav-link" data-i18n="nav.how-it-works" data-umami-event="Nav How It Works Click">How It Works</a>
-            <a href="#faq" class="nav-link" data-i18n="nav.faq" data-umami-event="Nav FAQ Click">FAQ</a>
-            <a href="#features" class="nav-link" data-i18n="app-features.title" data-umami-event="Nav Features Click">Features</a>
-            <a href="#testimonials" class="nav-link" data-i18n="nav.testimonials" data-umami-event="Nav Testimonials Click">Testimonials</a>
-            <a href="donate.html" class="nav-link" data-i18n="footer.support-donate" data-umami-event="Nav Donate Click">Donate</a>
-            <a href="changelog.html" class="nav-link" data-i18n="footer.product-changelog" data-umami-event="Nav What's New Click">What's New</a>
-        
-        </div>
-        <div class="nav-actions">
+        <nav class="nav-desktop">
+          <a href="#home" class="nav-link active" data-i18n="nav.home">Home</a>
+          <a href="#how-it-works" class="nav-link" data-i18n="nav.how-it-works"
+            >How It Works</a
+          >
+          <a href="#faq" class="nav-link" data-i18n="nav.faq">FAQ</a>
+          <a href="#features" class="nav-link" data-i18n="nav.features"
+            >Features</a
+          >
+          <a href="#testimonials" class="nav-link" data-i18n="nav.testimonials"
+            >Testimonials</a
+          >
+          <a href="donate.html" class="nav-link" data-i18n="footer.support-donate"
+            >Donate</a
+          >
+          <a
+            href="changelog.html"
+            class="nav-link"
+            data-i18n="footer.product-changelog"
+            >What's New</a
+          >
+        </nav>
+        <div class="right-actions">
+          <span class="lang-bar-desktop">
             <div class="lang-dropdown" id="langDropdownBar">
-                <button class="lang-trigger-compact" id="langTriggerBar" type="button" aria-label="Change language">
-                    <span class="material-symbols-rounded">translate</span>
-                </button>
-                <div class="lang-menu" id="langMenuBar" role="listbox"></div>
+              <button
+                class="lang-trigger-compact"
+                id="langTriggerBar"
+                type="button"
+              >
+                <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/translate.svg) no-repeat center; mask: url(icons/translate.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="translate"></span>
+              </button>
+              <div class="lang-menu" id="langMenuBar" role="listbox"></div>
             </div>
-            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" data-umami-event="Theme Toggle Click">
-                <span class="material-symbols-rounded theme-icon" id="theme-icon-sun">light_mode</span>
-                <span class="material-symbols-rounded theme-icon hidden" id="theme-icon-moon">dark_mode</span>
-            </button>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu" data-umami-event="Mobile Menu Toggle">
-                <span class="material-symbols-rounded">menu</span>
-            </button>
+          </span>
+          <span class="lang-bar-mobile">
+            <div class="lang-dropdown" id="langDropdownMobile">
+              <button
+                class="lang-trigger-compact"
+                id="langTriggerMobile"
+                type="button"
+              >
+                <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/translate.svg) no-repeat center; mask: url(icons/translate.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="translate"></span>
+              </button>
+              <div class="lang-menu" id="langMenuMobile" role="listbox"></div>
+            </div>
+          </span>
+          <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+            <span class="material-symbols-rounded" id="themeIcon"
+               style="-webkit-mask: url(icons/dark_mode.svg) no-repeat center; mask: url(icons/dark_mode.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="dark_mode"></span>
+          </button>
+          <button class="icon-btn menu-btn" id="menuBtn" aria-label="Menu">
+            <span class="material-symbols-rounded" id="menuIconToggle"
+               style="-webkit-mask: url(icons/menu.svg) no-repeat center; mask: url(icons/menu.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="menu"></span>
+          </button>
         </div>
-    </div>
-</nav>
+      </div>
+    </header>
 
-<!-- Mobile Drawer -->
-<div class="mobile-drawer" id="mobile-drawer">
-    <div class="drawer-scrim" id="drawer-scrim"></div>
-    <div class="drawer-sheet">
-        <a href="#home" class="drawer-link" data-umami-event="Drawer Home Click">
-            <span class="material-symbols-rounded">home</span>
-            <span data-i18n="nav.home">Home</span>
+    <div class="mobile-drawer" id="drawer">
+      <div class="drawer-scrim" id="scrim"></div>
+      <div class="drawer-sheet">
+        <a href="#home" class="drawer-link active" onclick="closeDrawer()">
+          <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/home.svg) no-repeat center; mask: url(icons/home.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="home"></span>
+          <span data-i18n="nav.home">Home</span>
         </a>
-        <a href="#how-it-works" class="drawer-link" data-umami-event="Drawer How It Works Click">
-            <span class="material-symbols-rounded">help</span>
-            <span data-i18n="nav.how-it-works">How It Works</span>
+        <a href="#how-it-works" class="drawer-link" onclick="closeDrawer()">
+          <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/help.svg) no-repeat center; mask: url(icons/help.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="help"></span>
+          <span data-i18n="nav.how-it-works">How It Works</span>
         </a>
-        <a href="#faq" class="drawer-link" data-umami-event="Drawer FAQ Click">
-            <span class="material-symbols-rounded">quiz</span>
-            <span data-i18n="nav.faq">FAQ</span>
+        <a href="#faq" class="drawer-link" onclick="closeDrawer()">
+          <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/quiz.svg) no-repeat center; mask: url(icons/quiz.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="quiz"></span>
+          <span data-i18n="nav.faq">FAQ</span>
         </a>
-        <a href="#features" class="drawer-link" data-umami-event="Drawer Features Click">
-            <span class="material-symbols-rounded">auto_awesome</span>
-            <span data-i18n="app-features.title">Features</span>
+        <a href="#features" class="drawer-link" onclick="closeDrawer()">
+          <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/star.svg) no-repeat center; mask: url(icons/star.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="star"></span>
+          <span data-i18n="nav.features">Features</span>
         </a>
-        <a href="#testimonials" class="drawer-link" data-umami-event="Drawer Testimonials Click">
-            <span class="material-symbols-rounded">reviews</span>
-            <span data-i18n="nav.testimonials">Testimonials</span>
+        <a href="#testimonials" class="drawer-link" onclick="closeDrawer()">
+          <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/reviews.svg) no-repeat center; mask: url(icons/reviews.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="reviews"></span>
+          <span data-i18n="nav.testimonials">Testimonials</span>
         </a>
-        <hr class="drawer-divider">
-        <a href="microg.html" class="drawer-link" data-umami-event="Drawer MicroG Click">
-            <span class="material-symbols-rounded">download</span>
-            <span data-i18n="footer.product-microg">Download MicroG</span>
+        <hr class="drawer-divider" />
+        <a href="microg.html" class="drawer-link" onclick="closeDrawer()">
+          <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/download.svg) no-repeat center; mask: url(icons/download.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="download"></span>
+          <span data-i18n="microg.download">Download MicroG</span>
         </a>
-        <a href="translate.html" class="drawer-link" data-umami-event="Drawer Translate Click">
-            <span class="material-symbols-rounded">language</span>
-            <span data-i18n="footer.product-translate">Help translate</span>
+        <a href="donate.html" class="drawer-link" onclick="closeDrawer()">
+          <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/volunteer_activism.svg) no-repeat center; mask: url(icons/volunteer_activism.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="volunteer_activism"></span>
+          <span data-i18n="footer.support-donate">Donate</span>
         </a>
-        <a href="donate.html" class="drawer-link" data-umami-event="Drawer Donate Click">
-            <span class="material-symbols-rounded">volunteer_activism</span>
-            <span data-i18n="footer.support-donate">Donate</span>
+        <a href="changelog.html" class="drawer-link" onclick="closeDrawer()">
+          <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/new_releases.svg) no-repeat center; mask: url(icons/new_releases.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="new_releases"></span>
+          <span data-i18n="footer.product-changelog">What's New</span>
         </a>
-        <a href="changelog.html" class="drawer-link" data-umami-event="Drawer Changelog Click">
-            <span class="material-symbols-rounded">new_releases</span>
-            <span data-i18n="footer.product-changelog">What's New</span>
-        </a>
-    
-    
+      </div>
     </div>
-</div>
 
-<!-- Hero Section -->
-<section id="home" class="hero">
-    <div class="hero-container">
-        <div class="hero-content">
-            <h1 class="hero-title">
-                <span data-i18n="hero.title">Transform Your</span>
-                <span class="hero-title-highlight-line">
-                    <span class="gradient-text" data-i18n="hero.title-highlight">Android Experience</span>
-                </span>
-            </h1>
-            <p class="hero-description" data-i18n="hero.description">
-                From the developers that brought you the greatest modded YouTube apps,
-                comes Morphe - the powerful app modification tool that puts you in control
+    <section id="home" class="hero">
+      <div class="hero-inner">
+        <h1 class="hero-title">
+          <span style="display: block" data-i18n="hero.title"
+            >Supercharge Your</span
+          >
+          <span style="display: block" class="highlight-text">
+            <span class="hero-morph-target" data-i18n="hero.title-highlight"
+              >Android Apps</span
+            >
+          </span>
+        </h1>
+        <p class="hero-desc" data-i18n="hero.description">
+          A community-maintained fork of Morphe — the same powerful patching
+          toolkit for YouTube, YT Music and Reddit, with an independent
+          release cadence and opinionated UX tweaks.
+        </p>
+        <div class="hero-actions">
+          <a
+            href="https://github.com/MorpheApp/morphe-manager/releases/download/v1.11.0/morphe-manager-1.11.0.apk"
+            class="btn-filled"
+          >
+            <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/download.svg) no-repeat center; mask: url(icons/download.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="download"></span>
+            <span data-i18n="hero.download">Get the APK</span>
+          </a>
+          <a href="#how-it-works" class="btn-tonal">
+            <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/arrow_downward.svg) no-repeat center; mask: url(icons/arrow_downward.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="arrow_downward"></span>
+            <span data-i18n="hero.learn-more">See how it works</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="how-it-works"
+      class="section how-section"
+      style="background: var(--md-surface)"
+    >
+      <div class="container">
+        <div class="section-header anim">
+          <p class="section-overline" data-i18n="nav.how-it-works">
+            Getting Started
+          </p>
+          <h2 class="section-title" data-i18n="how-it-works.title">
+            How Morphe Works
+          </h2>
+          <p class="section-subtitle" data-i18n="how-it-works.subtitle">
+            Simple and powerful
+          </p>
+        </div>
+        <div class="steps-grid anim">
+          <div class="step-card">
+            <div class="step-icon-wrap">
+              <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/download.svg) no-repeat center; mask: url(icons/download.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="download"></span>
+              <span class="step-number">1</span>
+            </div>
+            <h3 data-i18n="how-it-works.step1-title">Download</h3>
+            <p data-i18n="how-it-works.step1-desc">Install on Android.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-icon-wrap">
+              <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/apps.svg) no-repeat center; mask: url(icons/apps.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="apps"></span>
+              <span class="step-number">2</span>
+            </div>
+            <h3 data-i18n="how-it-works.step2-title">Choose</h3>
+            <p data-i18n="how-it-works.step2-desc">Select app.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-icon-wrap">
+              <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/build.svg) no-repeat center; mask: url(icons/build.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="build"></span>
+              <span class="step-number">3</span>
+            </div>
+            <h3 data-i18n="how-it-works.step3-title">Patch</h3>
+            <p data-i18n="how-it-works.step3-desc">Auto patches.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-icon-wrap">
+              <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/check_circle.svg) no-repeat center; mask: url(icons/check_circle.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="check_circle"></span>
+              <span class="step-number">4</span>
+            </div>
+            <h3 data-i18n="how-it-works.step4-title">Enjoy</h3>
+            <p data-i18n="how-it-works.step4-desc">Install and use.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      id="features"
+      class="section"
+      style="background: var(--md-surface-container-lowest)"
+    >
+      <div class="container">
+        <div class="section-header anim">
+          <p class="section-overline" data-i18n="changelog.features">
+            Features
+          </p>
+          <h2 class="section-title" data-i18n="app-features.title">
+            App Features
+          </h2>
+          <p class="section-subtitle" data-i18n="app-features.subtitle">
+            Powerful patches for your favourite apps
+          </p>
+        </div>
+        <div style="display: flex; justify-content: center" class="anim">
+          <div class="app-tabs" id="appTabs">
+            <button class="app-tab active" data-app="youtube" type="button">
+              <span>YouTube</span>
+            </button>
+            <button class="app-tab" data-app="ytmusic" type="button">
+              <span>YT Music</span>
+            </button>
+            <button class="app-tab" data-app="reddit" type="button">
+              <span>Reddit</span>
+            </button>
+          </div>
+        </div>
+        <div class="features-panel-wrap anim">
+          <div class="features-panel" id="featPanel">
+            <div class="features-page active">
+              <p
+                class="features-page-desc"
+                data-i18n="app-features.youtube-desc"
+              >
+                Customized YouTube with ad blocking, SponsorBlock, and privacy.
+              </p>
+              <div class="feat-grid">
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/block.svg) no-repeat center; mask: url(icons/block.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="block"></span>
+                  </div>
+                  <h4 data-i18n="app-features.ad-blocking">Ad Blocking</h4>
+                  <p data-i18n="app-features.yt-ad-blocking-desc">
+                    Removes all ads.
+                  </p>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/skip_next.svg) no-repeat center; mask: url(icons/skip_next.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="skip_next"></span>
+                  </div>
+                  <h4 data-i18n="app-features.sponsorblock">SponsorBlock</h4>
+                  <p data-i18n="app-features.sponsorblock-desc">
+                    Skips sponsors.
+                  </p>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/thumb_down.svg) no-repeat center; mask: url(icons/thumb_down.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="thumb_down"></span>
+                  </div>
+                  <h4 data-i18n="app-features.return-dislikes">
+                    Return Dislikes
+                  </h4>
+                  <p data-i18n="app-features.return-dislikes-desc">
+                    Dislike counts.
+                  </p>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span class="material-symbols-rounded"
+                       style="-webkit-mask: url(icons/dashboard_customize.svg) no-repeat center; mask: url(icons/dashboard_customize.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="dashboard_customize"></span>
+                  </div>
+                  <h4 data-i18n="app-features.ui-customization">
+                    UI Customization
+                  </h4>
+                  <p data-i18n="app-features.yt-ui-desc">
+                    Hide Shorts, adjust nav.
+                  </p>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/speed.svg) no-repeat center; mask: url(icons/speed.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="speed"></span>
+                  </div>
+                  <h4 data-i18n="app-features.player-enhancements">Player</h4>
+                  <p data-i18n="app-features.player-desc">Custom speeds.</p>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/swipe.svg) no-repeat center; mask: url(icons/swipe.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="swipe"></span>
+                  </div>
+                  <h4 data-i18n="app-features.swipe-controls">
+                    Swipe Controls
+                  </h4>
+                  <p data-i18n="app-features.swipe-desc">
+                    Brightness gestures.
+                  </p>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/palette.svg) no-repeat center; mask: url(icons/palette.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="palette"></span>
+                  </div>
+                  <h4 data-i18n="app-features.themes">Themes</h4>
+                  <p data-i18n="app-features.yt-themes-desc">
+                    Pure black, Material You.
+                  </p>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/shield.svg) no-repeat center; mask: url(icons/shield.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="shield"></span>
+                  </div>
+                  <h4 data-i18n="app-features.privacy">Privacy</h4>
+                  <p data-i18n="app-features.yt-privacy-desc">Clean links.</p>
+                </div>
+              </div>
+            </div>
+            <div class="features-page">
+              <p
+                class="features-page-desc"
+                data-i18n="app-features.ytmusic-desc"
+              >
+                Enhanced YT Music.
+              </p>
+              <div class="feat-grid">
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/block.svg) no-repeat center; mask: url(icons/block.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="block"></span>
+                  </div>
+                  <h4 data-i18n="app-features.ad-blocking">Ads</h4>
+                  <p data-i18n="app-features.ytm-ad-desc">No ads.</p>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/headphones.svg) no-repeat center; mask: url(icons/headphones.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="headphones"></span>
+                  </div>
+                  <h4 data-i18n="app-features.audio-quality">Audio</h4>
+                  <p data-i18n="app-features.audio-desc">No compression.</p>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/palette.svg) no-repeat center; mask: url(icons/palette.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="palette"></span>
+                  </div>
+                  <h4 data-i18n="app-features.themes">Themes</h4>
+                  <p data-i18n="app-features.ytm-themes-desc">Material You.</p>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/tune.svg) no-repeat center; mask: url(icons/tune.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="tune"></span>
+                  </div>
+                  <h4 data-i18n="app-features.interface-cleanup">Interface</h4>
+                  <p data-i18n="app-features.ytm-ui-desc">Hide buttons.</p>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/repeat.svg) no-repeat center; mask: url(icons/repeat.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="repeat"></span>
+                  </div>
+                  <h4 data-i18n="app-features.repeat">Repeat</h4>
+                  <p data-i18n="app-features.repeat-desc">Persistent.</p>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/link_off.svg) no-repeat center; mask: url(icons/link_off.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="link_off"></span>
+                  </div>
+                  <h4 data-i18n="app-features.link-sanitization">Links</h4>
+                  <p data-i18n="app-features.ytm-link-desc">No tracking.</p>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/verified.svg) no-repeat center; mask: url(icons/verified.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="verified"></span>
+                  </div>
+                  <h4 data-i18n="app-features.custom-branding">Branding</h4>
+                  <p data-i18n="app-features.branding-desc">Custom icon.</p>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span class="material-symbols-rounded"
+                       style="-webkit-mask: url(icons/bottom_navigation.svg) no-repeat center; mask: url(icons/bottom_navigation.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="bottom_navigation"></span>
+                  </div>
+                  <h4 data-i18n="app-features.nav-bar">Nav</h4>
+                  <p data-i18n="app-features.nav-bar-desc">Customize.</p>
+                </div>
+              </div>
+            </div>
+            <div class="features-page">
+              <p
+                class="features-page-desc"
+                data-i18n="app-features.reddit-desc"
+              >
+                Streamlined Reddit.
+              </p>
+              <div class="feat-grid">
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/block.svg) no-repeat center; mask: url(icons/block.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="block"></span>
+                  </div>
+                  <h4 data-i18n="app-features.ad-blocking">Ads</h4>
+                  <p data-i18n="app-features.reddit-ad-desc">No feed ads.</p>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/view_compact.svg) no-repeat center; mask: url(icons/view_compact.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="view_compact"></span>
+                  </div>
+                  <h4 data-i18n="app-features.interface-cleanup">Interface</h4>
+                  <p data-i18n="app-features.reddit-ui-desc">Hide shelves.</p>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/close.svg) no-repeat center; mask: url(icons/close.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="close"></span>
+                  </div>
+                  <h4 data-i18n="app-features.auto-dismiss">Dismiss</h4>
+                  <p data-i18n="app-features.dismiss-desc">No popups.</p>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/open_in_new.svg) no-repeat center; mask: url(icons/open_in_new.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="open_in_new"></span>
+                  </div>
+                  <h4 data-i18n="app-features.direct-links">Links</h4>
+                  <p data-i18n="app-features.direct-links-desc">
+                    No redirects.
+                  </p>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/link_off.svg) no-repeat center; mask: url(icons/link_off.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="link_off"></span>
+                  </div>
+                  <h4 data-i18n="app-features.link-sanitization">Sanitize</h4>
+                  <p data-i18n="app-features.reddit-link-desc">No tracking.</p>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/explore.svg) no-repeat center; mask: url(icons/explore.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="explore"></span>
+                  </div>
+                  <h4 data-i18n="app-features.clean-nav">Nav</h4>
+                  <p data-i18n="app-features.clean-nav-desc">Cleaner.</p>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/screenshot.svg) no-repeat center; mask: url(icons/screenshot.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="screenshot"></span>
+                  </div>
+                  <h4 data-i18n="app-features.screenshot">Screenshots</h4>
+                  <p data-i18n="app-features.screenshot-desc">No popup.</p>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <span class="material-symbols-rounded"
+                       style="-webkit-mask: url(icons/notifications_active.svg) no-repeat center; mask: url(icons/notifications_active.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="notifications_active"></span>
+                  </div>
+                  <h4 data-i18n="app-features.spoof-signature">
+                    Notifications
+                  </h4>
+                  <p data-i18n="app-features.spoof-signature-desc">Fix push.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section
+      id="testimonials"
+      class="section"
+      style="background: var(--md-surface-container-lowest)"
+    >
+      <div class="container">
+        <div class="section-header anim">
+          <p class="section-overline" data-i18n="nav.testimonials">
+            Testimonials
+          </p>
+          <h2 class="section-title" data-i18n="testimonials.title">
+            What Users Say
+          </h2>
+          <p class="section-subtitle" data-i18n="testimonials.subtitle">
+            Real feedback
+          </p>
+        </div>
+        <div class="testi-carousel anim">
+          <div class="testi-track" id="testiTrack">
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote" data-i18n="testimonials.t1_quote">
+                Every other patcher feels like performing blindfolded brain
+                surgery. But with Morphe it's a few clicks and my patched app is
+                supercharged and greater than ever.
+              </div>
+              <div class="testi-author">
+                <div class="testi-avatar">A</div>
+                <div>
+                  <div class="testi-name" data-i18n="testimonials.t1_name">
+                    Alex Chen
+                  </div>
+                  <div class="testi-role" data-i18n="testimonials.t1_role">
+                    Power User
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote" data-i18n="testimonials.t2_quote">
+                Morphe is the only thing saving me from 60 second unskippable
+                ads about toothpaste.
+              </div>
+              <div class="testi-author">
+                <div class="testi-avatar">C</div>
+                <div>
+                  <div class="testi-name" data-i18n="testimonials.t2_name">
+                    Casey Morgan
+                  </div>
+                  <div class="testi-role" data-i18n="testimonials.t2_role">
+                    Not a Dentist
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote" data-i18n="testimonials.t3_quote">
+                It's like Vanced, but better, and without the weird corporate
+                party vibes.
+              </div>
+              <div class="testi-author">
+                <div class="testi-avatar">S</div>
+                <div>
+                  <div class="testi-name" data-i18n="testimonials.t3_name">
+                    Sarah Johnson
+                  </div>
+                  <div class="testi-role" data-i18n="testimonials.t3_role">
+                    Former Vanced User
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote" data-i18n="testimonials.t4_quote">
+                I clicked the wrong button and accidentally became a
+                millionaire. Not sure how it happened but Morphe was involved.
+              </div>
+              <div class="testi-author">
+                <div class="testi-avatar">L</div>
+                <div>
+                  <div class="testi-name" data-i18n="testimonials.t4_name">
+                    Lucky Luke
+                  </div>
+                  <div class="testi-role" data-i18n="testimonials.t4_role">
+                    Accidental Billionaire
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote" data-i18n="testimonials.t5_quote">
+                My 87 year old grandma asked me why my YouTube looks different.
+                I showed her Morphe and now she's patching apps for her entire
+                retirement community.
+              </div>
+              <div class="testi-author">
+                <div class="testi-avatar">D</div>
+                <div>
+                  <div class="testi-name" data-i18n="testimonials.t5_name">
+                    David Kin
+                  </div>
+                  <div class="testi-role" data-i18n="testimonials.t5_role">
+                    Proud Grandson
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote" data-i18n="testimonials.t6_quote">
+                I showed my friends Morphe and now they think I'm some kind of
+                underground technology wizard. I'm not correcting them.
+              </div>
+              <div class="testi-author">
+                <div class="testi-avatar">O</div>
+                <div>
+                  <div class="testi-name" data-i18n="testimonials.t6_name">
+                    Owen Price
+                  </div>
+                  <div class="testi-role" data-i18n="testimonials.t6_role">
+                    Wizard
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote" data-i18n="testimonials.t7_quote">
+                I tried other patchers and my phone caught fire. With Morphe, my
+                phone is just perfectly modified. 10/10 would not spontaneously
+                combust again.
+              </div>
+              <div class="testi-author">
+                <div class="testi-avatar">R</div>
+                <div>
+                  <div class="testi-name" data-i18n="testimonials.t7_name">
+                    Ryan Martinez
+                  </div>
+                  <div class="testi-role" data-i18n="testimonials.t7_role">
+                    Fire Safety Advocate
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote" data-i18n="testimonials.t8_quote">
+                I thought Morphe was an obscure Greek god. Turns out it's
+                better.
+              </div>
+              <div class="testi-author">
+                <div class="testi-avatar">O</div>
+                <div>
+                  <div class="testi-name" data-i18n="testimonials.t8_name">
+                    Oliver Grant
+                  </div>
+                  <div class="testi-role" data-i18n="testimonials.t8_role">
+                    College History Major
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote" data-i18n="testimonials.t9_quote">
+                My cat knocked my phone off the table while Morphe was patching.
+                The phone survived and patching still completed successfully.
+                Cat approved.
+              </div>
+              <div class="testi-author">
+                <div class="testi-avatar">E</div>
+                <div>
+                  <div class="testi-name" data-i18n="testimonials.t9_name">
+                    Emma Jones
+                  </div>
+                  <div class="testi-role" data-i18n="testimonials.t9_role">
+                    Cat Owner
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote" data-i18n="testimonials.t10_quote">
+                Before I found Morphe, I thought APK was a new K-pop band. Now I
+                know better.
+              </div>
+              <div class="testi-author">
+                <div class="testi-avatar">J</div>
+                <div>
+                  <div class="testi-name" data-i18n="testimonials.t10_name">
+                    Jeff Cooper
+                  </div>
+                  <div class="testi-role" data-i18n="testimonials.t10_role">
+                    Confused Uncle
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote" data-i18n="testimonials.t11_quote">
+                I showed Morphe to my tech-illiterate dad. He now patches apps
+                better than I do. I'm questioning my entire career in IT.
+              </div>
+              <div class="testi-author">
+                <div class="testi-avatar">T</div>
+                <div>
+                  <div class="testi-name" data-i18n="testimonials.t11_name">
+                    Tom Anderson
+                  </div>
+                  <div class="testi-role" data-i18n="testimonials.t11_role">
+                    Existential Crisis Haver
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote" data-i18n="testimonials.t12_quote">
+                Morphe fixed my WiFi, paid my taxes, and solved world hunger.
+                Actually no, but it did patch YouTube perfectly.
+              </div>
+              <div class="testi-author">
+                <div class="testi-avatar">S</div>
+                <div>
+                  <div class="testi-name" data-i18n="testimonials.t12_name">
+                    Sarah Williams
+                  </div>
+                  <div class="testi-role" data-i18n="testimonials.t12_role">
+                    Over-Exaggerator
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote" data-i18n="testimonials.t13_quote">
+                When I saw Morphe is free to download, I reacted the same way as
+                someone offering me free food samples. I don't think, I act.
+              </div>
+              <div class="testi-author">
+                <div class="testi-avatar">T</div>
+                <div>
+                  <div class="testi-name" data-i18n="testimonials.t13_name">
+                    Tyler James
+                  </div>
+                  <div class="testi-role" data-i18n="testimonials.t13_role">
+                    Reflex-Based Decision Maker
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote" data-i18n="testimonials.t14_quote">
+                Morphe patched my apps so well that I now wonder if it can also
+                patch my life choices.
+              </div>
+              <div class="testi-author">
+                <div class="testi-avatar">D</div>
+                <div>
+                  <div class="testi-name" data-i18n="testimonials.t14_name">
+                    Doug Miller
+                  </div>
+                  <div class="testi-role" data-i18n="testimonials.t14_role">
+                    Self-Upgrade Enthusiast
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote" data-i18n="testimonials.t15_quote">
+                Thanks to Morphe's ad-blocking feature, I finally had the mental
+                clarity to finish my research and change the course of human
+                history. Morphe deserves the Nobel prize more than me.
+              </div>
+              <div class="testi-author">
+                <div class="testi-avatar">D</div>
+                <div>
+                  <div class="testi-name" data-i18n="testimonials.t15_name">
+                    Dr. Sheldon Lee
+                  </div>
+                  <div class="testi-role" data-i18n="testimonials.t15_role">
+                    Theoretical Physicist
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote" data-i18n="testimonials.t16_quote">
+                I showed Morphe to my dog and now he's better with using
+                technology than I am.
+              </div>
+              <div class="testi-author">
+                <div class="testi-avatar">K</div>
+                <div>
+                  <div class="testi-name" data-i18n="testimonials.t16_name">
+                    Kevin Park
+                  </div>
+                  <div class="testi-role" data-i18n="testimonials.t16_role">
+                    Former Tech Expert
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote" data-i18n="testimonials.t17_quote">
+                Morphe blocked so many ads that my phone feels lighter. I think
+                it lost emotional weight.
+              </div>
+              <div class="testi-author">
+                <div class="testi-avatar">S</div>
+                <div>
+                  <div class="testi-name" data-i18n="testimonials.t17_name">
+                    Sienna Brooks
+                  </div>
+                  <div class="testi-role" data-i18n="testimonials.t17_role">
+                    Digital Minimalist
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote" data-i18n="testimonials.t18_quote">
+                My ex-girlfriend got back together with me after I started using
+                Morphe. Coincidence? I think not!
+              </div>
+              <div class="testi-author">
+                <div class="testi-avatar">M</div>
+                <div>
+                  <div class="testi-name" data-i18n="testimonials.t18_name">
+                    Mike Thompson
+                  </div>
+                  <div class="testi-role" data-i18n="testimonials.t18_role">
+                    Relationship Expert
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-nav">
+            <button class="carousel-btn" id="cPrev">
+              <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/chevron_left.svg) no-repeat center; mask: url(icons/chevron_left.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="chevron_left"></span>
+            </button>
+            <button class="carousel-btn" id="cNext">
+              <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/chevron_right.svg) no-repeat center; mask: url(icons/chevron_right.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="chevron_right"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section
+      id="faq"
+      class="section faq-section"
+      style="background: var(--md-surface)"
+    >
+      <div class="container">
+        <div class="section-header anim">
+          <p class="section-overline" data-i18n="nav.faq">Support</p>
+          <h2 class="section-title" data-i18n="faq.title">FAQ</h2>
+          <p class="section-subtitle" data-i18n="faq.subtitle">
+            Everything you need
+          </p>
+        </div>
+        <div class="faq-list anim">
+          <div class="faq-item">
+            <button class="faq-q" type="button">
+              <span data-i18n="faq.q1">What apps can Morphe patch?</span>
+              <span class="material-symbols-rounded expand-icon"
+                 style="-webkit-mask: url(icons/expand_more.svg) no-repeat center; mask: url(icons/expand_more.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="expand_more"></span>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner" data-i18n="faq.a1">
+                You can patch any app you want. As long as you want YouTube,
+                YouTube Music, or Reddit. We're constantly working on expanding
+                support to more apps.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">
+              <span data-i18n="faq.q2">Is Morphe safe?</span>
+              <span class="material-symbols-rounded expand-icon"
+                 style="-webkit-mask: url(icons/expand_more.svg) no-repeat center; mask: url(icons/expand_more.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="expand_more"></span>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner" data-i18n="faq.a2">
+                As safe as modifying obfuscated bytecode can be. All source code
+                for Morphe is open source and free for anyone to inspect. Our
+                community actively reviews and contributes to the codebase.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">
+              <span data-i18n="faq.q3">Will Morphe brick my phone?</span>
+              <span class="material-symbols-rounded expand-icon"
+                 style="-webkit-mask: url(icons/expand_more.svg) no-repeat center; mask: url(icons/expand_more.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="expand_more"></span>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner" data-i18n="faq.a3">
+                Only if your phone decides to brick itself. Otherwise your
+                device will be fine. Morphe only modifies app packages and
+                doesn't touch system files.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">
+              <span data-i18n="faq.q4"
+                >Can I customize apps to my preference?</span
+              >
+              <span class="material-symbols-rounded expand-icon"
+                 style="-webkit-mask: url(icons/expand_more.svg) no-repeat center; mask: url(icons/expand_more.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="expand_more"></span>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner" data-i18n="faq.a4">
+                Yes, but don't blame Morphe if your app becomes too customized
+                for you to handle. It's recommended to customize up to your
+                preference level and no more.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">
+              <span data-i18n="faq.q5">What's Morphe's privacy policy?</span>
+              <span class="material-symbols-rounded expand-icon"
+                 style="-webkit-mask: url(icons/expand_more.svg) no-repeat center; mask: url(icons/expand_more.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="expand_more"></span>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner" data-i18n="faq.a5">
+                This website uses
+                <a
+                  href="https://umami.is/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Umami</a
+                >
+                and Google Analytics 4. No cookies, no advertising, no
+                profiling, and no data is sold or shared.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">
+              <span data-i18n="faq.q6">Why the name Morphe?</span>
+              <span class="material-symbols-rounded expand-icon"
+                 style="-webkit-mask: url(icons/expand_more.svg) no-repeat center; mask: url(icons/expand_more.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="expand_more"></span>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner" data-i18n="faq.a6">
+                Because "Android App Modification And Transformation Tool"
+                (AAMATT) is not very catchy. And because Morphe implies it
+                morphs your apps into something better.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">
+              <span data-i18n="faq.q7">Is Morphe magic?</span>
+              <span class="material-symbols-rounded expand-icon"
+                 style="-webkit-mask: url(icons/expand_more.svg) no-repeat center; mask: url(icons/expand_more.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="expand_more"></span>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner" data-i18n="faq.a7">
+                No. But also yes. It's advanced bytecode manipulation that feels
+                like magic.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">
+              <span data-i18n="faq.q8">Can I contribute to Morphe?</span>
+              <span class="material-symbols-rounded expand-icon"
+                 style="-webkit-mask: url(icons/expand_more.svg) no-repeat center; mask: url(icons/expand_more.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="expand_more"></span>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner" data-i18n="faq.a8">
+                Yes! See the contribution guidelines in our
+                <a
+                  href="https://github.com/MorpheApp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub repos</a
+                >. If you don't have developer skills, we always appreciate
+                <a href="donate.html">donations</a> to help
+                pay the bills.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="get-involved"
+      class="section"
+      style="background: var(--md-surface)"
+    >
+      <div class="container">
+        <div class="involve-grid anim">
+          <a
+            href="microg"
+            class="involve-card"
+            data-umami-event="Involve MicroG Card Click"
+          >
+            <div class="involve-icon">
+              <span
+                class="material-symbols-rounded"
+                style="
+                  font-size: 32px;
+                  -webkit-mask: url(icons/shield.svg) no-repeat center;
+                  mask: url(icons/shield.svg) no-repeat center;
+                  -webkit-mask-size: contain;
+                  mask-size: contain;
+                  background-color: currentColor;
+                "
+                aria-label="shield"
+              ></span>
+            </div>
+            <h3 class="involve-title" data-i18n="microg.title">MicroG</h3>
+            <p class="involve-desc" data-i18n="microg.description">
+              MicroG is required for Google account login and push
+              notifications on Morphe apps.
             </p>
-            <div class="hero-buttons">
-                <a href="DOWNLOAD_URL_TEMPLATE" class="btn btn-primary" data-umami-event="Download Button Click">
-                    <span class="material-symbols-rounded">download</span>
-                    <span data-i18n="hero.download">Download Morphe</span>
-                </a>
-                <a href="#how-it-works" class="btn btn-secondary" data-umami-event="Learn More Button Click">
-                    <span data-i18n="hero.learn-more">Learn More</span>
-                    <span class="material-symbols-rounded">arrow_forward</span>
-                </a>
+            <span class="involve-cta">
+              <span data-i18n="microg.download">Download MicroG</span>
+              <span
+                class="material-symbols-rounded"
+                style="
+                  font-size: 18px;
+                  -webkit-mask: url(icons/arrow_forward.svg) no-repeat center;
+                  mask: url(icons/arrow_forward.svg) no-repeat center;
+                  -webkit-mask-size: contain;
+                  mask-size: contain;
+                  background-color: currentColor;
+                "
+                aria-label="arrow_forward"
+              ></span>
+            </span>
+          </a>
+          <a
+            href="translate"
+            class="involve-card"
+            data-umami-event="Involve Translate Card Click"
+          >
+            <div class="involve-icon">
+              <span
+                class="material-symbols-rounded"
+                style="
+                  font-size: 32px;
+                  -webkit-mask: url(icons/translate.svg) no-repeat center;
+                  mask: url(icons/translate.svg) no-repeat center;
+                  -webkit-mask-size: contain;
+                  mask-size: contain;
+                  background-color: currentColor;
+                "
+                aria-label="translate"
+              ></span>
             </div>
+            <h3 class="involve-title" data-i18n="translate.title">
+              Help Us Translate
+            </h3>
+            <p class="involve-desc" data-i18n="translate.description">
+              Make Morphe accessible to millions of users worldwide by
+              translating it into your language
+            </p>
+            <span class="involve-cta">
+              <span data-i18n="footer.product-translate">Help translate</span>
+              <span
+                class="material-symbols-rounded"
+                style="
+                  font-size: 18px;
+                  -webkit-mask: url(icons/arrow_forward.svg) no-repeat center;
+                  mask: url(icons/arrow_forward.svg) no-repeat center;
+                  -webkit-mask-size: contain;
+                  mask-size: contain;
+                  background-color: currentColor;
+                "
+                aria-label="arrow_forward"
+              ></span>
+            </span>
+          </a>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- Features Section -->
-<section class="features-section">
-    <div class="container">
-
-        <div class="section-header">
-            <h2 class="section-title" data-i18n="app-features.title">App Features</h2>
-            <p class="section-subtitle" data-i18n="app-features.subtitle">Powerful patches for your favourite apps</p>
+    <section
+      id="community"
+      class="section"
+      style="background: var(--md-surface-container-lowest)"
+    >
+      <div class="container">
+        <div class="section-header anim">
+          <p class="section-overline" data-i18n="footer.community">Community</p>
+          <h2 class="section-title" data-i18n="community.title">
+            Join the Community
+          </h2>
+          <p class="section-subtitle" data-i18n="community.subtitle">
+            Follow, report, contribute
+          </p>
         </div>
-
-        <!-- App Tabs -->
-        <div class="app-tabs" role="tablist">
-            <button class="app-tab active" data-app="youtube" role="tab" aria-selected="true">
-                <span data-i18n="app-features.tab-youtube">YouTube Morphe</span>
-            </button>
-            <button class="app-tab" data-app="ytmusic" role="tab" aria-selected="false">
-                <span data-i18n="app-features.tab-ytmusic">YT Music Morphe</span>
-            </button>
-            <button class="app-tab" data-app="reddit" role="tab" aria-selected="false">
-                <span data-i18n="app-features.tab-reddit">Reddit Morphe</span>
-            </button>
+        <div class="comm-grid anim">
+          <a
+            href="https://github.com/MorpheApp"
+            target="_blank"
+            rel="noopener"
+            class="comm-card"
+          >
+            <div class="comm-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  fill-rule="evenodd"
+                  d="M12.006 2a9.847 9.847 0 0 0-6.484 2.44 10.32 10.32 0 0 0-3.393 6.17 10.48 10.48 0 0 0 1.317 6.955 10.045 10.045 0 0 0 5.4 4.418c.504.095.683-.223.683-.494 0-.245-.01-1.052-.014-1.908-2.78.62-3.366-1.21-3.366-1.21a2.711 2.711 0 0 0-1.11-1.5c-.907-.637.07-.621.07-.621.317.044.62.163.885.346.266.183.487.426.647.71.135.253.318.476.538.655a2.079 2.079 0 0 0 2.37.196c.045-.52.27-1.006.635-1.37-2.219-.259-4.554-1.138-4.554-5.07a4.022 4.022 0 0 1 1.031-2.75 3.77 3.77 0 0 1 .096-2.713s.839-.275 2.749 1.05a9.26 9.26 0 0 1 5.004 0c1.906-1.325 2.74-1.05 2.74-1.05.37.858.406 1.828.101 2.713a4.017 4.017 0 0 1 1.029 2.75c0 3.939-2.339 4.805-4.564 5.058a2.471 2.471 0 0 1 .679 1.897c0 1.372-.012 2.477-.012 2.814 0 .272.18.592.687.492a10.05 10.05 0 0 0 5.388-4.421 10.473 10.473 0 0 0 1.313-6.948 10.32 10.32 0 0 0-3.39-6.165A9.847 9.847 0 0 0 12.007 2Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <h3>GitHub</h3>
+            <p data-i18n="community.github-desc">Source code.</p>
+          </a>
+          <a
+            href="https://x.com/MorpheApp"
+            target="_blank"
+            rel="noopener"
+            class="comm-card"
+          >
+            <div class="comm-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M13.795 10.533 20.68 2h-3.073l-5.255 6.517L7.69 2H1l7.806 10.91L1.47 22h3.074l5.705-7.07L15.31 22H22l-8.205-11.467Zm-2.38 2.95L9.97 11.464 4.36 3.627h2.31l4.528 6.317 1.443 2.02 6.018 8.409h-2.31l-4.934-6.89Z"
+                />
+              </svg>
+            </div>
+            <h3>X</h3>
+            <p data-i18n="community.x-desc">News.</p>
+          </a>
+          <a
+            href="https://reddit.com/r/MorpheApp"
+            target="_blank"
+            rel="noopener"
+            class="comm-card"
+          >
+            <div class="comm-icon-wrap">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M12.008 16.521a3.84 3.84 0 0 0 2.47-.77v.04a.281.281 0 0 0 .005-.396.281.281 0 0 0-.395-.005 3.291 3.291 0 0 1-2.09.61 3.266 3.266 0 0 1-2.081-.63.27.27 0 0 0-.38.381 3.84 3.84 0 0 0 2.47.77Z"
+                />
+                <path
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Zm-4.845-1.407A1.463 1.463 0 0 1 18.67 12a1.46 1.46 0 0 1-.808 1.33c.01.146.01.293 0 .44 0 2.242-2.61 4.061-5.829 4.061s-5.83-1.821-5.83-4.061a3.25 3.25 0 0 1 0-.44 1.458 1.458 0 0 1-.457-2.327 1.458 1.458 0 0 1 2.063-.064 7.163 7.163 0 0 1 3.9-1.23l.738-3.47v-.006a.31.31 0 0 1 .37-.236l2.452.49a1 1 0 1 1-.132.611l-2.14-.45-.649 3.12a7.11 7.11 0 0 1 3.85 1.23c.259-.246.6-.393.957-.405Z"
+                  clip-rule="evenodd"
+                />
+                <path
+                  fill="currentColor"
+                  d="M15.305 13a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-4.625 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"
+                />
+              </svg>
+            </div>
+            <h3>Reddit</h3>
+            <p data-i18n="community.reddit-desc">Discussions.</p>
+          </a>
+          <a
+            href="https://crowdin.com/project/morphe"
+            target="_blank"
+            rel="noopener"
+            class="comm-card"
+          >
+            <div class="comm-icon-wrap">
+              <span class="material-symbols-rounded"
+                style="font-size: 28px; -webkit-mask: url(icons/translate.svg) no-repeat center; mask: url(icons/translate.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;"
+                 aria-label="translate"></span>
+            </div>
+            <h3>Crowdin</h3>
+            <p data-i18n="community.crowdin-desc">Translate.</p>
+          </a>
         </div>
+      </div>
+    </section>
 
-        <!-- Pages container -->
-        <div class="app-features-panel-wrapper">
-            <div class="app-features-panel">
-
-                <!-- YouTube page -->
-                <div class="app-features-page active" data-app="youtube">
-                    <p class="app-page-desc" data-i18n="app-features.youtube-desc">A customized YouTube experience with ad blocking, SponsorBlock support, enhanced player controls, and advanced privacy improvements</p>
-                    <div class="features-grid-cards">
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">block</span></div>
-                            <h4 data-i18n="app-features.ad-blocking">Ad Blocking</h4>
-                            <p data-i18n="app-features.yt-ad-blocking-desc">Removes all ads from the home feed and video player for uninterrupted viewing.</p>
-                        </div>
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">shield</span></div>
-                            <h4 data-i18n="app-features.sponsorblock">SponsorBlock</h4>
-                            <p data-i18n="app-features.sponsorblock-desc">Automatically skips sponsored segments and other non-essential parts of videos.</p>
-                        </div>
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">thumb_up</span></div>
-                            <h4 data-i18n="app-features.return-dislikes">Return Dislikes</h4>
-                            <p data-i18n="app-features.return-dislikes-desc">Displays community-powered dislike counts so you can make better viewing decisions.</p>
-                        </div>
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">monitor</span></div>
-                            <h4 data-i18n="app-features.ui-customization">UI Customization</h4>
-                            <p data-i18n="app-features.yt-ui-desc">Hide Shorts, adjust navigation bar, and remove unwanted layout elements.</p>
-                        </div>
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">contextual_token</span></div>
-                            <h4 data-i18n="app-features.player-enhancements">Player Enhancements</h4>
-                            <p data-i18n="app-features.player-desc">Custom playback speeds, default video quality, and improved seekbar behavior.</p>
-                        </div>
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">swipe</span></div>
-                            <h4 data-i18n="app-features.swipe-controls">Swipe Controls</h4>
-                            <p data-i18n="app-features.swipe-desc">Adjust brightness and volume with intuitive touch gestures.</p>
-                        </div>
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">palette</span></div>
-                            <h4 data-i18n="app-features.themes">Theme Customization</h4>
-                            <p data-i18n="app-features.yt-themes-desc">Pure black, Material You, and additional theme styles.</p>
-                        </div>
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">privacy_tip</span></div>
-                            <h4 data-i18n="app-features.privacy">Privacy Improvements</h4>
-                            <p data-i18n="app-features.yt-privacy-desc">Cleans sharing links by removing tracking parameters.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- YT Music page -->
-                <div class="app-features-page" data-app="ytmusic">
-                    <p class="app-page-desc" data-i18n="app-features.ytmusic-desc">An enhanced YouTube Music experience with ad blocking, customizable themes, audio improvements, and a cleaner interface</p>
-                    <div class="features-grid-cards">
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">block</span></div>
-                            <h4 data-i18n="app-features.ad-blocking">Ad Blocking</h4>
-                            <p data-i18n="app-features.ytm-ad-desc">Removes all ads during music playback.</p>
-                        </div>
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">music_note</span></div>
-                            <h4 data-i18n="app-features.audio-quality">Audio Quality</h4>
-                            <p data-i18n="app-features.audio-desc">Disable dynamic range compression and prefer original audio tracks.</p>
-                        </div>
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">palette</span></div>
-                            <h4 data-i18n="app-features.themes">Theme Customization</h4>
-                            <p data-i18n="app-features.ytm-themes-desc">Custom dark and light backgrounds including Material You styles.</p>
-                        </div>
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">monitor</span></div>
-                            <h4 data-i18n="app-features.interface-cleanup">Interface Cleanup</h4>
-                            <p data-i18n="app-features.ytm-ui-desc">Hide unnecessary buttons and UI components for a cleaner experience.</p>
-                        </div>
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">repeat</span></div>
-                            <h4 data-i18n="app-features.repeat">Permanent Repeat</h4>
-                            <p data-i18n="app-features.repeat-desc">Improved repeat behavior that persists across sessions.</p>
-                        </div>
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">link</span></div>
-                            <h4 data-i18n="app-features.link-sanitization">Link Sanitization</h4>
-                            <p data-i18n="app-features.ytm-link-desc">Removes tracking parameters from shared links.</p>
-                        </div>
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">settings_applications</span></div>
-                            <h4 data-i18n="app-features.custom-branding">Custom Branding</h4>
-                            <p data-i18n="app-features.branding-desc">Optional app name and icon customization.</p>
-                        </div>
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">table_rows</span></div>
-                            <h4 data-i18n="app-features.nav-bar">Navigation Bar</h4>
-                            <p data-i18n="app-features.nav-bar-desc">Hide or customize the bottom navigation bar and its labels to reduce clutter.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Reddit page -->
-                <div class="app-features-page" data-app="reddit">
-                    <p class="app-page-desc" data-i18n="app-features.reddit-desc">A streamlined Reddit experience with ad blocking, interface customization, direct link handling, and improved privacy</p>
-                    <div class="features-grid-cards">
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">block</span></div>
-                            <h4 data-i18n="app-features.ad-blocking">Ad Blocking</h4>
-                            <p data-i18n="app-features.reddit-ad-desc">Removes in-feed advertisements for a cleaner browsing experience.</p>
-                        </div>
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">monitor</span></div>
-                            <h4 data-i18n="app-features.interface-cleanup">Interface Customization</h4>
-                            <p data-i18n="app-features.reddit-ui-desc">Hide navigation buttons, sidebar elements, and recommended shelves.</p>
-                        </div>
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">comments_disabled</span></div>
-                            <h4 data-i18n="app-features.auto-dismiss">Auto Dialog Dismiss</h4>
-                            <p data-i18n="app-features.dismiss-desc">Automatically removes repetitive community warning popups.</p>
-                        </div>
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">open_in_new</span></div>
-                            <h4 data-i18n="app-features.direct-links">Direct External Links</h4>
-                            <p data-i18n="app-features.direct-links-desc">Open links without redirect tracking, going directly to the destination.</p>
-                        </div>
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">link</span></div>
-                            <h4 data-i18n="app-features.link-sanitization">Link Sanitization</h4>
-                            <p data-i18n="app-features.reddit-link-desc">Removes tracking parameters from shared URLs for better privacy.</p>
-                        </div>
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">home</span></div>
-                            <h4 data-i18n="app-features.clean-nav">Cleaner Navigation</h4>
-                            <p data-i18n="app-features.clean-nav-desc">Simplified layout with fewer distractions for focused browsing.</p>
-                        </div>
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">photo_camera</span></div>
-                            <h4 data-i18n="app-features.screenshot">Screenshot Freedom</h4>
-                            <p data-i18n="app-features.screenshot-desc">Disables the popup that appears when taking screenshots inside the app.</p>
-                        </div>
-                        <div class="feature-slide">
-                            <div class="feature-slide-icon"><span class="material-symbols-rounded">notifications</span></div>
-                            <h4 data-i18n="app-features.spoof-signature">Notification Fix</h4>
-                            <p data-i18n="app-features.spoof-signature-desc">Spoofs the app signature to restore push notifications that may be broken after patching.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- How It Works Section -->
-<section id="how-it-works" class="how-it-works">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title" data-i18n="how-it-works.title">How Morphe Works</h2>
-            <p class="section-subtitle" data-i18n="how-it-works.subtitle">Simple, powerful, and built for everyone</p>
-        </div>
-
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <span class="material-symbols-rounded">download</span>
-                </div>
-                <h3 class="feature-title" data-i18n="how-it-works.step1-title">1. Download Morphe</h3>
-                <p class="feature-description" data-i18n="how-it-works.step1-desc">
-                    Download the latest version of Morphe and install it on your Android device.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <span class="material-symbols-rounded">app_registration</span>
-                </div>
-                <h3 class="feature-title" data-i18n="how-it-works.step2-title">2. Choose Your App</h3>
-                <p class="feature-description" data-i18n="how-it-works.step2-desc">
-                    Select the app you want to modify.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <span class="material-symbols-rounded">extension</span>
-                </div>
-                <h3 class="feature-title" data-i18n="how-it-works.step3-title">3. Apply Patches</h3>
-                <p class="feature-description" data-i18n="how-it-works.step3-desc">
-                    Morphe will automatically patch your selected app.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <span class="material-symbols-rounded">apk_install</span>
-                </div>
-                <h3 class="feature-title" data-i18n="how-it-works.step4-title">4. Install & Enjoy</h3>
-                <p class="feature-description" data-i18n="how-it-works.step4-desc">
-                    Install the patched app and enjoy your customized experience.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Testimonials Section -->
-<section id="testimonials" class="testimonials">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title" data-i18n="testimonials.title">What Users Say</h2>
-            <p class="section-subtitle" data-i18n="testimonials.subtitle">Feedback from real users and definitely not made up</p>
-        </div>
-
-        <div class="testimonials-carousel">
-            <div class="testimonials-grid" id="testimonials-grid">
-                <!-- Dynamically generated from JS -->
-            </div>
-            <div class="carousel-controls">
-                <button class="carousel-button prev" aria-label="Previous testimonial" data-umami-event="Testimonial Previous Click">
-                    <span class="material-symbols-rounded">chevron_left</span>
-                </button>
-                <button class="carousel-button next" aria-label="Next testimonial" data-umami-event="Testimonial Next Click">
-                    <span class="material-symbols-rounded">chevron_right</span>
-                </button>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- FAQ Section -->
-<section id="faq" class="faq">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title" data-i18n="faq.title">Frequently Asked Questions</h2>
-            <p class="section-subtitle" data-i18n="faq.subtitle">Everything you need to know about Morphe</p>
-        </div>
-
-        <div class="faq-list">
-            <div class="faq-item">
-                <button class="faq-question" data-umami-event="FAQ Expand" data-umami-event-question="What apps can Morphe patch?">
-                    <div class="faq-number">1</div>
-                    <span class="faq-text" data-i18n="faq.q1">What apps can Morphe patch?</span>
-                    <span class="material-symbols-rounded">expand_more</span>
-                </button>
-                <div class="faq-answer">
-                    <p data-i18n="faq.a1">You can patch any app you want. As long as you want YouTube, YouTube Music, or Reddit. We're constantly working on expanding support to more apps.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" data-umami-event="FAQ Expand" data-umami-event-question="Is Morphe safe?">
-                    <div class="faq-number">2</div>
-                    <span class="faq-text" data-i18n="faq.q2">Is Morphe safe?</span>
-                    <span class="material-symbols-rounded">expand_more</span>
-                </button>
-                <div class="faq-answer">
-                    <p data-i18n="faq.a2">As safe as modifying obfuscated bytecode can be. All source code for Morphe is open source and free for anyone to inspect. Our community actively reviews and contributes to the codebase.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" data-umami-event="FAQ Expand" data-umami-event-question="Will Morphe brick my phone?">
-                    <div class="faq-number">3</div>
-                    <span class="faq-text" data-i18n="faq.q3">Will Morphe brick my phone?</span>
-                    <span class="material-symbols-rounded">expand_more</span>
-                </button>
-                <div class="faq-answer">
-                    <p data-i18n="faq.a3">Only if your phone decides to brick itself. Otherwise your device will be fine. Morphe only modifies app packages and doesn't touch system files.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" data-umami-event="FAQ Expand" data-umami-event-question="Can I customize apps to my preference?">
-                    <div class="faq-number">4</div>
-                    <span class="faq-text" data-i18n="faq.q4">Can I customize apps to my preference?</span>
-                    <span class="material-symbols-rounded">expand_more</span>
-                </button>
-                <div class="faq-answer">
-                    <p data-i18n="faq.a4">Yes, but don't blame Morphe if your app becomes too customized for you to handle. It's recommended to customize up to your preference level and no more.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" data-umami-event="FAQ Expand" data-umami-event-question="What's Morphe's privacy policy?">
-                    <div class="faq-number">5</div>
-                    <span class="faq-text" data-i18n="faq.q5">What's Morphe's privacy policy?</span>
-                    <span class="material-symbols-rounded">expand_more</span>
-                </button>
-                <div class="faq-answer">
-                    <p>
-                        <span data-i18n-link="analytics.description"
-                              data-i18n-link-href="https://umami.is"
-                              data-i18n-link-text="Umami"
-                              data-i18n-link-attrs='{"target":"_blank","rel":"noopener noreferrer","class":"inline-link","data-umami-event":"Umami Link Click"}'></span>
-                        <span data-i18n="analytics.disclaimer">Morphe does not add analytics or data collection to any patched apps.</span>
-                    </p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" data-umami-event="FAQ Expand" data-umami-event-question="Why the name Morphe?">
-                    <div class="faq-number">6</div>
-                    <span class="faq-text" data-i18n="faq.q6">Why the name Morphe?</span>
-                    <span class="material-symbols-rounded">expand_more</span>
-                </button>
-                <div class="faq-answer">
-                    <p data-i18n="faq.a6">Because "Android App Modification And Transformation Tool" (AAMATT) is not very catchy. And because Morphe implies it morphs your apps into something better.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" data-umami-event="FAQ Expand" data-umami-event-question="Is Morphe magic?">
-                    <div class="faq-number">7</div>
-                    <span class="faq-text" data-i18n="faq.q7">Is Morphe magic?</span>
-                    <span class="material-symbols-rounded">expand_more</span>
-                </button>
-                <div class="faq-answer">
-                    <p data-i18n="faq.a7">No. But also yes. It's advanced bytecode manipulation that feels like magic.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" data-umami-event="FAQ Expand" data-umami-event-question="Can I contribute to Morphe?">
-                    <div class="faq-number">8</div>
-                    <span class="faq-text" data-i18n="faq.q8">Can I contribute to Morphe?</span>
-                    <span class="material-symbols-rounded">expand_more</span>
-                </button>
-                <div class="faq-answer">
-                    <p>
-                        <span data-i18n-links="faq.a8"
-                              data-i18n-links-data='[{"href":"https://github.com/MorpheApp/","text":"GitHub repos","attrs":{"target":"_blank","rel":"noopener noreferrer","class":"inline-link","data-umami-event":"GitHub Contribution Click"}},{"href":"/donate","text":"donations","attrs":{"class":"inline-link","data-umami-event":"FAQ Donate Link Click"}}]'></span>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Community Section -->
-<section id="community" class="community">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title" data-i18n="hero.social-label">Join the Community</h2>
-            <p class="section-subtitle" data-i18n="community.subtitle">Follow us, report issues, and help make Morphe better</p>
-        </div>
-        <div class="community-grid">
-            <a href="https://github.com/MorpheApp" target="_blank" class="community-card" data-umami-event="GitHub Link Click">
-                <div class="feature-icon">
-                    <img src="images/github.svg" alt="GitHub" class="community-icon-img">
-                </div>
-                <h3 class="feature-title">GitHub</h3>
-                <p class="feature-description" data-i18n="community.github-desc">Browse the source code, report bugs, and contribute to Morphe development.</p>
-            </a>
-            <a href="https://x.com/MorpheApp" target="_blank" class="community-card" data-umami-event="X Link Click">
-                <div class="feature-icon">
-                    <img src="images/X.svg" alt="X" class="community-icon-img">
-                </div>
-                <h3 class="feature-title">X (Twitter)</h3>
-                <p class="feature-description" data-i18n="community.x-desc">Stay up to date with the latest news, releases, and announcements.</p>
-            </a>
-            <a href="https://reddit.com/r/MorpheApp" target="_blank" class="community-card" data-umami-event="Reddit Link Click">
-                <div class="feature-icon">
-                    <img src="images/reddit.svg" alt="Reddit" class="community-icon-img">
-                </div>
-                <h3 class="feature-title">Reddit</h3>
-                <p class="feature-description" data-i18n="community.reddit-desc">Join discussions, share tips, and connect with other Morphe users.</p>
-            </a>
-            <a href="https://crowdin.com/project/morphe" target="_blank" class="community-card" data-umami-event="Crowdin Link Click">
-                <div class="feature-icon">
-                    <img src="images/crowdin-small.svg" alt="Crowdin" class="community-icon-img">
-                </div>
-                <h3 class="feature-title">Crowdin</h3>
-                <p class="feature-description" data-i18n="community.crowdin-desc">Help translate Morphe into your language and make it accessible to everyone.</p>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-    <div class="footer-inner">
+    <footer class="footer">
+      <div class="footer-inner">
         <div class="footer-top">
-
-            <!-- Brand column -->
-            <div class="footer-brand">
-                <a href="index.html" class="footer-logo-link">
-                    <img src="images/morphe_logo_with_frame.svg" alt="Morphe" class="footer-logo">
-                    <span class="footer-brand-name">Morphe</span>
-                </a>
-                <p class="footer-tagline" data-i18n="footer.description">Next generation Android app patching</p>
-                <a href="https://www.dmca.com/Protection/Status.aspx?ID=58df7b1f-ce9f-4a91-9b07-c79cf576230b"
-                   title="DMCA.com Protection Status"
-                   class="dmca-badge"
-                   data-umami-event="DMCA Click">
-                    <img src="https://images.dmca.com/Badges/dmca_protected_sml_120n.png?ID=58df7b1f-ce9f-4a91-9b07-c79cf576230b"
-                         alt="DMCA.com Protection Status" />
-                </a>
-                <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"></script>
-                <details class="analytics-details">
-                    <summary data-i18n="analytics.title">Analytics</summary>
-                    <span data-i18n-link="analytics.description"
-                          data-i18n-link-href="https://umami.is"
-                          data-i18n-link-text="Umami"
-                          data-i18n-link-attrs='{"target":"_blank","rel":"noopener noreferrer","class":"inline-link","data-umami-event":"Umami Link Click"}'></span>
-                    <span data-i18n="analytics.disclaimer">Morphe does not add analytics or data collection to any patched apps.</span>
-                </details>
+          <div class="footer-brand">
+            <a href="/" class="footer-logo-link">
+              <img src="images/morphe_logo_with_frame.svg" alt="Morphe" class="footer-logo" />
+              <span class="footer-brand-name">Morphe<sup class="brand-fork-tag">+</sup></span>
+            </a>
+            <p class="footer-tagline" data-i18n="footer.description">A community fork of Morphe — next generation Android app patching</p>
+            <a href="https://www.dmca.com/Protection/Status.aspx?ID=58df7b1f-ce9f-4a91-9b07-c79cf576230b"
+               title="DMCA.com Protection Status"
+               class="dmca-badge">
+              <img src="https://images.dmca.com/Badges/dmca_protected_sml_120n.png?ID=58df7b1f-ce9f-4a91-9b07-c79cf576230b"
+                   alt="DMCA.com Protection Status" />
+            </a>
+            <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"></script>
+            <div class="analytics-note">
+              <span data-i18n-link="analytics.description"
+                    data-i18n-link-href="https://umami.is"
+                    data-i18n-link-text="Umami"
+                    data-i18n-link-attrs='{"target":"_blank","rel":"noopener noreferrer","class":"inline-link","data-umami-event":"Umami Link Click"}'></span>
+              <span data-i18n="analytics.disclaimer">Morphe does not add analytics or data collection to any patched apps.</span>
             </div>
+          </div>
 
-            <!-- Navigation columns -->
-            <div class="footer-nav">
-                <div class="footer-column">
-                    <h4 data-i18n="footer.product">Product</h4>
-                    <a href="index.html" data-i18n="footer.product-home" data-umami-event="Footer Home Click">Home</a>
-                    <a href="changelog.html" data-i18n="footer.product-changelog" data-umami-event="Footer What's New Click">What's New</a>
-                    <a href="microg.html" data-i18n="footer.product-microg" data-umami-event="Footer MicroG Click">Download MicroG</a>
-                    <a href="translate.html" data-i18n="footer.product-translate" data-umami-event="Footer Translate Click">Help translate</a>
-                    <a href="donate.html" data-i18n="footer.support-donate" data-umami-event="Footer Donate Click">Donate</a>
-                </div>
-                <div class="footer-column">
-                    <h4 data-i18n="footer.community">Community</h4>
-                    <a href="https://github.com/MorpheApp" target="_blank" data-umami-event="Footer GitHub Click">GitHub</a>
-                    <a href="https://x.com/MorpheApp" target="_blank" data-umami-event="Footer X Click">X (Twitter)</a>
-                    <a href="https://reddit.com/r/MorpheApp" target="_blank" data-umami-event="Footer Reddit Click">Reddit</a>
-                    <a href="https://crowdin.com/project/morphe" target="_blank" data-umami-event="Footer Crowdin Click">Crowdin</a>
-                </div>
-                <div class="footer-column language-selector-container">
-                    <h4 data-i18n="footer.language">Language</h4>
-                    <div class="lang-dropdown" id="langDropdownFooter" style="width:100%;">
-                        <button class="lang-trigger" id="langTriggerFooter" type="button" style="width:100%;">
-                            <span class="material-symbols-rounded">translate</span>
-                            <span class="lang-label">English</span>
-                            <span class="material-symbols-rounded arrow">expand_more</span>
-                        </button>
-                        <div class="lang-menu" id="langMenuFooter" role="listbox" style="left:0;right:auto;min-width:100%;bottom:calc(100% + 6px);top:auto;"></div>
-                    </div>
-                </div>
+          <div class="footer-nav">
+            <div class="footer-column">
+              <h4 data-i18n="footer.product">Product</h4>
+              <a href="/" data-i18n="footer.product-home">Home</a>
+              <a href="changelog.html" data-i18n="footer.product-changelog">What's New</a>
+              <a href="microg.html" data-i18n="footer.product-microg">Download MicroG</a>
+              <a href="translate.html" data-i18n="footer.product-translate">Help translate</a>
+              <a href="donate.html" data-i18n="footer.support-donate">Donate</a>
             </div>
+            <div class="footer-column">
+              <h4 data-i18n="footer.community">Community</h4>
+              <a href="https://github.com/MorpheApp" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://x.com/MorpheApp" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+              <a href="https://reddit.com/r/MorpheApp" target="_blank" rel="noopener noreferrer">Reddit</a>
+            </div>
+            <div class="footer-column language-selector-container">
+              <h4 data-i18n="footer.language">Language</h4>
+              <div class="lang-dropdown" id="langDropdownFooter">
+                <button class="lang-trigger" id="langTriggerFooter" type="button">
+                  <span class="material-symbols-rounded" style="-webkit-mask: url(icons/translate.svg) no-repeat center; mask: url(icons/translate.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="translate"></span>
+                  <span class="lang-label">English</span>
+                  <span class="material-symbols-rounded arrow" style="-webkit-mask: url(icons/expand_more.svg) no-repeat center; mask: url(icons/expand_more.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="expand_more"></span>
+                </button>
+                <div class="lang-menu" id="langMenuFooter" role="listbox" style="left:0;right:auto;min-width:100%;bottom:calc(100% + 6px);top:auto;"></div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- Bottom bar — copyright centered -->
         <div class="footer-bottom">
-            <p class="footer-copyright">&copy; Morphe. <span data-i18n="footer.copyright">Open source and free forever.</span></p>
+          <p class="footer-copyright">&copy; Morphe. <span data-i18n="footer.copyright">Open source and free forever.</span></p>
         </div>
-    </div>
-</footer>
+      </div>
+    </footer>
 
-<!-- Scroll to Top Button -->
-<button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top" data-umami-event="Scroll to Top Click">
-    <span class="material-symbols-rounded">arrow_upward</span>
-</button>
+    <button class="fab" id="fab" aria-label="Scroll to top">
+      <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/arrow_upward.svg) no-repeat center; mask: url(icons/arrow_upward.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="arrow_upward"></span>
+    </button>
 
-<script src="js/theme-manager.js"></script>
-<script src="js/i18n.js"></script>
-<script src="js/testimonials.js"></script>
-<script src="js/app-features.js"></script>
-<script src="js/hero-morph.js"></script>
-<script src="js/main.js"></script>
-</body>
+    <script src="js/main.js"></script>
+  </body>
 </html>
