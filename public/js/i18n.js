@@ -3,7 +3,7 @@
     'use strict';
 
     const I18N_KEY = 'morphe-language';
-    const LOCALES_CONFIG_PATH = '/locales/supported-locales.json';
+    const LOCALES_CONFIG_PATH = 'locales/supported-locales.json';
     let DEFAULT_LANGUAGE = 'en';
     let SUPPORTED_LOCALES = [];
 
@@ -119,7 +119,7 @@
 
         async loadTranslations(lang) {
             try {
-                const response = await fetch(`/locales/${lang}.json`);
+                const response = await fetch(`locales/${lang}.json`);
                 if (!response.ok) {
                     throw new Error(`Failed to load translations for ${lang}`);
                 }
@@ -127,7 +127,7 @@
 
                 // If testimonials section is missing, load from default language
                 if (!this.translations.testimonials && lang !== DEFAULT_LANGUAGE) {
-                    const defaultResponse = await fetch(`/locales/${DEFAULT_LANGUAGE}.json`);
+                    const defaultResponse = await fetch(`locales/${DEFAULT_LANGUAGE}.json`);
                     const defaultTranslations = await defaultResponse.json();
                     if (defaultTranslations.testimonials) {
                         this.translations.testimonials = defaultTranslations.testimonials;
@@ -141,7 +141,7 @@
                     const baseLang = lang.split('-')[0];
 
                     try {
-                        const fallbackResponse = await fetch(`/locales/${baseLang}.json`);
+                        const fallbackResponse = await fetch(`locales/${baseLang}.json`);
                         if (fallbackResponse.ok) {
                             this.translations = await fallbackResponse.json();
                             return;
@@ -153,7 +153,7 @@
 
                 // Final fallback to default language
                 if (lang !== DEFAULT_LANGUAGE) {
-                    const defaultResponse = await fetch(`/locales/${DEFAULT_LANGUAGE}.json`);
+                    const defaultResponse = await fetch(`locales/${DEFAULT_LANGUAGE}.json`);
                     this.translations = await defaultResponse.json();
                 }
             }
