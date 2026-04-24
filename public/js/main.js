@@ -1,3 +1,12 @@
+// Blur interactive elements after a mouse/touch click so they don't keep
+// the focus ring. Keyboard users still see focus rings via :focus-visible.
+document.addEventListener('DOMContentLoaded', function() {
+    const clickBlurSelector = '.nav-link, .drawer-link, .theme-toggle, .mobile-menu-toggle, .lang-trigger-compact, .btn, .btn-primary, .btn-secondary, .filter-btn, .app-tab';
+    document.querySelectorAll(clickBlurSelector).forEach(el => {
+        el.addEventListener('click', () => setTimeout(() => el.blur(), 0));
+    });
+});
+
 // Mobile Drawer
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');

@@ -79,11 +79,18 @@
 
         setupThemeToggle() {
             const toggle = document.getElementById('theme-toggle');
-            if (toggle) {
-                toggle.addEventListener('click', () => {
-                    this.toggleTheme();
-                });
-            }
+            if (!toggle) return;
+            toggle.addEventListener('click', () => {
+                toggle.classList.remove('spin');
+                // Force reflow so the animation replays on repeated clicks
+                void toggle.offsetWidth;
+                toggle.classList.add('spin');
+                this.toggleTheme();
+                setTimeout(() => toggle.blur(), 0);
+            });
+            toggle.addEventListener('animationend', () => {
+                toggle.classList.remove('spin');
+            });
         }
     }
 
