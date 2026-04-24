@@ -24,15 +24,17 @@
 <!-- Navigation -->
 <nav class="navbar">
     <div class="nav-container">
-        <a href="/" class="nav-logo">
+        <a href="index.html" class="nav-logo">
             <img src="images/morphe_wordmark_light.svg" alt="Morphe" class="nav-logo-wordmark logo-light">
             <img src="images/morphe_wordmark_dark.svg" alt="Morphe" class="nav-logo-wordmark logo-dark">
         </a>
         <div class="nav-links">
-            <a href="/" class="nav-link" data-i18n="footer.product-home" data-umami-event="Nav Home Click">Home</a>
-            <a href="translate" class="nav-link" data-i18n="footer.product-translate" data-umami-event="Nav Translate Click">Help translate</a>
-            <a href="donate" class="nav-link" data-i18n="footer.support-donate" data-umami-event="Nav Donate Click">Donate</a>
-            <a href="changelog" class="nav-link"  data-i18n="footer.product-changelog" data-umami-event="Nav What's New Click">What's New</a>
+            <a href="index.html#home" class="nav-link" data-i18n="nav.home" data-umami-event="Nav Home Click">Home</a>
+            <a href="index.html#how-it-works" class="nav-link" data-i18n="nav.how-it-works" data-umami-event="Nav How It Works Click">How It Works</a>
+            <a href="index.html#testimonials" class="nav-link" data-i18n="nav.testimonials" data-umami-event="Nav Testimonials Click">Testimonials</a>
+            <a href="index.html#faq" class="nav-link" data-i18n="nav.faq" data-umami-event="Nav FAQ Click">FAQ</a>
+            <a href="donate.html" class="nav-link" data-i18n="footer.support-donate" data-umami-event="Nav Donate Click">Donate</a>
+            <a href="changelog.html" class="nav-link" data-i18n="footer.product-changelog" data-umami-event="Nav What's New Click">What's New</a>
         </div>
         <div class="nav-actions">
             <div class="lang-dropdown" id="langDropdownBar">
@@ -56,23 +58,40 @@
 <div class="mobile-drawer" id="mobile-drawer">
     <div class="drawer-scrim" id="drawer-scrim"></div>
     <div class="drawer-sheet">
-        <a href="/" class="drawer-link" data-umami-event="Drawer Home Click">
+        <a href="index.html#home" class="drawer-link" data-umami-event="Drawer Home Click">
             <span class="material-symbols-rounded">home</span>
-            <span data-i18n="footer.product-home">Home</span>
+            <span data-i18n="nav.home">Home</span>
         </a>
-        <a href="translate" class="drawer-link" data-umami-event="Drawer Translate Click">
+        <a href="index.html#how-it-works" class="drawer-link" data-umami-event="Drawer How It Works Click">
+            <span class="material-symbols-rounded">help</span>
+            <span data-i18n="nav.how-it-works">How It Works</span>
+        </a>
+        <a href="index.html#testimonials" class="drawer-link" data-umami-event="Drawer Testimonials Click">
+            <span class="material-symbols-rounded">reviews</span>
+            <span data-i18n="nav.testimonials">Testimonials</span>
+        </a>
+        <a href="index.html#faq" class="drawer-link" data-umami-event="Drawer FAQ Click">
+            <span class="material-symbols-rounded">quiz</span>
+            <span data-i18n="nav.faq">FAQ</span>
+        </a>
+        <hr class="drawer-divider">
+        <a href="microg.html" class="drawer-link" data-umami-event="Drawer MicroG Click">
+            <span class="material-symbols-rounded">download</span>
+            <span data-i18n="footer.product-microg">Download MicroG</span>
+        </a>
+        <a href="translate.html" class="drawer-link" data-umami-event="Drawer Translate Click">
             <span class="material-symbols-rounded">language</span>
             <span data-i18n="footer.product-translate">Help translate</span>
         </a>
-        <a href="changelog" class="drawer-link" data-umami-event="Drawer Changelog Click">
-            <span class="material-symbols-rounded">new_releases</span>
-            <span data-i18n="footer.product-changelog">What's New</span>
-        </a>
-        <hr class="drawer-divider">
-        <a href="donate" class="drawer-link" data-umami-event="Drawer Donate Click">
+        <a href="donate.html" class="drawer-link" data-umami-event="Drawer Donate Click">
             <span class="material-symbols-rounded">volunteer_activism</span>
             <span data-i18n="footer.support-donate">Donate</span>
         </a>
+        <a href="changelog.html" class="drawer-link" data-umami-event="Drawer Changelog Click">
+            <span class="material-symbols-rounded">new_releases</span>
+            <span data-i18n="footer.product-changelog">What's New</span>
+        </a>
+    
     </div>
 </div>
 
@@ -101,9 +120,10 @@
             <h2 class="section-title" data-i18n="microg.what-title">What is MicroG?</h2>
         </div>
 
-        <div class="features-grid">
+        <div class="features-grid microg-steps">
             <div class="feature-card">
                 <div class="feature-icon">
+                    <span class="feature-number">1</span>
                     <span class="material-symbols-rounded">lock</span>
                 </div>
                 <h3 class="feature-title" data-i18n="microg.feature1-title">Google Services</h3>
@@ -114,6 +134,7 @@
 
             <div class="feature-card">
                 <div class="feature-icon">
+                    <span class="feature-number">2</span>
                     <span class="material-symbols-rounded">shield</span>
                 </div>
                 <h3 class="feature-title" data-i18n="microg.feature2-title">Privacy Focused</h3>
@@ -124,6 +145,7 @@
 
             <div class="feature-card">
                 <div class="feature-icon">
+                    <span class="feature-number">3</span>
                     <span class="material-symbols-rounded">schedule</span>
                 </div>
                 <h3 class="feature-title" data-i18n="microg.feature3-title">One-Time Install</h3>
@@ -142,7 +164,7 @@
 
             <!-- Brand column -->
             <div class="footer-brand">
-                <a href="/" class="footer-logo-link">
+                <a href="index.html" class="footer-logo-link">
                     <img src="images/morphe_logo_with_frame.svg" alt="Morphe" class="footer-logo">
                     <span class="footer-brand-name">Morphe</span>
                 </a>
@@ -169,11 +191,11 @@
             <div class="footer-nav">
                 <div class="footer-column">
                     <h4 data-i18n="footer.product">Product</h4>
-                    <a href="/" data-i18n="footer.product-home" data-umami-event="Footer Home Click">Home</a>
-                    <a href="changelog" data-i18n="footer.product-changelog" data-umami-event="Footer What's New Click">What's New</a>
-                    <a href="microg" data-i18n="footer.product-microg" data-umami-event="Footer MicroG Click">Download MicroG</a>
-                    <a href="translate" data-i18n="footer.product-translate" data-umami-event="Footer Translate Click">Help translate</a>
-                    <a href="donate" data-i18n="footer.support-donate" data-umami-event="Footer Donate Click">Donate</a>
+                    <a href="index.html" data-i18n="footer.product-home" data-umami-event="Footer Home Click">Home</a>
+                    <a href="changelog.html" data-i18n="footer.product-changelog" data-umami-event="Footer What's New Click">What's New</a>
+                    <a href="microg.html" data-i18n="footer.product-microg" data-umami-event="Footer MicroG Click">Download MicroG</a>
+                    <a href="translate.html" data-i18n="footer.product-translate" data-umami-event="Footer Translate Click">Help translate</a>
+                    <a href="donate.html" data-i18n="footer.support-donate" data-umami-event="Footer Donate Click">Donate</a>
                 </div>
                 <div class="footer-column">
                     <h4 data-i18n="footer.community">Community</h4>

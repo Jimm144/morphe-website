@@ -24,15 +24,17 @@
 <!-- Navigation -->
 <nav class="navbar">
     <div class="nav-container">
-        <a href="/" class="nav-logo">
+        <a href="index.html" class="nav-logo">
             <img src="images/morphe_wordmark_light.svg" alt="Morphe" class="nav-logo-wordmark logo-light">
             <img src="images/morphe_wordmark_dark.svg" alt="Morphe" class="nav-logo-wordmark logo-dark">
         </a>
         <div class="nav-links">
-            <a href="/" class="nav-link" data-i18n="footer.product-home" data-umami-event="Nav Home Click">Home</a>
-            <a href="microg" class="nav-link" data-i18n="footer.product-microg" data-umami-event="Nav MicroG Click">Download MicroG</a>
-            <a href="donate" class="nav-link" data-i18n="footer.support-donate" data-umami-event="Nav Donate Click">Donate</a>
-            <a href="changelog" class="nav-link"  data-i18n="footer.product-changelog" data-umami-event="Nav What's New Click">What's New</a>
+            <a href="index.html#home" class="nav-link" data-i18n="nav.home" data-umami-event="Nav Home Click">Home</a>
+            <a href="index.html#how-it-works" class="nav-link" data-i18n="nav.how-it-works" data-umami-event="Nav How It Works Click">How It Works</a>
+            <a href="index.html#testimonials" class="nav-link" data-i18n="nav.testimonials" data-umami-event="Nav Testimonials Click">Testimonials</a>
+            <a href="index.html#faq" class="nav-link" data-i18n="nav.faq" data-umami-event="Nav FAQ Click">FAQ</a>
+            <a href="donate.html" class="nav-link" data-i18n="footer.support-donate" data-umami-event="Nav Donate Click">Donate</a>
+            <a href="changelog.html" class="nav-link" data-i18n="footer.product-changelog" data-umami-event="Nav What's New Click">What's New</a>
         </div>
         <div class="nav-actions">
             <div class="lang-dropdown" id="langDropdownBar">
@@ -56,23 +58,40 @@
 <div class="mobile-drawer" id="mobile-drawer">
     <div class="drawer-scrim" id="drawer-scrim"></div>
     <div class="drawer-sheet">
-        <a href="/" class="drawer-link" data-umami-event="Drawer Home Click">
+        <a href="index.html#home" class="drawer-link" data-umami-event="Drawer Home Click">
             <span class="material-symbols-rounded">home</span>
-            <span data-i18n="footer.product-home">Home</span>
+            <span data-i18n="nav.home">Home</span>
         </a>
-        <a href="microg" class="drawer-link" data-umami-event="Drawer MicroG Click">
+        <a href="index.html#how-it-works" class="drawer-link" data-umami-event="Drawer How It Works Click">
+            <span class="material-symbols-rounded">help</span>
+            <span data-i18n="nav.how-it-works">How It Works</span>
+        </a>
+        <a href="index.html#testimonials" class="drawer-link" data-umami-event="Drawer Testimonials Click">
+            <span class="material-symbols-rounded">reviews</span>
+            <span data-i18n="nav.testimonials">Testimonials</span>
+        </a>
+        <a href="index.html#faq" class="drawer-link" data-umami-event="Drawer FAQ Click">
+            <span class="material-symbols-rounded">quiz</span>
+            <span data-i18n="nav.faq">FAQ</span>
+        </a>
+        <hr class="drawer-divider">
+        <a href="microg.html" class="drawer-link" data-umami-event="Drawer MicroG Click">
             <span class="material-symbols-rounded">download</span>
             <span data-i18n="footer.product-microg">Download MicroG</span>
         </a>
-        <a href="changelog" class="drawer-link" data-umami-event="Drawer Changelog Click">
-            <span class="material-symbols-rounded">new_releases</span>
-            <span data-i18n="footer.product-changelog">What's New</span>
+        <a href="translate.html" class="drawer-link" data-umami-event="Drawer Translate Click">
+            <span class="material-symbols-rounded">language</span>
+            <span data-i18n="footer.product-translate">Help translate</span>
         </a>
-        <hr class="drawer-divider">
-        <a href="donate" class="drawer-link" data-umami-event="Drawer Donate Click">
+        <a href="donate.html" class="drawer-link" data-umami-event="Drawer Donate Click">
             <span class="material-symbols-rounded">volunteer_activism</span>
             <span data-i18n="footer.support-donate">Donate</span>
         </a>
+        <a href="changelog.html" class="drawer-link" data-umami-event="Drawer Changelog Click">
+            <span class="material-symbols-rounded">new_releases</span>
+            <span data-i18n="footer.product-changelog">What's New</span>
+        </a>
+    
     </div>
 </div>
 
@@ -101,7 +120,7 @@
         </div>
 
         <div class="features-grid">
-            <a href="https://crowdin.com/project/morphe" target="_blank" rel="noopener noreferrer" class="feature-card" style="text-decoration: none; color: inherit; cursor: pointer;" data-umami-event="Translate Step 1 Click">
+            <div class="feature-card">
                 <div class="feature-icon">
                     <span class="material-symbols-rounded">group</span>
                 </div>
@@ -109,9 +128,9 @@
                 <p class="feature-description" data-i18n="translate.step1-desc">
                     Create a free Crowdin account. It only takes a minute and gives you access to translate Morphe and other open source projects.
                 </p>
-            </a>
+            </div>
 
-            <a href="https://crowdin.com/project/morphe" target="_blank" rel="noopener noreferrer" class="feature-card" style="text-decoration: none; color: inherit; cursor: pointer;" data-umami-event="Translate Step 2 Click">
+            <div class="feature-card">
                 <div class="feature-icon">
                     <span class="material-symbols-rounded">language</span>
                 </div>
@@ -119,9 +138,9 @@
                 <p class="feature-description" data-i18n="translate.step2-desc">
                     Select the language you want to translate into. You can contribute to new translations or improve existing ones.
                 </p>
-            </a>
+            </div>
 
-            <a href="https://crowdin.com/project/morphe" target="_blank" rel="noopener noreferrer" class="feature-card" style="text-decoration: none; color: inherit; cursor: pointer;" data-umami-event="Translate Step 3 Click">
+            <div class="feature-card">
                 <div class="feature-icon">
                     <span class="material-symbols-rounded">edit</span>
                 </div>
@@ -129,9 +148,9 @@
                 <p class="feature-description" data-i18n="translate.step3-desc">
                     Use Crowdin's intuitive interface to translate strings. Every contribution helps make Morphe accessible to more users.
                 </p>
-            </a>
+            </div>
 
-            <a href="https://crowdin.com/project/morphe" target="_blank" rel="noopener noreferrer" class="feature-card" style="text-decoration: none; color: inherit; cursor: pointer;" data-umami-event="Translate Step 4 Click">
+            <div class="feature-card">
                 <div class="feature-icon">
                     <span class="material-symbols-rounded">check</span>
                 </div>
@@ -139,7 +158,7 @@
                 <p class="feature-description" data-i18n="translate.step4-desc">
                     Your translations will be reviewed and included in future Morphe releases, helping users around the world.
                 </p>
-            </a>
+            </div>
         </div>
 
     </div>
@@ -153,34 +172,34 @@
             <p class="section-subtitle" data-i18n="translate.why-subtitle">Every translated string brings Morphe closer to someone who needs it</p>
         </div>
         <div class="community-grid">
-            <a href="https://crowdin.com/project/morphe" target="_blank" rel="noopener noreferrer" class="community-card" data-umami-event="Translate Why 1 Click">
+            <div class="community-card">
                 <div class="feature-icon">
                     <span class="material-symbols-rounded">group</span>
                 </div>
                 <h3 class="feature-title" data-i18n="translate.why-1">Help Your Community</h3>
                 <p class="feature-description" data-i18n="translate.why-1-desc">Make Morphe available in your native language so everyone around you can enjoy it without barriers.</p>
-            </a>
-            <a href="https://crowdin.com/project/morphe" target="_blank" rel="noopener noreferrer" class="community-card" data-umami-event="Translate Why 2 Click">
+            </div>
+            <div class="community-card">
                 <div class="feature-icon">
                     <span class="material-symbols-rounded">language</span>
                 </div>
                 <h3 class="feature-title" data-i18n="translate.why-2">Make Morphe Global</h3>
                 <p class="feature-description" data-i18n="translate.why-2-desc">Reach millions of users across the world by bringing Morphe to new languages and regions.</p>
-            </a>
-            <a href="https://crowdin.com/project/morphe" target="_blank" rel="noopener noreferrer" class="community-card" data-umami-event="Translate Why 3 Click">
+            </div>
+            <div class="community-card">
                 <div class="feature-icon">
                     <span class="material-symbols-rounded">bookmark</span>
                 </div>
                 <h3 class="feature-title" data-i18n="translate.why-3">Contribute to Open Source</h3>
                 <p class="feature-description" data-i18n="translate.why-3-desc">Translation is a meaningful form of open source contribution — no coding skills required.</p>
-            </a>
-            <a href="https://crowdin.com/project/morphe" target="_blank" rel="noopener noreferrer" class="community-card" data-umami-event="Translate Why 4 Click">
+            </div>
+            <div class="community-card">
                 <div class="feature-icon">
                     <span class="material-symbols-rounded">check</span>
                 </div>
                 <h3 class="feature-title" data-i18n="translate.why-4">See Your Impact</h3>
                 <p class="feature-description" data-i18n="translate.why-4-desc">Your translations are reviewed and shipped in real Morphe releases, reaching users around the world.</p>
-            </a>
+            </div>
         </div>
     </div>
 </section>
@@ -192,7 +211,7 @@
 
             <!-- Brand column -->
             <div class="footer-brand">
-                <a href="/" class="footer-logo-link">
+                <a href="index.html" class="footer-logo-link">
                     <img src="images/morphe_logo_with_frame.svg" alt="Morphe" class="footer-logo">
                     <span class="footer-brand-name">Morphe</span>
                 </a>
@@ -219,11 +238,11 @@
             <div class="footer-nav">
                 <div class="footer-column">
                     <h4 data-i18n="footer.product">Product</h4>
-                    <a href="/" data-i18n="footer.product-home" data-umami-event="Footer Home Click">Home</a>
-                    <a href="changelog" data-i18n="footer.product-changelog" data-umami-event="Footer What's New Click">What's New</a>
-                    <a href="microg" data-i18n="footer.product-microg" data-umami-event="Footer MicroG Click">Download MicroG</a>
-                    <a href="translate" data-i18n="footer.product-translate" data-umami-event="Footer Translate Click">Help translate</a>
-                    <a href="donate" data-i18n="footer.support-donate" data-umami-event="Footer Donate Click">Donate</a>
+                    <a href="index.html" data-i18n="footer.product-home" data-umami-event="Footer Home Click">Home</a>
+                    <a href="changelog.html" data-i18n="footer.product-changelog" data-umami-event="Footer What's New Click">What's New</a>
+                    <a href="microg.html" data-i18n="footer.product-microg" data-umami-event="Footer MicroG Click">Download MicroG</a>
+                    <a href="translate.html" data-i18n="footer.product-translate" data-umami-event="Footer Translate Click">Help translate</a>
+                    <a href="donate.html" data-i18n="footer.support-donate" data-umami-event="Footer Donate Click">Donate</a>
                 </div>
                 <div class="footer-column">
                     <h4 data-i18n="footer.community">Community</h4>
