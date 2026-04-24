@@ -6,8 +6,8 @@
     "faq": "FAQ"
   },
   "hero": {
-    "title": "Proměň své",
-    "title-highlight": "Android aplikace",
+    "title": "Proměň svůj",
+    "title-highlight": "Android zážitek",
     "description": "Od vývojářů nejlepších upravených aplikací YouTube přichází Morphe — výkonný nástroj pro úpravu aplikací",
     "download": "Stáhnout Morphe",
     "learn-more": "Zjistit více",
@@ -193,9 +193,9 @@
     "sponsors-empty": "Buďte první mega podporovatel!"
   },
   "microg": {
-    "title": "Stáhnuť",
+    "title": "Stáhnout",
     "description": "MicroG je vyžadován pro YouTube Morphe a YT Music Morphe",
-    "download": "Stiahnuť MicroG",
+    "download": "Stáhnout MicroG",
     "what-title": "Co je MicroG?",
     "feature1-title": "Google služby",
     "feature1-desc": "Podpora Google Play Services.",

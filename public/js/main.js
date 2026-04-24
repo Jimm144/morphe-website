@@ -29,7 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
         { code: 'uk-UA', name: 'Українська' },
         { code: 'ja-JP', name: '日本語' },
         { code: 'ko-KR', name: '한국어' },
-        { code: 'zh-CN', name: '中文' }
+        { code: 'zh-CN', name: '中文 (简体)' },
+        { code: 'zh-TW', name: '中文 (繁體)' }
     ];
     const langCodes = langs.map((e) => e.code);
     let translations = {};
@@ -253,9 +254,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function start() {
             stop();
-            idx = 0;
+            idx = 1;
             cycling = true;
             const steps = buildSteps();
+            // Show the first app label immediately so the base "Android
+            // Experience" label never appears at the start of the cycle.
+            el.classList.remove('is-out');
+            el.textContent = steps[0];
             const tick = () => {
                 if (idx >= steps.length) {
                     cycling = false;
@@ -279,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function reset() {
             stop();
             el.classList.remove('is-out');
-            el.textContent = baseLabel;
+            el.textContent = APP_LABELS[0];
         }
 
         const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
