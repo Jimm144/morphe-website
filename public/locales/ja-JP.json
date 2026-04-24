@@ -7,14 +7,11 @@
   },
   "hero": {
     "title": "生まれ変わる",
-    "title-highlight": "Androidの体験",
+    "title-highlight": "Androidアプリ",
     "description": "最高の改造版YouTubeアプリを手がけた開発陣が送る「Morphe」アプリを自由にカスタマイズする強力な改造ツール",
     "download": "Morpheをダウンロード",
     "learn-more": "詳細を見る",
-    "social-label": "コミュニティに参加",
-    "title-highlight-youtube": "YouTube",
-    "title-highlight-ytmusic": "YT Music",
-    "title-highlight-reddit": "Reddit"
+    "social-label": "コミュニティに参加"
   },
   "how-it-works": {
     "title": "Morpheの仕組み",
@@ -245,7 +242,8 @@
     "show-dev": "プレリリース版を表示",
     "older-releases": "過去のバージョンをお探しですか？",
     "view-manager": "マネージャーのバージョン一覧を見る",
-    "view-patches": "パッチのバージョン一覧を見る"
+    "view-patches": "パッチのバージョン一覧を見る",
+    "badge-dev": "Dev"
   },
   "app-features": {
     "title": "アプリの機能",

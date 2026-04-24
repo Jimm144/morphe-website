@@ -6,15 +6,12 @@
     "faq": "FAQ"
   },
   "hero": {
-    "title": "Proměň svůj",
-    "title-highlight": "Android zážitek",
+    "title": "Proměň své",
+    "title-highlight": "Android aplikace",
     "description": "Od vývojářů nejlepších upravených aplikací YouTube přichází Morphe — výkonný nástroj pro úpravu aplikací",
     "download": "Stáhnout Morphe",
     "learn-more": "Zjistit více",
-    "social-label": "Připoj se ke komunitě",
-    "title-highlight-youtube": "YouTube",
-    "title-highlight-ytmusic": "YT Music",
-    "title-highlight-reddit": "Reddit"
+    "social-label": "Připoj se ke komunitě"
   },
   "how-it-works": {
     "title": "Jak Morphe funguje",
@@ -245,7 +242,8 @@
     "show-dev": "Zobrazit předběžné verze",
     "older-releases": "Hledáte starší verze?",
     "view-manager": "Zobrazit verze Správce",
-    "view-patches": "Zobrazit verze záplat"
+    "view-patches": "Zobrazit verze záplat",
+    "badge-dev": "Dev"
   },
   "app-features": {
     "title": "Funkce Aplikace",

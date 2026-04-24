@@ -59,12 +59,9 @@
     "faq": "FAQ"
   },
   "hero": {
-    "title": "Odmień",
-    "title-highlight": "swojego Androida",
-    "title-highlight-youtube": "swojego YouTube'a",
-    "title-highlight-ytmusic": "swoje YT Music",
-    "title-highlight-reddit": "swojego Reddita",
-    "description": "Twórcy najlepszych modyfikacji YouTube przedstawiają Morphe - potężne narzędzie, które daje Ci absolutną kontrolę nad Twoimi aplikacjami",
+    "title": "Przekształć swoje",
+    "title-highlight": "aplikacje na Androida",
+    "description": "Twórcy najlepszych modyfikacji YouTube przedstawiają Morphe - potężne narzędzie do modyfikowania aplikacji, które daje Ci pełną kontrolę",
     "download": "Pobierz Morphe",
     "learn-more": "Dowiedz się więcej",
     "social-label": "Dołącz do społeczności"
@@ -300,7 +297,8 @@
     "show-dev": "Pokaż wersje przedpremierowe",
     "older-releases": "Szukasz starszych wersji?",
     "view-manager": "Zobacz wydania menedżera",
-    "view-patches": "Zobacz wydania modyfikacji"
+    "view-patches": "Zobacz wydania modyfikacji",
+    "badge-dev": "Dev"
   },
   "add-source": {
     "title": "Dodaj źródło modyfikacji",

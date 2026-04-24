@@ -6,15 +6,12 @@
     "faq": "FAQ"
   },
   "hero": {
-    "title": "Преобразуйте свой",
-    "title-highlight": "опыт с Android",
+    "title": "Преобразуйте свои",
+    "title-highlight": "Android приложения",
     "description": "От разработчиков, создавших лучшие модификации YouTube и YT Music, приходит Morphe – мощный инструмент модификации приложений, который дает вам полный контроль",
     "download": "Загрузить Morphe",
     "learn-more": "Узнать больше",
-    "social-label": "Присоединяйтесь к сообществу",
-    "title-highlight-youtube": "YouTube",
-    "title-highlight-ytmusic": "YT Music",
-    "title-highlight-reddit": "Reddit"
+    "social-label": "Присоединяйтесь к сообществу"
   },
   "how-it-works": {
     "title": "Как работает Morphe",
@@ -245,7 +242,8 @@
     "show-dev": "Показать пререлизы",
     "older-releases": "Ищете более старые релизы?",
     "view-manager": "Просмотреть релизы менеджера",
-    "view-patches": "Просмотреть релизы патчей"
+    "view-patches": "Просмотреть релизы патчей",
+    "badge-dev": "Dev"
   },
   "app-features": {
     "title": "Функции приложения",

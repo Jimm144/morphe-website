@@ -14,7 +14,7 @@
 //     direction intent (horizontal vs vertical) is decided after INTENT_THRESHOLD
 //     pixels of movement so vertical page scroll is never hijacked.
 
-(function() {
+(function () {
     'use strict';
 
     // Holds references to the active carousel's DOM nodes and event handlers
@@ -67,15 +67,13 @@
         // Apply a fixed display order that is independent of the translation files.
         // This lets us reorder quotes without touching every locale.
         return reorderByIndexes(
-            [2, 9, 3, 16, 4, 18, 5, 10, 6, 11, 7, 13, 12, 15, 17, 14, 19, 8].map(n => n - 1),
+            [2, 9, 3, 16, 4, 18, 5, 10, 6, 11, 7, 13, 12, 15, 17, 14, 19, 8].map((n) => n - 1),
             testimonials
         );
     }
 
     function reorderByIndexes(indexes, values) {
-        return indexes
-            .filter(i => i >= 0 && i < values.length)
-            .map(i => values[i]);
+        return indexes.filter((i) => i >= 0 && i < values.length).map((i) => values[i]);
     }
 
     // Render testimonials into DOM
@@ -95,12 +93,21 @@
     function destroyCarousel() {
         if (!carouselInstance) return;
 
-        const { track, prevBtn, nextBtn, resizeHandler, nextClick, prevClick,
-                pointerDown, pointerMove, pointerUp } = carouselInstance;
+        const {
+            track,
+            prevBtn,
+            nextBtn,
+            resizeHandler,
+            nextClick,
+            prevClick,
+            pointerDown,
+            pointerMove,
+            pointerUp
+        } = carouselInstance;
 
         if (track) {
             // Remove DOM clones added during init
-            track.querySelectorAll('.testimonial-card-clone').forEach(el => el.remove());
+            track.querySelectorAll('.testimonial-card-clone').forEach((el) => el.remove());
             // Reset all inline styles set by the carousel
             track.style.cssText = '';
             track.removeEventListener('pointerdown', pointerDown);
@@ -130,7 +137,7 @@
         if (!track || !prevBtn || !nextBtn) return;
 
         // Guard against stale clones left by a previous init that was interrupted
-        track.querySelectorAll('.testimonial-card-clone').forEach(el => el.remove());
+        track.querySelectorAll('.testimonial-card-clone').forEach((el) => el.remove());
 
         const originalCards = Array.from(track.querySelectorAll('.testimonial-card'));
         if (originalCards.length === 0) return;
@@ -147,9 +154,7 @@
             const carouselW = carousel.clientWidth - carouselPaddingL - carouselPaddingR;
             const gap = parseFloat(getComputedStyle(track).gap) || 32;
             // Mobile: one full-width card; Desktop: three cards with two gaps
-            const cardW = isMobile
-                ? carouselW
-                : (carouselW - gap * 2) / 3;
+            const cardW = isMobile ? carouselW : (carouselW - gap * 2) / 3;
             return { cardW, gap };
         }
 
@@ -162,7 +167,7 @@
         }
         // Append clones of the START of the list so that scrolling right from
         // card[total-1] immediately shows card[0], card[1], etc.
-        originalCards.forEach(c => {
+        originalCards.forEach((c) => {
             const cl = c.cloneNode(true);
             cl.classList.add('testimonial-card-clone');
             track.appendChild(cl);
@@ -188,7 +193,7 @@
 
         function applyCardSizes() {
             const { cardW, gap } = measure();
-            allCards.forEach(card => {
+            allCards.forEach((card) => {
                 card.style.flex = `0 0 ${cardW}px`;
                 card.style.minWidth = `${cardW}px`;
                 card.style.maxWidth = `${cardW}px`;
@@ -249,8 +254,8 @@
         let pointerStartX = 0;
         let pointerStartY = 0;
         let isDragging = false;
-        let baseOffset = 0;     // track offset captured at drag start
-        let intentDecided = false;  // true once we know the scroll axis
+        let baseOffset = 0; // track offset captured at drag start
+        let intentDecided = false; // true once we know the scroll axis
         let isHorizontal = false;
 
         // Minimum movement (px) before we commit to a scroll axis.
@@ -317,10 +322,11 @@
             // Below STEP_THRESHOLD: 1:1 follow so the card never jumps at gesture start.
             // Above STEP_THRESHOLD: resistance kicks in (20% of the excess) so the card
             // never visually flies past its neighbour during a fast swipe.
-            const clamped = Math.sign(dragDelta) * (absDelta <= STEP_THRESHOLD
-                ? absDelta
-                : STEP_THRESHOLD + (absDelta - STEP_THRESHOLD) * 0.2
-            );
+            const clamped =
+                Math.sign(dragDelta) *
+                (absDelta <= STEP_THRESHOLD
+                    ? absDelta
+                    : STEP_THRESHOLD + (absDelta - STEP_THRESHOLD) * 0.2);
             const rawOffset = baseOffset - clamped;
             track.style.transform = `translateX(${isRTL ? rawOffset : -rawOffset}px)`;
         };
@@ -343,7 +349,9 @@
             } else {
                 // Not far enough — spring back to the current card
                 setPosition(getOffset(currentIndex), true);
-                setTimeout(() => { isStepping = false; }, 360);
+                setTimeout(() => {
+                    isStepping = false;
+                }, 360);
             }
         };
 
@@ -352,7 +360,7 @@
         track.addEventListener('pointerup', pointerUp);
         track.addEventListener('pointercancel', pointerUp); // e.g. incoming call interrupts touch
         // Suppress the long-press context menu on mobile which can interfere with dragging
-        track.addEventListener('contextmenu', e => e.preventDefault());
+        track.addEventListener('contextmenu', (e) => e.preventDefault());
 
         // Button controls
         // In RTL layouts swap the chevron icons and DOM order of the buttons
@@ -364,8 +372,14 @@
             if (prevBtn.parentNode) prevBtn.parentNode.insertBefore(nextBtn, prevBtn);
         }
 
-        const nextClick = (e) => { e.preventDefault(); step(isRTL ? -1 : 1); };
-        const prevClick = (e) => { e.preventDefault(); step(isRTL ? 1 : -1); };
+        const nextClick = (e) => {
+            e.preventDefault();
+            step(isRTL ? -1 : 1);
+        };
+        const prevClick = (e) => {
+            e.preventDefault();
+            step(isRTL ? 1 : -1);
+        };
 
         nextBtn.addEventListener('click', nextClick);
         prevBtn.addEventListener('click', prevClick);
@@ -384,32 +398,44 @@
 
         // Store references for destroyCarousel()
         carouselInstance = {
-            track, prevBtn, nextBtn,
-            resizeHandler, nextClick, prevClick,
-            pointerDown, pointerMove, pointerUp,
+            track,
+            prevBtn,
+            nextBtn,
+            resizeHandler,
+            nextClick,
+            prevClick,
+            pointerDown,
+            pointerMove,
+            pointerUp
         };
     }
 
     // Called by i18n.js after a language switch to reload translated testimonials
-    window.reloadTestimonials = function() {
+    window.reloadTestimonials = function () {
         const testimonials = loadTestimonials();
         renderTestimonials(testimonials);
-        setTimeout(() => { initializeCarousel(); }, 100);
+        setTimeout(() => {
+            initializeCarousel();
+        }, 100);
     };
 
     // Initialize testimonials with event-based approach
     function init() {
-        window.addEventListener('i18nReady', function() {
+        window.addEventListener('i18nReady', function () {
             const testimonials = loadTestimonials();
             renderTestimonials(testimonials);
-            setTimeout(() => { initializeCarousel(); }, 100);
+            setTimeout(() => {
+                initializeCarousel();
+            }, 100);
         });
 
         // Handle the case where i18n was already ready before this script ran
         if (window.i18n && window.i18n.translations && window.i18n.translations.testimonials) {
             const testimonials = loadTestimonials();
             renderTestimonials(testimonials);
-            setTimeout(() => { initializeCarousel(); }, 100);
+            setTimeout(() => {
+                initializeCarousel();
+            }, 100);
         }
     }
 

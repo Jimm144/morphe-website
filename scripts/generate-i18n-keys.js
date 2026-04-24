@@ -18,13 +18,11 @@ const HTML_DIR = 'public';
 const LOCALES_DIR = 'public/locales';
 const LOCALES_CONFIG_PATH = path.join(LOCALES_DIR, 'supported-locales.json');
 
-// Keys used only in JavaScript (not via data-i18n attributes in HTML).
+// Keys used only in JavaScript (not via data-i18n attributes in static HTML).
 // Registered as null so zombie-key removal keeps them and mergeBaseTranslations
 // preserves the manually maintained values in en.json.
 const JS_ONLY_KEYS = [
-  'hero.title-highlight-youtube',
-  'hero.title-highlight-ytmusic',
-  'hero.title-highlight-reddit',
+  'changelog.badge-dev',
 ];
 
 /**

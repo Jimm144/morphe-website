@@ -4,11 +4,14 @@
     'use strict';
 
     var params = new URLSearchParams(window.location.search);
-    var repo   = params.get('github') || '';
-    var name   = params.get('name') || '';
+    var repo = params.get('github') || '';
+    var name = params.get('name') || '';
 
     // No github param - redirect home
-    if (!repo) { window.location.href = '/'; return; }
+    if (!repo) {
+        window.location.href = '/';
+        return;
+    }
 
     // Set source icon
     var githubUser = repo.split('/')[0];
@@ -31,16 +34,19 @@
     // Populate source info card
     var match = url.match(/github\.com\/([^/?#]+\/[^/?#]+)/);
     document.getElementById('source-name').textContent = name || (match ? match[1] : url);
-    document.getElementById('source-url').textContent  = url;
+    document.getElementById('source-url').textContent = url;
 
     // intent:// scheme - forces Chrome to fire a proper Android intent
     // (window.location.href with the same URL is ignored as "same page")
-    var encodedRepo  = encodeURIComponent(repo);
-    var encodedName  = name ? encodeURIComponent(name) : '';
+    var encodedRepo = encodeURIComponent(repo);
+    var encodedName = name ? encodeURIComponent(name) : '';
     var intentParams = 'github=' + encodedRepo + (encodedName ? '&name=' + encodedName : '');
-    var intentLink   = 'intent://morphe.software/add-source?' + intentParams +
+    var intentLink =
+        'intent://morphe.software/add-source?' +
+        intentParams +
         '#Intent;scheme=https;package=app.morphe.manager;S.browser_fallback_url=' +
-        encodeURIComponent('https://morphe.software/') + ';end';
+        encodeURIComponent('https://morphe.software/') +
+        ';end';
 
     function show(id) {
         document.querySelectorAll('.state').forEach(function (s) {
