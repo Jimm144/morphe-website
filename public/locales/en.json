@@ -41,7 +41,7 @@
     "disclaimer": "Morphe does not add analytics or data collection to any patched apps."
   },
   "microg": {
-    "title": "MicroG",
+    "title": "Download",
     "description": "MicroG is required for Google account login and push notifications on Morphe apps.",
     "download": "Download MicroG",
     "what-title": "What is MicroG?",
