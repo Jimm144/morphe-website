@@ -56,7 +56,9 @@
     "home": "Strona główna",
     "how-it-works": "Jak to działa",
     "testimonials": "Opinie",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "features": "Funkcje",
+    "microg": "Pobierz MicroG"
   },
   "hero": {
     "title": "Odmień",
@@ -256,7 +258,8 @@
     "github-desc": "Przeglądaj kod źródłowy, zgłaszaj błędy i pomóż w rozwoju Morphe.",
     "x-desc": "Bądź na bieżąco z najnowszymi wiadomościami, wydaniami i ogłoszeniami.",
     "reddit-desc": "Dołącz do dyskusji, dziel się poradami i poznaj innych użytkowników Morphe.",
-    "crowdin-desc": "Pomóż tłumaczyć Morphe na swój język i spraw, by był dostępny dla każdego."
+    "crowdin-desc": "Pomóż tłumaczyć Morphe na swój język i spraw, by był dostępny dla każdego.",
+    "title": "Dołącz do społeczności"
   },
   "donate": {
     "title": "Wsparcie",
@@ -298,7 +301,12 @@
     "older-releases": "Szukasz starszych wersji?",
     "view-manager": "Zobacz wydania menedżera",
     "view-patches": "Zobacz wydania modyfikacji",
-    "badge-dev": "Dev"
+    "badge-dev": "Dev",
+    "title1": "Co",
+    "title2": "nowego",
+    "view-all": "Zobacz wszystkie wydania",
+    "dev-patches": "Pokaż wersje przedpremierowe",
+    "loading": "Ładowanie…"
   },
   "add-source": {
     "title": "Dodaj źródło modyfikacji",

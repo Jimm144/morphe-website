@@ -3,7 +3,9 @@
     "home": "Ana Sayfa",
     "how-it-works": "Nasıl Çalışır",
     "testimonials": "Yorumlar",
-    "faq": "SSS"
+    "faq": "SSS",
+    "features": "Özellikler",
+    "microg": "MicroG'yi indir"
   },
   "hero": {
     "title": "Android",
@@ -243,7 +245,12 @@
     "older-releases": "Eski sürümleri mi arıyorsunuz?",
     "view-manager": "Manager sürümlerini görüntüle",
     "view-patches": "Yamalar sürümlerini görüntüle",
-    "badge-dev": "Dev"
+    "badge-dev": "Dev",
+    "title1": "Yeni",
+    "title2": "olanlar",
+    "view-all": "Tüm sürümleri görüntüle",
+    "dev-patches": "Ön sürümleri göster",
+    "loading": "Yükleniyor…"
   },
   "app-features": {
     "title": "Uygulama Özellikleri",
@@ -303,7 +310,8 @@
     "github-desc": "Kaynak koduna göz at, hataları bildir ve Morphe geliştirmesine katkıda bulun.",
     "x-desc": "En son haberler, sürümler ve duyurularla güncel kal.",
     "reddit-desc": "Tartışmalara katıl, ipuçlarını paylaş ve diğer Morphe kullanıcılarıyla bağlantı kur.",
-    "crowdin-desc": "Morphe'yi dilinize çevirmeye yardımcı olun ve herkes için erişilebilir hale getirin."
+    "crowdin-desc": "Morphe'yi dilinize çevirmeye yardımcı olun ve herkes için erişilebilir hale getirin.",
+    "title": "Topluluğa katıl"
   },
   "add-source": {
     "title": "Yama kaynağı ekle",

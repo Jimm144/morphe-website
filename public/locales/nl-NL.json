@@ -3,7 +3,9 @@
     "home": "Home",
     "how-it-works": "Hoe het werkt",
     "testimonials": "Getuigenissen",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "features": "Functies",
+    "microg": "MicroG downloaden"
   },
   "hero": {
     "title": "Transformeer je",
@@ -243,7 +245,12 @@
     "older-releases": "Op zoek naar oudere releases?",
     "view-manager": "Manager-releases bekijken",
     "view-patches": "Patches-releases bekijken",
-    "badge-dev": "Dev"
+    "badge-dev": "Dev",
+    "title1": "Wat is",
+    "title2": "nieuw",
+    "view-all": "Alle releases bekijken",
+    "dev-patches": "Pre-releases tonen",
+    "loading": "Laden…"
   },
   "app-features": {
     "title": "App-functies",
@@ -303,7 +310,8 @@
     "github-desc": "Bladér door de broncode, meld bugs en draag bij aan Morphe-ontwikkeling.",
     "x-desc": "Blijf op de hoogte van het laatste nieuws, releases en aankondigingen.",
     "reddit-desc": "Neem deel aan discussies, deel tips en maak contact met andere Morphe-gebruikers.",
-    "crowdin-desc": "Help Morphe in jouw taal te vertalen en maak het voor iedereen toegankelijk."
+    "crowdin-desc": "Help Morphe in jouw taal te vertalen en maak het voor iedereen toegankelijk.",
+    "title": "Word lid van de community"
   },
   "add-source": {
     "title": "Patchbron toevoegen",

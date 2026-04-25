@@ -254,6 +254,7 @@
     "a8-link2": "donations"
   },
   "community": {
+    "title": "Join the Community",
     "subtitle": "Follow us, report issues, and help make Morphe better",
     "github-desc": "Browse the source code, report bugs, and contribute to Morphe development.",
     "x-desc": "Stay up to date with the latest news, releases, and announcements.",
@@ -293,11 +294,16 @@
   },
   "changelog": {
     "title": "What's New",
+    "title1": "What's",
+    "title2": "New",
     "subtitle": "Complete history of updates and improvements",
     "filter-all": "All",
     "filter-manager": "Manager",
     "filter-patches": "Patches",
     "show-dev": "Show pre-releases",
+    "dev-patches": "Show pre-releases",
+    "view-all": "View all releases",
+    "loading": "Loading…",
     "older-releases": "Looking for older releases?",
     "view-manager": "View Manager Releases",
     "view-patches": "View Patches Releases",

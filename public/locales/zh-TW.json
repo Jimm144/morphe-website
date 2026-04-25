@@ -56,7 +56,9 @@
     "home": "首頁",
     "how-it-works": "運作原理",
     "testimonials": "使用者評價",
-    "faq": "常見問題"
+    "faq": "常見問題",
+    "features": "功能",
+    "microg": "下載 MicroG"
   },
   "hero": {
     "title": "改造您的",
@@ -259,7 +261,8 @@
     "github-desc": "瀏覽原始碼、回報錯誤並為 Morphe 開發做出貢獻。",
     "x-desc": "獲取最新消息、發行版本和公告。",
     "reddit-desc": "參與討論，分享技巧，與其他 Morphe 使用者建立聯繫。",
-    "crowdin-desc": "協助將 Morphe 翻譯成您的語言，讓每個人都能使用。"
+    "crowdin-desc": "協助將 Morphe 翻譯成您的語言，讓每個人都能使用。",
+    "title": "加入社群"
   },
   "donate": {
     "title": "贊助",
@@ -300,7 +303,12 @@
     "show-dev": "顯示預先發行版本",
     "older-releases": "想找更早的版本嗎？",
     "view-manager": "檢視管理程式版本",
-    "view-patches": "檢視修補版本"
+    "view-patches": "檢視修補版本",
+    "title1": "更新",
+    "title2": "內容",
+    "view-all": "查看所有版本",
+    "dev-patches": "顯示預發布版本",
+    "loading": "載入中…"
   },
   "add-source": {
     "title": "新增修補來源",

@@ -1201,7 +1201,9 @@ body {
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
-.involve-card {
+.involve-card,
+.involve-card:link,
+.involve-card:visited {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1211,7 +1213,7 @@ body {
   border-radius: var(--md-shape-xl);
   background: var(--md-surface-container-low);
   text-decoration: none;
-  color: inherit;
+  color: var(--md-on-surface);
   overflow: hidden;
   transition:
     background-color 0.3s var(--md-ease),
@@ -1227,7 +1229,8 @@ body {
   transition: opacity 0.3s var(--md-ease);
   pointer-events: none;
 }
-.involve-card:hover {
+.involve-card:hover,
+.involve-card:visited:hover {
   background: var(--md-surface-container);
   box-shadow: var(--md-elevation-2);
 }

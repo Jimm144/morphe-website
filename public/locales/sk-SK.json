@@ -3,7 +3,9 @@
     "home": "Domov",
     "how-it-works": "Ako to funguje",
     "testimonials": "Referencie",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "features": "Funkcie",
+    "microg": "Stiahnuť MicroG"
   },
   "hero": {
     "title": "Premeň svoje",
@@ -243,7 +245,12 @@
     "older-releases": "Hľadáte staršie verzie?",
     "view-manager": "Zobraziť verzie správcu",
     "view-patches": "Zobraziť verzie záplat",
-    "badge-dev": "Dev"
+    "badge-dev": "Dev",
+    "title1": "Čo je",
+    "title2": "nové",
+    "view-all": "Zobraziť všetky vydania",
+    "dev-patches": "Zobraziť predbežné verzie",
+    "loading": "Načítava sa…"
   },
   "app-features": {
     "title": "Funkcie Aplikácie",
@@ -303,7 +310,8 @@
     "github-desc": "Prehliadaj zdrojový kód, hláš chyby a prispievaj do vývoja Morphe.",
     "x-desc": "Zostaň v obraze s najnovšími správami, vydaniami a oznámeniami.",
     "reddit-desc": "Zapojte sa do diskusií, zdieľajte tipy a spojte sa s ďalšími používateľmi Morphe.",
-    "crowdin-desc": "Pomôžte preložiť Morphe do vášho jazyka a sprístu pniť ho pre každého."
+    "crowdin-desc": "Pomôžte preložiť Morphe do vášho jazyka a sprístu pniť ho pre každého.",
+    "title": "Pridaj sa ku komunite"
   },
   "add-source": {
     "title": "Pridať zdroj patchov",

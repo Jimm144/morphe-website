@@ -3,7 +3,9 @@
     "home": "首页",
     "how-it-works": "工作原理",
     "testimonials": "用户评价",
-    "faq": "常见问题"
+    "faq": "常见问题",
+    "features": "功能",
+    "microg": "下载 MicroG"
   },
   "hero": {
     "title": "改造您的",
@@ -243,7 +245,12 @@
     "older-releases": "在找更早的版本吗？",
     "view-manager": "查看管理器版本",
     "view-patches": "查看补丁版本",
-    "badge-dev": "Dev"
+    "badge-dev": "Dev",
+    "title1": "更新",
+    "title2": "内容",
+    "view-all": "查看所有版本",
+    "dev-patches": "显示预发布版本",
+    "loading": "加载中…"
   },
   "app-features": {
     "title": "应用功能",
@@ -303,7 +310,8 @@
     "github-desc": "浏览源代码、报告错误并为 Morphe 开发做出贡献。",
     "x-desc": "获取最新新闻、发布和公告。",
     "reddit-desc": "参与讨论，分享技巧，与其他 Morphe 用户建立联系。",
-    "crowdin-desc": "帮助将 Morphe 翻译成您的语言，让每个人都能使用。"
+    "crowdin-desc": "帮助将 Morphe 翻译成您的语言，让每个人都能使用。",
+    "title": "加入社区"
   },
   "add-source": {
     "title": "添加补丁源",

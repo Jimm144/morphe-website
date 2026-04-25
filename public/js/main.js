@@ -60,6 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function applyTranslations() {
         document.querySelectorAll('[data-i18n]').forEach((el) => {
+            // The hero-morph cycle script manages this element's text;
+            // letting applyTranslations overwrite it would flash the base
+            // 'Android Experience' label on every locale change.
+            if (el.classList.contains('hero-morph-target')) return;
             let val = getNestedKey(translations, el.getAttribute('data-i18n'));
             if (val) {
                 let key = el.getAttribute('data-i18n');

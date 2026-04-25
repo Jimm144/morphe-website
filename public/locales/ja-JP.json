@@ -3,7 +3,9 @@
     "home": "ホーム",
     "how-it-works": "仕組み",
     "testimonials": "ユーザーレビュー",
-    "faq": "よくある質問"
+    "faq": "よくある質問",
+    "features": "機能",
+    "microg": "MicroG をダウンロード"
   },
   "hero": {
     "title": "生まれ変わる",
@@ -243,7 +245,12 @@
     "older-releases": "過去のバージョンをお探しですか？",
     "view-manager": "マネージャーのバージョン一覧を見る",
     "view-patches": "パッチのバージョン一覧を見る",
-    "badge-dev": "Dev"
+    "badge-dev": "Dev",
+    "title1": "最新",
+    "title2": "情報",
+    "view-all": "すべてのリリースを表示",
+    "dev-patches": "プレリリースを表示",
+    "loading": "読み込み中…"
   },
   "app-features": {
     "title": "アプリの機能",
@@ -303,7 +310,8 @@
     "github-desc": "ソースコードを閲覧し、バグを報告し、Morpheの開発に貢献しましょう。",
     "x-desc": "最新ニュース、リリース、発表で最新情報を入手しましょう。",
     "reddit-desc": "ディスカッションに参加し、ヒントを共有し、他のMorpheユーザーとつながりましょう。",
-    "crowdin-desc": "Morpheをあなたの言語に翻訳して、誰でもアクセスできるようにしましょう。"
+    "crowdin-desc": "Morpheをあなたの言語に翻訳して、誰でもアクセスできるようにしましょう。",
+    "title": "コミュニティに参加"
   },
   "add-source": {
     "title": "パッチソースを追加",

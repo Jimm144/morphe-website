@@ -3,7 +3,9 @@
     "home": "Início",
     "how-it-works": "Como funciona",
     "testimonials": "Depoimentos",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "features": "Recursos",
+    "microg": "Baixar MicroG"
   },
   "hero": {
     "title": "Transforme seus",
@@ -243,7 +245,12 @@
     "older-releases": "Procurando versões antigas?",
     "view-manager": "Ver versões do Manager",
     "view-patches": "Ver versões de Patches",
-    "badge-dev": "Dev"
+    "badge-dev": "Dev",
+    "title1": "O que há de",
+    "title2": "novo",
+    "view-all": "Ver todas as versões",
+    "dev-patches": "Mostrar pré-lançamentos",
+    "loading": "Carregando…"
   },
   "app-features": {
     "title": "Funcionalidades do App",
@@ -303,7 +310,8 @@
     "github-desc": "Navegue pelo código-fonte, reporte bugs e contribua para o desenvolvimento do Morphe.",
     "x-desc": "Fique atualizado com as últimas notícias, lançamentos e anúncios.",
     "reddit-desc": "Participe de discussões, compartilhe dicas e conecte-se com outros usuários do Morphe.",
-    "crowdin-desc": "Ajude a traduzir o Morphe para o seu idioma e torne-o acessível a todos."
+    "crowdin-desc": "Ajude a traduzir o Morphe para o seu idioma e torne-o acessível a todos.",
+    "title": "Entre na comunidade"
   },
   "add-source": {
     "title": "Adicionar fonte de patches",
