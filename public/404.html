@@ -1,206 +1,125 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>404 - Page Not Found | Morphe</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="js/theme-preload.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>document.documentElement.classList.add("i18n-loading")</script>
+    <link rel="stylesheet" href="css/styles.css" />
     <style>
-        :root {
-            --md-primary: #1e5aa8;
-            --md-on-primary: #fff;
-            --md-primary-container: #ecf1ff;
-            --md-on-primary-container: #0e2f5a;
-            --md-surface: #fafbff;
-            --md-on-surface: #1a1c1e;
-            --md-surface-container: #eeeff5;
-            --md-on-surface-variant: #42454d;
-            --md-outline: #74777f;
-            --md-shape-xl: 28px;
-            --md-shape-full: 9999px;
-            --md-ease: cubic-bezier(0.2, 0, 0, 1);
-        }
-
-        [data-theme="dark"] {
-            --md-primary: #a9c7ff;
-            --md-on-primary: #00315e;
-            --md-primary-container: #192d4a;
-            --md-on-primary-container: #c8daff;
-            --md-surface: #111318;
-            --md-on-surface: #e2e2e9;
-            --md-surface-container: #1d2026;
-            --md-on-surface-variant: #c4c6d0;
-            --md-outline: #8c8f98;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--md-surface);
-            color: var(--md-on-surface);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            text-align: center;
-            padding: 24px;
-        }
-
-        .container {
-            max-width: 600px;
-            width: 100%;
-            animation: fadeUp 0.8s var(--md-ease);
-        }
-
-        .error-code {
-            font-size: clamp(8rem, 20vw, 12rem);
-            font-weight: 700;
-            line-height: 1;
-            letter-spacing: -0.05em;
-            color: var(--md-primary);
-            margin-bottom: 16px;
-        }
-
-        .error-title {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-        }
-
-        .error-desc {
-            font-size: 1.125rem;
-            color: var(--md-on-surface-variant);
-            line-height: 1.6;
-            margin-bottom: 40px;
-            max-width: 480px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .actions {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            height: 56px;
-            padding: 0 32px;
-            border-radius: var(--md-shape-full);
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s var(--md-ease);
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--md-primary);
-            color: var(--md-on-primary);
-            box-shadow: 0 4px 12px rgba(30, 90, 168, 0.2);
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 8px 24px rgba(30, 90, 168, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background: var(--md-surface-container-low);
-            color: var(--md-on-surface);
-        }
-
-        .btn-outline:hover {
-            background: var(--md-surface-container-high);
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 24px;
+      }
+      .err-container {
+        max-width: 600px;
+        width: 100%;
+      }
+      .err-code {
+        font-size: clamp(7rem, 18vw, 11rem);
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -0.05em;
+        color: var(--md-on-surface-variant);
+        margin-bottom: 8px;
+      }
+      .err-title {
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        color: var(--md-on-surface);
+        margin-bottom: 12px;
+      }
+      .err-desc {
+        font-size: 1.0625rem;
+        color: var(--md-on-surface-variant);
+        line-height: 1.6;
+        margin: 0 auto 32px;
+        max-width: 480px;
+      }
+      .err-actions {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
     </style>
-</head>
-<body>
-
-
-    <div class="container">
-        <div class="error-code">404</div>
-        <h1 class="error-title" data-i18n="error.404-title">Whoops! Page not found.</h1>
-        <p class="error-desc" data-i18n="error.not-found">
-            The page you're looking for was moved, removed, or never existed in this dimension.
-        </p>
-        <div class="actions">
-            <a href="index.html" class="btn btn-primary" data-i18n="error.go-home">Go Home</a>
-            <button onclick="window.history.back()" class="btn btn-outline" data-i18n="error.go-back">Go Back</button>
-        </div>
+  </head>
+  <body>
+    <div class="err-container">
+      <div class="err-code">404</div>
+      <h1 class="err-title" data-i18n="error.404-title">404 - Page Not Found</h1>
+      <p class="err-desc" data-i18n="error.not-found">
+        The page you're looking for can't be found.
+      </p>
+      <div class="err-actions">
+        <a href="index.html" class="btn-filled" data-i18n="error.go-home">Go to homepage</a>
+        <button onclick="window.history.back()" class="btn-tonal" data-i18n="error.go-back">Go Back</button>
+      </div>
     </div>
 
     <script>
-        (function () {
-            const SUPPORTED = ['en','ar','cs-CZ','de-DE','es-ES','fr-FR','it-IT','ja-JP','ko-KR','nl-NL','pl-PL','pt-BR','pt-PT','ru-RU','sk-SK','tr-TR','uk-UA','vi-VN','zh-CN','zh-TW'];
-            function pickLang() {
-                const saved = localStorage.getItem('morphe-language');
-                if (saved && SUPPORTED.includes(saved)) return saved;
-                const browser = navigator.language || 'en';
-                if (SUPPORTED.includes(browser)) return browser;
-                const base = browser.split('-')[0];
-                const regional = SUPPORTED.find((l) => l.startsWith(base + '-'));
-                if (regional) return regional;
-                if (SUPPORTED.includes(base)) return base;
-                return 'en';
-            }
-            function getNested(obj, key) {
-                let cur = obj;
-                for (const part of key.split('.')) {
-                    if (cur && typeof cur === 'object') cur = cur[part];
-                    else return null;
-                }
-                return typeof cur === 'string' ? cur : null;
-            }
-            function applyOnce(translations) {
-                document.querySelectorAll('[data-i18n]').forEach((el) => {
-                    const val = getNested(translations, el.getAttribute('data-i18n'));
-                    if (val) el.textContent = val;
-                });
-            }
-            const lang = pickLang();
-            document.documentElement.lang = lang;
-            const rtl = ['ar', 'he', 'fa', 'ur'];
-            document.documentElement.dir = rtl.includes(lang.split('-')[0]) ? 'rtl' : 'ltr';
-            fetch('locales/' + lang + '.json')
-                .then((r) => (r.ok ? r.json() : Promise.reject()))
+      (function () {
+        const SUPPORTED = ['en','ar','cs-CZ','de-DE','es-ES','fr-FR','it-IT','ja-JP','ko-KR','nl-NL','pl-PL','pt-BR','pt-PT','ru-RU','sk-SK','tr-TR','uk-UA','vi-VN','zh-CN','zh-TW'];
+        function pickLang() {
+          const saved = localStorage.getItem('morphe-language');
+          if (saved && SUPPORTED.includes(saved)) return saved;
+          const browser = navigator.language || 'en';
+          if (SUPPORTED.includes(browser)) return browser;
+          const base = browser.split('-')[0];
+          const regional = SUPPORTED.find((l) => l.startsWith(base + '-'));
+          if (regional) return regional;
+          if (SUPPORTED.includes(base)) return base;
+          return 'en';
+        }
+        function getNested(obj, key) {
+          let cur = obj;
+          for (const part of key.split('.')) {
+            if (cur && typeof cur === 'object') cur = cur[part];
+            else return null;
+          }
+          return typeof cur === 'string' ? cur : null;
+        }
+        function applyOnce(translations) {
+          document.querySelectorAll('[data-i18n]').forEach((el) => {
+            const val = getNested(translations, el.getAttribute('data-i18n'));
+            if (val) el.textContent = val;
+          });
+          document.documentElement.classList.remove('i18n-loading');
+        }
+        const lang = pickLang();
+        document.documentElement.lang = lang;
+        const rtl = ['ar', 'he', 'fa', 'ur'];
+        document.documentElement.dir = rtl.includes(lang.split('-')[0]) ? 'rtl' : 'ltr';
+        fetch('locales/' + lang + '.json')
+          .then((r) => (r.ok ? r.json() : Promise.reject()))
+          .then(applyOnce)
+          .catch(() => {
+            if (lang !== 'en') {
+              fetch('locales/en.json')
+                .then((r) => r.json())
                 .then(applyOnce)
                 .catch(() => {
-                    if (lang !== 'en') {
-                        fetch('locales/en.json')
-                            .then((r) => r.json())
-                            .then(applyOnce)
-                            .catch(() => {});
-                    }
+                  document.documentElement.classList.remove('i18n-loading');
                 });
-        })();
+            } else {
+              document.documentElement.classList.remove('i18n-loading');
+            }
+          });
+        setTimeout(() => {
+          document.documentElement.classList.remove('i18n-loading');
+        }, 2000);
+      })();
     </script>
-</body>
+  </body>
 </html>

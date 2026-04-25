@@ -865,10 +865,10 @@ body {
   pointer-events: none;
 }
 .feat-card:hover {
-  background: var(--md-surface-container-low);
+  background: var(--md-surface-container);
 }
 .feat-card:hover::before {
-  opacity: 0.03;
+  opacity: 0;
 }
 .feat-icon {
   width: 52px;
@@ -1236,10 +1236,10 @@ body {
 }
 .involve-card:hover,
 .involve-card:visited:hover {
-  background: var(--md-surface-container-low);
+  background: var(--md-surface-container);
 }
 .involve-card:hover::before {
-  opacity: 0.025;
+  opacity: 0;
 }
 .involve-icon {
   width: 64px;
@@ -1324,7 +1324,7 @@ body {
   background: var(--md-surface-container);
 }
 .comm-card:hover::before {
-  opacity: 0.03;
+  opacity: 0;
 }
 .comm-icon-wrap {
   width: 64px;

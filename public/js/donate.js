@@ -123,6 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const linkHtml = '<a href="' + href + '" ' + extraAttrs + '>' + linkText + '</a>';
             el.innerHTML = val.replace('%s', linkHtml);
         });
+        document.documentElement.classList.remove('i18n-loading');
     }
 
     function setLanguage(lang) {
@@ -139,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         fetch(
-            'https://raw.githubusercontent.com/MorpheApp/morphe-website/main/public/locales/' +
+            'locales/' +
                 lang +
                 '.json'
         )
@@ -154,17 +155,24 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(() => {
                 if (lang !== 'en') {
                     fetch(
-                        'https://raw.githubusercontent.com/MorpheApp/morphe-website/main/public/locales/en.json'
+                        'locales/en.json'
                     )
                         .then((res) => res.json())
                         .then((data) => {
                             translations = data;
                             applyTranslations();
                         })
-                        .catch(() => {});
+                        .catch(() => {
+                            document.documentElement.classList.remove('i18n-loading');
+                        });
+                } else {
+                    document.documentElement.classList.remove('i18n-loading');
                 }
             });
     }
+    setTimeout(() => {
+        document.documentElement.classList.remove('i18n-loading');
+    }, 2000);
 
     function setupDropdown(triggerId, menuId) {
         let trigger = document.getElementById(triggerId);

@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(() => {
                 if (lang !== 'en') {
                     fetch(
-                        'https://raw.githubusercontent.com/MorpheApp/morphe-website/main/public/locales/en.json'
+                        'locales/en.json'
                     )
                         .then((res) => res.json())
                         .then((data) => {
