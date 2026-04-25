@@ -233,7 +233,8 @@
   "error": {
     "404-title": "404 - Pagina non trovata",
     "not-found": "La pagina non è stata trovata",
-    "go-home": "Vai alla homepage"
+    "go-home": "Vai alla homepage",
+    "go-back": "Indietro"
   },
   "changelog": {
     "title": "Novità",

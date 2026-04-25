@@ -233,7 +233,8 @@
   "error": {
     "404-title": "404 - Stránka nenalezena",
     "not-found": "Požadovaná stránka nebyla nalezena",
-    "go-home": "Zpět na hlavní stránku"
+    "go-home": "Zpět na hlavní stránku",
+    "go-back": "Zpět"
   },
   "changelog": {
     "title": "Novinky",

@@ -76,6 +76,13 @@
 html {
   scroll-behavior: smooth;
 }
+html.i18n-loading body {
+  opacity: 0;
+}
+html:not(.i18n-loading) body {
+  opacity: 1;
+  transition: opacity 0.18s ease-in;
+}
 body {
   font-family:
     "Inter",
@@ -858,7 +865,7 @@ body {
   pointer-events: none;
 }
 .feat-card:hover {
-  box-shadow: var(--md-elevation-1);
+  background: var(--md-surface-container-low);
 }
 .feat-card:hover::before {
   opacity: 0.03;
@@ -1023,7 +1030,7 @@ body {
   -webkit-transform: translateZ(0);
 }
 .testi-card:hover {
-  box-shadow: var(--md-elevation-1);
+  background: var(--md-surface-container);
 }
 .testi-stars {
   display: flex;
@@ -1215,9 +1222,7 @@ body {
   text-decoration: none;
   color: var(--md-on-surface);
   overflow: hidden;
-  transition:
-    background-color 0.3s var(--md-ease),
-    box-shadow 0.3s var(--md-ease);
+  transition: background-color 0.3s var(--md-ease);
 }
 .involve-card::before {
   content: "";
@@ -1231,11 +1236,10 @@ body {
 }
 .involve-card:hover,
 .involve-card:visited:hover {
-  background: var(--md-surface-container);
-  box-shadow: var(--md-elevation-2);
+  background: var(--md-surface-container-low);
 }
 .involve-card:hover::before {
-  opacity: 0.04;
+  opacity: 0.025;
 }
 .involve-icon {
   width: 64px;
@@ -1317,7 +1321,7 @@ body {
   pointer-events: none;
 }
 .comm-card:hover {
-  box-shadow: var(--md-elevation-1);
+  background: var(--md-surface-container);
 }
 .comm-card:hover::before {
   opacity: 0.03;

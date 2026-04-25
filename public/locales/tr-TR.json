@@ -233,7 +233,8 @@
   "error": {
     "404-title": "404 - Sayfa Bulunamadı",
     "not-found": "Aradığınız sayfa bulunamadı",
-    "go-home": "Ana sayfaya dön"
+    "go-home": "Ana sayfaya dön",
+    "go-back": "Geri"
   },
   "changelog": {
     "title": "Yenilikler",

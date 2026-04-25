@@ -233,7 +233,8 @@
   "error": {
     "404-title": "404 - 页面未找到",
     "not-found": "找不到您要查找的页面",
-    "go-home": "返回首页"
+    "go-home": "返回首页",
+    "go-back": "返回"
   },
   "changelog": {
     "title": "更新内容",

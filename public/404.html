@@ -157,23 +157,50 @@
         </div>
     </div>
 
-    <!-- Minimal i18n support for 404 -->
     <script>
-        // Simple fallback if main i18n script isn't loaded
-        const translations = {
-            en: {
-                "error.404-title": "Whoops! Page not found.",
-                "error.not-found": "The page you're looking for was moved, removed, or never existed in this dimension.",
-                "error.go-home": "Go Home",
-                "error.go-back": "Go Back"
+        (function () {
+            const SUPPORTED = ['en','ar','cs-CZ','de-DE','es-ES','fr-FR','it-IT','ja-JP','ko-KR','nl-NL','pl-PL','pt-BR','pt-PT','ru-RU','sk-SK','tr-TR','uk-UA','vi-VN','zh-CN','zh-TW'];
+            function pickLang() {
+                const saved = localStorage.getItem('morphe-language');
+                if (saved && SUPPORTED.includes(saved)) return saved;
+                const browser = navigator.language || 'en';
+                if (SUPPORTED.includes(browser)) return browser;
+                const base = browser.split('-')[0];
+                const regional = SUPPORTED.find((l) => l.startsWith(base + '-'));
+                if (regional) return regional;
+                if (SUPPORTED.includes(base)) return base;
+                return 'en';
             }
-        };
-
-        // Try to load user language
-        const lang = localStorage.getItem('morphe-language') || navigator.language.split('-')[0] || 'en';
-        
-        // This is a placeholder; in a real scenario, we'd fetch the JSON.
-        // For the 404, we'll just keep it simple or let the main i18n.js handle it if included.
+            function getNested(obj, key) {
+                let cur = obj;
+                for (const part of key.split('.')) {
+                    if (cur && typeof cur === 'object') cur = cur[part];
+                    else return null;
+                }
+                return typeof cur === 'string' ? cur : null;
+            }
+            function applyOnce(translations) {
+                document.querySelectorAll('[data-i18n]').forEach((el) => {
+                    const val = getNested(translations, el.getAttribute('data-i18n'));
+                    if (val) el.textContent = val;
+                });
+            }
+            const lang = pickLang();
+            document.documentElement.lang = lang;
+            const rtl = ['ar', 'he', 'fa', 'ur'];
+            document.documentElement.dir = rtl.includes(lang.split('-')[0]) ? 'rtl' : 'ltr';
+            fetch('locales/' + lang + '.json')
+                .then((r) => (r.ok ? r.json() : Promise.reject()))
+                .then(applyOnce)
+                .catch(() => {
+                    if (lang !== 'en') {
+                        fetch('locales/en.json')
+                            .then((r) => r.json())
+                            .then(applyOnce)
+                            .catch(() => {});
+                    }
+                });
+        })();
     </script>
 </body>
 </html>

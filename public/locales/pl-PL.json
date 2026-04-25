@@ -326,6 +326,7 @@
   "error": {
     "go-home": "Wróć na stronę główną",
     "404-title": "404 - Nie znaleziono strony",
-    "not-found": "Nie można znaleźć strony"
+    "not-found": "Nie można znaleźć strony",
+    "go-back": "Wróć"
   }
 }

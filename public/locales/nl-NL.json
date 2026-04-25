@@ -233,7 +233,8 @@
   "error": {
     "404-title": "404 - Pagina niet gevonden",
     "not-found": "De pagina is niet gevonden",
-    "go-home": "Ga naar de homepage"
+    "go-home": "Ga naar de homepage",
+    "go-back": "Terug"
   },
   "changelog": {
     "title": "Wat is er nieuw",

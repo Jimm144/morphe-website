@@ -233,7 +233,8 @@
   "error": {
     "404-title": "404 - Page non trouvée",
     "not-found": "La page que vous recherchez est introuvable",
-    "go-home": "Aller à l’accueil"
+    "go-home": "Aller à l’accueil",
+    "go-back": "Retour"
   },
   "changelog": {
     "title": "Nouveautés",

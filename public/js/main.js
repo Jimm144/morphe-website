@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
             el.innerHTML = val.replace('%s', linkHtml);
         });
         populateTestimonials();
+        document.documentElement.classList.remove('i18n-loading');
         document.dispatchEvent(new CustomEvent('morphe:translations-applied'));
     }
 
@@ -162,10 +163,19 @@ document.addEventListener('DOMContentLoaded', () => {
                             translations = data;
                             applyTranslations();
                         })
-                        .catch(() => {});
+                        .catch(() => {
+                            document.documentElement.classList.remove('i18n-loading');
+                        });
+                } else {
+                    document.documentElement.classList.remove('i18n-loading');
                 }
             });
     }
+    // Hard cap: never keep the page hidden for more than 2 seconds even if
+    // the locale fetch is unusually slow or fails silently.
+    setTimeout(() => {
+        document.documentElement.classList.remove('i18n-loading');
+    }, 2000);
 
     function setupDropdown(triggerId, menuId) {
         let trigger = document.getElementById(triggerId);
