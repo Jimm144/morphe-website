@@ -270,12 +270,15 @@ document.addEventListener('DOMContentLoaded', () => {
             stop();
             idx = 1;
             cycling = true;
-            const steps = buildSteps();
             // Show the first app label immediately so the base "Android
             // Experience" label never appears at the start of the cycle.
             el.classList.remove('is-out');
-            el.textContent = steps[0];
+            el.textContent = APP_LABELS[0];
             const tick = () => {
+                // Recompute steps every tick so the final translated
+                // baseLabel (set on i18nReady) is the value used, not the
+                // original HTML fallback captured before the locale loaded.
+                const steps = buildSteps();
                 if (idx >= steps.length) {
                     cycling = false;
                     return;

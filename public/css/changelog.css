@@ -643,6 +643,10 @@ button {
   padding: 0;
   box-sizing: border-box;
   gap: 16px;
+  flex-wrap: wrap;
+}
+.controls-bottom-row > * {
+  flex: 1 1 220px;
 }
 
 .view-all-link {
@@ -763,13 +767,26 @@ button {
   opacity: 1;
   transform: scale(1);
 }
+.filter-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--md-surface-container-low);
+  height: 56px;
+  padding: 0 20px;
+  border-radius: var(--md-shape-full);
+  cursor: pointer;
+  box-sizing: border-box;
+}
 .toggle-text {
   font-size: 0.9375rem;
   font-weight: 500;
   color: var(--md-on-surface);
-  line-height: 1.1;
+  line-height: 1.25;
   letter-spacing: 0.01em;
   text-align: left;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 /* Changelog Cards */

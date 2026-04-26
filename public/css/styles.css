@@ -667,11 +667,9 @@ body {
   color: var(--md-on-primary);
   font-size: 1.125rem;
   font-weight: 600;
-  box-shadow: var(--md-elevation-1);
   text-decoration: none;
   position: relative;
   overflow: hidden;
-  transition: box-shadow 0.2s var(--md-ease);
 }
 .btn-filled::before {
   content: "";
@@ -682,9 +680,6 @@ body {
   opacity: 0;
   transition: opacity 0.2s var(--md-ease);
   pointer-events: none;
-}
-.btn-filled:hover {
-  box-shadow: var(--md-elevation-2);
 }
 .btn-filled:hover::before {
   opacity: var(--md-state-hover);
