@@ -15,10 +15,17 @@
 <br>
 </div> 
 
-# 🌐 Website
+## 🌐 Website
 
 for [Morphe.software](https://morphe.software)
+
+## 📙 Contributing
+
+Thank you for considering contributing to Morphe website.
+You can find the contribution guidelines [here](CONTRIBUTING.md).
 
 ## 📜 Licence
 
 Copyright Morphe. This repository is copyrighted and _not_ licensed under open source terms. 
+
+---
