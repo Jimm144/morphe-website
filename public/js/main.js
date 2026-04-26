@@ -67,12 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let val = getNestedKey(translations, el.getAttribute('data-i18n'));
             if (val) {
                 let key = el.getAttribute('data-i18n');
-                if (key === 'faq.a5') {
-                    el.innerHTML = val.replace(
-                        '%1',
-                        '<a href="https://umami.is/" target="_blank" rel="noopener noreferrer">Umami</a>'
-                    );
-                } else if (key === 'faq.a8') {
+                if (key === 'faq.a8') {
                     el.innerHTML = val
                         .replace(
                             '%1',
@@ -171,11 +166,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
     }
-    // Hard cap: never keep the page hidden for more than 2 seconds even if
-    // the locale fetch is unusually slow or fails silently.
+    // Hard cap: never keep the page hidden for more than 8 seconds even if
+    // the locale fetch is unusually slow or fails silently. Set high enough
+    // that translations almost always apply first, preventing English flash.
     setTimeout(() => {
         document.documentElement.classList.remove('i18n-loading');
-    }, 2000);
+    }, 8000);
 
     function setupDropdown(triggerId, menuId) {
         let trigger = document.getElementById(triggerId);
@@ -309,12 +305,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.addEventListener('morphe:translations-applied', () => {
             const newLabel = getDefaultLabel();
-            // Before the cycle has begun swapping, keep the visible text in
-            // sync with the translated default.
-            if (!cycling && idx === 0 && baseLabel !== newLabel) {
+            baseLabel = newLabel;
+            // When the cycle isn't actively swapping, sync the visible text
+            // so language changes take effect immediately (both before the
+            // cycle has begun and after it has finished on the base label).
+            if (!cycling) {
+                el.classList.remove('is-out');
                 el.textContent = newLabel;
             }
-            baseLabel = newLabel;
         });
 
         document.addEventListener('visibilitychange', () => {
@@ -370,10 +368,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    document.querySelectorAll('.nav-link, .drawer-link, .icon-btn').forEach((el) => {
-        el.addEventListener('click', () => {
-            setTimeout(() => el.blur(), 0);
-        });
+    // Blur any clicked button/link so its hover/focus state doesn't visually
+    // persist after tap on touch devices and after click on desktop.
+    document.addEventListener('click', (e) => {
+        const target = e.target.closest('button, a');
+        if (target && typeof target.blur === 'function') {
+            setTimeout(() => target.blur(), 0);
+        }
     });
 
     let topBar = document.getElementById('topBar');

@@ -742,7 +742,6 @@ body {
   border-radius: var(--md-shape-full);
   padding: 4px;
   gap: 8px;
-  margin-top: 24px;
   margin-bottom: 24px;
   position: relative;
 }

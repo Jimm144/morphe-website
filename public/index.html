@@ -44,6 +44,9 @@
           <a href="#testimonials" class="nav-link" data-i18n="nav.testimonials"
             >Testimonials</a
           >
+          <a href="microg.html" class="nav-link" data-i18n="footer.product-microg"
+            >Download MicroG</a
+          >
           <a href="donate.html" class="nav-link" data-i18n="footer.support-donate"
             >Donate</a
           >
@@ -111,6 +114,10 @@
           <span data-i18n="nav.testimonials">Testimonials</span>
         </a>
         <hr class="drawer-divider" />
+        <a href="microg.html" class="drawer-link" onclick="closeDrawer()">
+          <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/shield.svg) no-repeat center; mask: url(icons/shield.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="shield"></span>
+          <span data-i18n="footer.product-microg">Download MicroG</span>
+        </a>
         <a href="donate.html" class="drawer-link" onclick="closeDrawer()">
           <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/volunteer_activism.svg) no-repeat center; mask: url(icons/volunteer_activism.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="volunteer_activism"></span>
           <span data-i18n="footer.support-donate">Donate</span>
@@ -119,7 +126,7 @@
           <span  class="material-symbols-rounded" style="-webkit-mask: url(icons/new_releases.svg) no-repeat center; mask: url(icons/new_releases.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="new_releases"></span>
           <span data-i18n="footer.product-changelog">What's New</span>
         </a>
-      
+
       </div>
     </div>
 
@@ -911,7 +918,13 @@
                  style="-webkit-mask: url(icons/expand_more.svg) no-repeat center; mask: url(icons/expand_more.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;" aria-label="expand_more"></span>
             </button>
             <div class="faq-a">
-              <div class="faq-a-inner" data-i18n="faq.a5">
+              <div
+                class="faq-a-inner"
+                data-i18n-link="analytics.description"
+                data-i18n-link-href="https://umami.is/"
+                data-i18n-link-text="Umami"
+                data-i18n-link-attrs='{"target":"_blank","rel":"noopener noreferrer"}'
+              >
                 This website uses
                 <a
                   href="https://umami.is/"
@@ -971,69 +984,6 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section
-      id="get-involved"
-      class="section"
-      style="background: var(--md-surface)"
-    >
-      <div class="container">
-        <div class="involve-grid anim">
-          <a
-            href="microg.html"
-            class="involve-card"
-            data-umami-event="Involve MicroG Card Click"
-          >
-            <div class="involve-icon">
-              <span
-                class="material-symbols-rounded"
-                style="
-                  font-size: 32px;
-                  -webkit-mask: url(icons/shield.svg) no-repeat center;
-                  mask: url(icons/shield.svg) no-repeat center;
-                  -webkit-mask-size: contain;
-                  mask-size: contain;
-                  background-color: currentColor;
-                "
-                aria-label="shield"
-              ></span>
-            </div>
-            <h3 class="involve-title" data-i18n="microg.download">Download MicroG</h3>
-            <p class="involve-desc" data-i18n="microg.description">
-              MicroG is required for Google account login and push
-              notifications on Morphe apps.
-            </p>
-          </a>
-          <a
-            href="translate.html"
-            class="involve-card"
-            data-umami-event="Involve Translate Card Click"
-          >
-            <div class="involve-icon">
-              <span
-                class="material-symbols-rounded"
-                style="
-                  font-size: 32px;
-                  -webkit-mask: url(icons/translate.svg) no-repeat center;
-                  mask: url(icons/translate.svg) no-repeat center;
-                  -webkit-mask-size: contain;
-                  mask-size: contain;
-                  background-color: currentColor;
-                "
-                aria-label="translate"
-              ></span>
-            </div>
-            <h3 class="involve-title" data-i18n="footer.product-translate">
-              Help translate
-            </h3>
-            <p class="involve-desc" data-i18n="translate.description">
-              Make Morphe accessible to millions of users worldwide by
-              translating it into your language
-            </p>
-          </a>
         </div>
       </div>
     </section>
@@ -1120,9 +1070,7 @@
             <p data-i18n="community.reddit-desc">Discussions.</p>
           </a>
           <a
-            href="https://crowdin.com/project/morphe"
-            target="_blank"
-            rel="noopener"
+            href="translate.html"
             class="comm-card"
           >
             <div class="comm-icon-wrap">
@@ -1130,7 +1078,7 @@
                 style="font-size: 28px; -webkit-mask: url(icons/translate.svg) no-repeat center; mask: url(icons/translate.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor;"
                  aria-label="translate"></span>
             </div>
-            <h3>Crowdin</h3>
+            <h3 data-i18n="footer.product-translate">Help translate</h3>
             <p data-i18n="community.crowdin-desc">Translate.</p>
           </a>
         </div>
